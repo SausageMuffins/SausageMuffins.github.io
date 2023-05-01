@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>Third Year student at</p>
+    <p>Third Year Undergraduate</p>
     <p>Singapore University of Technology and Design</p>
 
 
