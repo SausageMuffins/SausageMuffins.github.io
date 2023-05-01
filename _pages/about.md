@@ -2,14 +2,14 @@
 layout: about
 title: About
 permalink: /
-subtitle: An Budding Researcher
+subtitle: A Budding Researcher
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>Undergraduate</p>
+    <p>Year 3 Undergraduate</p>
     <p>Singapore University of Technology and Design</p>
 
 
