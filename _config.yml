@@ -6,7 +6,7 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: Ryan
 middle_name: 
 last_name: Wang
-email: rwang9098@gmail.com
+email: ryan_wang@mymail.sutd.edu.sg
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
@@ -122,7 +122,7 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: TwoSense # blog_name will be displayed in your blog page
-blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
+blog_nav_title: Blog # your blog must have a title for it to be displayed in the nav bar
 blog_description: A little finding goes a long way. I named the blog TwoSense in memory of my old wordpress blog. Hopefully, I can continue to offer my two cents to new readers here.
 permalink: /blog/:year/:title/
 
