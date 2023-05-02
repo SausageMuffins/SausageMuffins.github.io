@@ -28,18 +28,20 @@
     #     - Description 1.
     #     - Description 2.
 
+# <a href="http://testing.test123.org/xx3/landing.gsp">Testing Landing Page</a> insert hyperlink example
+
 - title: Honors and Awards
   type: time_table
   contents:
     - year: 2021
       items: 
-        - SUTD Undergraduate Merit Scholarship
+        - <a href="https://www.sutd.edu.sg/Admissions/Undergraduate/Scholarship/SUTD-Undergraduate-Merit-Scholarship">SUTD Undergraduate Merit Scholarship</a>
     - year: 2022
       items: 
-        - Higher Education Community Bursary
+        - <a href="">Higher Education Community Bursary</a>
     - year: 2023
       items: 
-        - Jyoti and Aditya Mathur Student Achievement Awards
+        - <a href="">Jyoti and Aditya Mathur Student Achievement Awards (Student Organisation Award)</a>
 
 - title: Experience
   type: time_table
