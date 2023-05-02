@@ -2,12 +2,13 @@
 layout: page
 permalink: /teaching/
 title: Teaching
-description: I believe that one of the best ways to give back to the society is through teaching. This page contains some of the courses I assisted with.
+description: Inspired by one of my mentor, I aspire to facilitate learning just as my mentor did and help others learn. Hopefully, this would inspire them to do the same.
 nav: true
 nav_order: 5
 ---
 
-## Undergraduate Teaching Opportunities Programme (SUTD)
+### Undergraduate Teaching Opportunities Programme (SUTD)
+I was fortunate to take up the role of an Undergraduate Teaching Assistant during my time in Singapore University of Technology and Design (SUTD).
 
 #### 10.014 Computational Thinking for Design 
 SEP 2022 - DEC 2022
