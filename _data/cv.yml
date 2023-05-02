@@ -13,10 +13,10 @@
   contents:
     - title: Undergraduate
       institution: Singapore University of Technlogy and Design, Singapore
-      year: 2021 to 2025
+      year: 2021 - 2025
       description:
         - Undergraduate Merit Scholar
-        - cumulative GPA 4.67/5
+        - Cumulative GPA 4.67/5
         - title: Major in Computer Science and Design
           contents:
             - Focus tracks in Data Analytics and Artifical Intelligence
@@ -84,11 +84,11 @@
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Machine Learning
       items: 
         - Description 1.
         - Description 2.
-    - title: Topic 2.
+    - title: Data Science
       items:
         - Description 1.
         - Description 2.
@@ -96,4 +96,4 @@
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <u>Hobbies:</u> Bouldering, Relaxing Runs and Writing.
