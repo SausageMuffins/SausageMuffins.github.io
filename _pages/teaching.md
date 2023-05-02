@@ -12,12 +12,12 @@ I was fortunate to take up the role of an Undergraduate Teaching Assistant durin
 
 #### 10.014 Computational Thinking for Design 
 SEP 2022 - DEC 2022
-• Taught small groups of students focused on Python and computing concepts. 
-• Graded and documented assignments to maintain student records.
-• Assisted faculty with the preparation of questions for upcoming classes that tests Python and computing concepts.
+- Taught small groups of students focused on Python and computing concepts. 
+- Graded and documented assignments to maintain student records.
+- Assisted faculty with the preparation of questions for upcoming classes that tests Python and computing concepts.
 
 #### 10.013 Modelling and Analysis
 SEP 2022 - DEC 2022
-• Taught small groups of students focused on Calculus and Functions.
-• Graded and documented assignments to maintain student records.
-• Assisted faculty during tutorials and provided aid to students.
+- Taught small groups of students focused on Calculus and Functions.
+- Graded and documented assignments to maintain student records.
+- Assisted faculty during tutorials and provided aid to students.
