@@ -38,24 +38,26 @@
         - <a href="https://www.sutd.edu.sg/Admissions/Undergraduate/Scholarship/SUTD-Undergraduate-Merit-Scholarship">SUTD Undergraduate Merit Scholarship</a>
     - year: 2022
       items: 
-        - <a href="">Higher Education Community Bursary</a>
+        - <a href="https://sutd.edu.sg/Admissions/Undergraduate/Financing-Your-Studies/Financial-Options-Financial-Aid/Financial-Aid/Bursaries/Higher-Education-Community-Bursary-Scheme">Higher Education Community Bursary</a>
     - year: 2023
       items: 
-        - <a href="">Jyoti and Aditya Mathur Student Achievement Awards (Student Organisation Award)</a>
+        - <a href="https://sutd.edu.sg/Student-Development/Student-Life/SUTD-Student-Achievement-Awards">Jyoti and Aditya Mathur Student Achievement Awards (Student Organisation Award)</a>
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Undergraduate Research Assistant
+      institution: Singapore University of Technology and Design
+      year: 2023 - Current
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
+        - title: SmartDrive - Undergraduate Research Opportunities Programme (UROP)
           contents:
-            - Sub-description 1.
-            - Sub-description 2.
+            - Conduct literature reviews and identify relevant research and technologies.
+            - Collect and preprocess sensor data from smartphones and/or other devices for analysis.
+            - Develop and implement machine learning and data analysis algorithms.
+            - Design and develop the smartphone application and user interface.
+            - Testing the system's performance and providing feedback for improvements.
+            - Analyzing data and results to optimize the algorithms and overall system.
     # - title: Visiting Professor
     #   institution: California Institute of Technology, Pasadena, California, US
     #   year: 1933
@@ -87,13 +89,8 @@
   type: nested_list
   contents:
     - title: Machine Learning
-      items: 
-        - Description 1.
-        - Description 2.
     - title: Data Science
-      items:
-        - Description 1.
-        - Description 2.
+
 
 - title: Other Interests
   type: list
