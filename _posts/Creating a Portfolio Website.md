@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  Creating A Portfolio Website From Scratch.
+title:  Learning how to create a Portfolio website.
 date:   2023-05-05
-description: march & april, looking forward to summer
-tags: formatting links
-categories: sample-posts
+description: Creating A Portfolio Website From Scratch.
+tags: Github
+categories: Blog
 ---
 ## "Your Subscription is due in 3 months time."
 
