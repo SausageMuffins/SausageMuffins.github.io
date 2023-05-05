@@ -1,10 +1,14 @@
 ---
 layout: post
 title:  Learning how to create a Portfolio website.
-date:   2023-05-05
+date:   2023-05-05 15:08:00-0400
 description: Creating A Portfolio Website From Scratch.
 tags: Github
-categories: Blog
+categories: Blog sample-posts
+giscus_comments: false
+related_posts: false
+toc:
+  sidebar: left
 ---
 ## "Your Subscription is due in 3 months time."
 
@@ -19,7 +23,7 @@ The **faster and easier way** to create a Git-Hub page is to look for the theme 
 #### Jekyll and Git-hub
 I was first exposed to Jekyll for one of the courses (50.002 Computational Structures) I took during my fourth term in Singapore University of Technology and Design (SUTD). In particular, the course used "Just the Docs" theme by Jekyll and it looked really clean! 
 
-You can find the link of the course's site [here](https://natalieagus.git-hub.io/50002/). 
+You can find the link of the course's site <a href = "https://natalieagus.git-hub.io/50002/">here</a>. 
 
 Needless to say, I was pretty inspired (and motivated by the fact that it can be **free**) to create my own website.
 
@@ -32,11 +36,11 @@ Disclaimer: The links may become outdated as time passes. Do find the relevant l
 
 There are a couple of things to set up and install before the website can be deployed. I won't be listing down everything I did but I will provide references here to save everyone the trouble of looking for them.
 
-Git-hub pages are a great way to create a website directly from my own repository. The building of the website can then be done with Ruby and Jekyll. The quick start link can be found [here](https://docs.git-hub.com/en/pages/quickstart).
+Git-hub pages are a great way to create a website directly from my own repository. The building of the website can then be done with Ruby and Jekyll. The quick start link can be found <a href = "https://docs.git-hub.com/en/pages/quickstart">here</a>.
 
-Following the creation of the Git-hub page, I installed both [Ruby](https://rubyinstaller.org/downloads/) and [Jekyll](https://jekyllrb.com/docs/installation/). 
+Following the creation of the Git-hub page, I installed both <a href = "https://rubyinstaller.org/downloads/">Ruby</a>  and <a href = "https://jekyllrb.com/docs/installation/">Jekyll</a>. 
 
-Just follow this helpful guide [here](https://docs.git-hub.com/en/pages/setting-up-a-git-hub-pages-site-with-jekyll/creating-a-git-hub-pages-site-with-jekyll).
+Just follow this helpful guide <a href = "https://docs.git-hub.com/en/pages/setting-up-a-git-hub-pages-site-with-jekyll/creating-a-git-hub-pages-site-with-jekyll">here</a>.
 
 #### Testing Git-hub page locally.
 
