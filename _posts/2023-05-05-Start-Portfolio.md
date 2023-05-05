@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Learning how to create a Portfolio website.
+title:  Starting a Portfolio Website
 date:   2023-05-05 15:08:00-0400
 description: Creating A Portfolio Website From Scratch.
 tags: Github
@@ -50,9 +50,14 @@ username.git-hub.io
 ```
 
 Default page:
-![[Pasted image 20230501130710.png]]
 
-Don't freak out if the web page is not "unavailable", it may take some time for the page to get running! :)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/Pasted image 20230501130710.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+Don't freak out if the web page is not "unavailable", it may take some time for the page to get running! 
 
 #### Creating website with Jekyll
 If I want to use Jekyll for our website, I realized I would have to edit the repository. I followed this [Youtube](https://www.youtube.com/watch?v=pxua_1vyFck&list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB&index=5) tutorial.
@@ -84,7 +89,12 @@ localhost:XXXX
 ```
 
 I got a pretty nice looking, default screen! 
-![[Pasted image 20230501131731.png]]
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/Pasted image 20230501131731.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 This is still local though! What if I want it to be displayed on my git-hub page?
 
@@ -102,6 +112,11 @@ Please just follow the amazing [tutorial](https://www.youtube.com/watch?v=fqFjuX
 
 
 There was a slight bug which I encountered where my git-hub page was not loading correctly. **Make sure to name everything consistently - including the repository's name.**
-![[Pasted image 20230501140634.png]]
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/Pasted image 20230501140634.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 That's it! It was really simple, it took about an hour ++ to get everything set-up and running to this point. In my next adventure, I will look to customize this website and possibly add some project pages too!
