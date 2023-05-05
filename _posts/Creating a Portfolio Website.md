@@ -1,8 +1,10 @@
 ---
-tags: Interest
-date: 03-05-2023
-type: Blog
-summary: I wrote about how I created my first GitHub Page website.
+layout: post
+title:  Creating A Portfolio Website From Scratch.
+date:   2023-05-05
+description: march & april, looking forward to summer
+tags: formatting links
+categories: sample-posts
 ---
 ## "Your Subscription is due in 3 months time."
 
