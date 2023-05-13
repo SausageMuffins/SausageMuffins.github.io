@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Learning How to Learn
-date: 2023-05-10 10:10:00-0400
+date: 2023-05-10 20:10:00-0400
 description: Preparation before term 5 begins.
 categories: Learning Interest
 giscus_comments: true
