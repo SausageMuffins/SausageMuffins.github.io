@@ -3,7 +3,7 @@ layout: post
 title: Creating A Website From Scratch
 date: 2023-05-05 10:10:00-0400
 description: My first experience building a github page from scratch.
-categories: sample-posts toc sidebar
+categories: Jekyll Website
 giscus_comments: true
 related_posts: false
 toc:
@@ -19,18 +19,18 @@ The content below this update section is the long method to create a website fro
 The **faster and easier way** to create a Git-Hub page is to look for the theme you would like, fork it and then customize accordingly! 
 
 
-#### Jekyll and Git-hub
+## Jekyll and Git-hub
 I was first exposed to Jekyll for one of the courses (50.002 Computational Structures) I took during my fourth term in Singapore University of Technology and Design (SUTD). In particular, the course used "Just the Docs" theme by Jekyll and it looked really clean! 
 
 You can find the link of the course's site [here](https://natalieagus.git-hub.io/50002/). 
 
 Needless to say, I was pretty inspired (and motivated by the fact that it can be **free**) to create my own website.
 
-#### Prerequisites 
+## Prerequisites 
 1. A Git-Hub account. lol.
 2. Some time to figure things out.
 
-#### Installation
+## Installation
 Disclaimer: The links may become outdated as time passes. Do find the relevant links for yourself if need be :)
 
 There are a couple of things to set up and install before the website can be deployed. I won't be listing down everything I did but I will provide references here to save everyone the trouble of looking for them.
@@ -41,7 +41,7 @@ Following the creation of the Git-hub page, I installed both [Ruby](https://ruby
 
 Just follow this helpful guide [here](https://docs.git-hub.com/en/pages/setting-up-a-git-hub-pages-site-with-jekyll/creating-a-git-hub-pages-site-with-jekyll).
 
-#### Testing Git-hub page locally.
+## Testing Git-hub page locally.
 
 After everything has been installed, typing the website below to your web browser should display a default screen. **Replace the username with your own git-hub's username.**
 ```
@@ -57,7 +57,7 @@ Default page:
 
 Don't freak out if the web page is not "unavailable", it may take some time for the page to get running! :)
 
-#### Creating website with Jekyll
+## Creating website with Jekyll
 If I want to use Jekyll for our website, I realized I would have to edit the repository. I followed this [Youtube](https://www.youtube.com/watch?v=pxua_1vyFck&list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB&index=5) tutorial.
 
 I typed the following into the cmd prompt. Replace the "WEBSITENAME" with the name of your own website.
@@ -67,7 +67,7 @@ jekyll new WEBSITENAME
 
 It should install into a folder on your machine. 
 
-#### Viewing/Starting website with Jekyll
+### Viewing/Starting website with Jekyll
 
 Navigate to your website using the cd command on cmd prompt.
 
@@ -96,7 +96,7 @@ I got a pretty nice looking, default screen!
 
 This is still local though! What if I want it to be displayed on my git-hub page?
 
-#### Hosting Jekyll website on Git-hub pages.
+### Hosting Jekyll website on Git-hub pages.
 
 This part integrates the Jekyll website that I just created and the Git-hub page created previously.
 
