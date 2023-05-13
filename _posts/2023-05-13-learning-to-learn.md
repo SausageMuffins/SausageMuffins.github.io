@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Learning How to Learn
-date: 2023-05-10 10:10:00-0400
+date: 2023-05-13 10:10:00-0400
 description: Preparation before term 5 begins.
 categories: Learning Interest
 giscus_comments: true
@@ -41,6 +41,7 @@ This is a specific type of mind map that I will be using to do **priming** and t
 | ***Directional*** | Arrange the order of concepts (flow of concepts). Multiple ideas can combine to form another concept (causation)   |
 | Emphasized        | Make the main point very obvious. (eg: Thicker Lines, Different Colour)                                            |
 
+
 ### Map Of Content (MOC)
 This is both an organizing and a thinking tool. It should visualize the connections between concepts in a top down approach and it should be very fluid.
 
@@ -58,6 +59,7 @@ However, this "free recall" will not be simply flash cards to try to "answer que
 | :------------------------ | :----------------------------------------------------------------------------------------------------------------- |
 | Exposure to Material      | Attempt to recall as many links and information as possible after exposure to the material.                        |
 | Reference Syllabus        | After the first recall, look at the syllabus to jolt the memory of things that we forgot. (Reference the MOC here) |
+
 
 Repeat the steps above over time to retain information about the topic. The session should last between 30 minutes to 1 hour. (two to three 25 minute chunks).
 
