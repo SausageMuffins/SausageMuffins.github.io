@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Learning How to Learn
-date: 2023-05-13 10:10:00-0400
+date: 2023-05-12 10:10:00-0400
 description: Preparation before term 5 begins.
 categories: Learning Interest
 giscus_comments: true
@@ -10,7 +10,7 @@ toc:
   sidebar: right
 ---
 ## Motivation
-With the new term coming this summer, I revised my approach to learning and improve my efficiency with this precious skill. This post is heavily inspired by the course Introduction to Psychology during my fourth term in SUTD as well as various figures from Youtube ([Dr. Justin Sung](https://www.youtube.com/@JustinSung) & [Dr. Benjamin Keep](https://www.youtube.com/@benjaminkeep))
+With the new term coming this summer, I revised my approach to learning and improve my efficiency with this precious skill. This post is heavily inspired by the course [Introduction to Psychology](https://hass.sutd.edu.sg/education/undergraduate-subjects/elective/02-218-introduction-psychology) during my fourth term in SUTD as well as various figures from Youtube ([Dr. Justin Sung](https://www.youtube.com/@JustinSung) & [Dr. Benjamin Keep](https://www.youtube.com/@benjaminkeep))
 
 ## Proposed Work Flow
 1. **Priming**: Using the GRINDE map to draw out connections between main ideas before the lecture or tutorial. Ideally, we should have a list of open questions before the lecture. *25 minutes for each lecture*
