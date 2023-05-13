@@ -49,7 +49,11 @@ username.git-hub.io
 ```
 
 Default page:
-IMAGE HERE
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/hworld.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
 
 Don't freak out if the web page is not "unavailable", it may take some time for the page to get running! :)
 
@@ -84,7 +88,11 @@ localhost:XXXX
 
 I got a pretty nice looking, default screen! 
 
-IMAGE HERE
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/dfltscreen.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
 
 This is still local though! What if I want it to be displayed on my git-hub page?
 
@@ -103,6 +111,10 @@ Please just follow the amazing [tutorial](https://www.youtube.com/watch?v=fqFjuX
 
 There was a slight bug which I encountered where my git-hub page was not loading correctly. **Make sure to name everything consistently - including the repository's name.**
 
-IMAGE HERE
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/finwebsite.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
 
 That's it! It was really simple, it took about an hour ++ to get everything set-up and running to this point. In my next adventure, I will look to customize this website and possibly add some project pages too!
