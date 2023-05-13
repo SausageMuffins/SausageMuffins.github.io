@@ -7,7 +7,7 @@ categories: Jekyll Website
 giscus_comments: true
 related_posts: false
 toc:
-  sidebar: left
+  sidebar: right
 ---
 ## "Your Subscription is due in 3 months time."
 
