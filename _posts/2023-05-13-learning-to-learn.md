@@ -25,11 +25,7 @@ With the new term coming this summer, I revised my approach to learning and impr
 
 This is a specific type of mind map that I will be using to do **priming** and taking notes in lecture. This [video](https://www.youtube.com/watch?v=5zT_2aBP6vM) here explains what is in the table below!
 
-| Left aligned | Center aligned |
-| :----------- | :------------: |
-| Left 1       | center 1       |
-| Left 2       | center 2       |
-| Left 3       | center 3       |
+
 
 ### Map Of Content (MOC)
 This is both an organizing and a thinking tool. It should visualize the connections between concepts in a top down approach and it should be very fluid.
@@ -48,6 +44,10 @@ Repeat the steps above over time to retain information about the topic. The sess
 
 **It should have some cognitive load!** (ie. it should be hard). 
 
+When is it too easy/"mastered" the topic:
+  1. Can recall all the topics in the MOC
+  2. Feeling of "writing this concept is slowing me down".
+  3. Finished within one session
 
 We can always make the topic harder by including more details or trying to link to other topics. This can further strengthen the encoding process and put the information in the long-term memory.
 
@@ -55,3 +55,8 @@ We can always make the topic harder by including more details or trying to link 
 Ultimately, we want to score well for exams and solve problems. This step should happen the most to focus on relevant problem-solving skills/information that we want to retain.
 
 Try problem sets -> Write open questions.
+
+Generic Types of Open Questions:
+  1. Contradicting topics
+  2. Topics with tensions (relations)
+  3. Thought processes (for solving problems)
