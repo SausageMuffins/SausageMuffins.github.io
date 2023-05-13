@@ -2,7 +2,7 @@
 layout: post
 title: Learning How to Learn
 date: 2023-05-13 20:10:00-0400
-description: My first experience building a github page from scratch.
+description: Preparation before term 5 begins.
 categories: Learning Interest
 giscus_comments: true
 related_posts: false
