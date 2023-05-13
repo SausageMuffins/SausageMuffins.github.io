@@ -20,13 +20,6 @@ With the new term coming this summer, I revised my approach to learning and impr
 
 ---
 
-## Methods
-**Before taking notes:**
-1. What's the purpose of it?
-2. What's the big picture?
-3. How can I apply it?
-4. Why is the concept important?
-5. How is it similar the other concepts I have learnt? 
 
 ### GRINDE Map 
 
@@ -55,10 +48,6 @@ Repeat the steps above over time to retain information about the topic. The sess
 
 **It should have some cognitive load!** (ie. it should be hard). 
 
-When is it too easy/"mastered" the topic:
-  1. Can recall all the topics in the MOC
-  2. Feeling of "writing this concept is slowing me down".
-  3. Finished within one session
 
 We can always make the topic harder by including more details or trying to link to other topics. This can further strengthen the encoding process and put the information in the long-term memory.
 
@@ -66,8 +55,3 @@ We can always make the topic harder by including more details or trying to link 
 Ultimately, we want to score well for exams and solve problems. This step should happen the most to focus on relevant problem-solving skills/information that we want to retain.
 
 Try problem sets -> Write open questions.
-
-Generic Types of Open Questions:
-  1. Contradicting topics
-  2. Topics with tensions (relations)
-  3. Thought processes (for solving problems)
