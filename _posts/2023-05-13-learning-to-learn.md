@@ -39,7 +39,7 @@ This is a specific type of mind map that I will be using to do **priming** and t
 | Interconnected    | Actively look for more connections that are distant to other concept. Avoid isolated facts                         |
 | Non-Verbal        | Reduce the number of words in the notes - Increase diagrams, images, stick figures, drawings etc.                  |
 | ***Directional*** | Arrange the order of concepts (flow of concepts). Multiple ideas can combine to form another concept (causation)   |
-| Emphasized        | Make the main point very obvious. (eg: Thicker Lines, Different Colour)                                                   |
+| Emphasized        | Make the main point very obvious. (eg: Thicker Lines, Different Colour)                                            |
 
 ### Map Of Content (MOC)
 This is both an organizing and a thinking tool. It should visualize the connections between concepts in a top down approach and it should be very fluid.
