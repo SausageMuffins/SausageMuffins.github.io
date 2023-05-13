@@ -14,14 +14,14 @@ With the new term coming this summer, I revised my approach to learning and impr
 
 ## Proposed Work Flow
 1. **Priming**: Using the GRINDE map to draw out connections between main ideas before the lecture or tutorial. Ideally, we should have a list of open questions before the lecture. *25 minutes for each lecture*
-2. **During Lecture**: Focus on listening and take almost no notes other than specific details of a concept/information not found in notes. Answer the list of [[Learning How To Learn#^ea87e8|questions]].
-3. **After Lecture**: Within the same day (depending on schedule), use [[Learning How To Learn#Free Recall|free recall]] to flush out gaps in knowledge. We should do free recall on obsidian and record in a MOC. *Multiple sessions of 25 minutes for each lecture*. Maximum two to three sessions of free recall for each lecture/topic
+2. **During Lecture**: Focus on listening and take almost no notes other than specific details of a concept/information not found in notes. Answer the list of questions (See Before Taking Notes).
+3. **After Lecture**: Within the same day (depending on schedule), use free recall to flush out gaps in knowledge. We should do free recall on obsidian and record in a MOC. *Multiple sessions of 25 minutes for each lecture*. Maximum two to three sessions of free recall for each lecture/topic
 4. **Within the Week**: Focus on answering exam-like questions. Eg: Homework, Tutorials. *Before the weekend if possible.*
 
 ---
 
 ## Methods
-**Before taking notes:** ^ea87e8
+**Before taking notes:**
 1. What's the purpose of it?
 2. What's the big picture?
 3. How can I apply it?
@@ -75,7 +75,7 @@ Ultimately, we want to score well for exams and solve problems. This step should
 
 Try problem sets -> Write open questions.
 
-Generic Types of Open Questions: ^16b1a0
+Generic Types of Open Questions:
 1. Contradicting topics
 2. Topics with tensions (relations)
 3. Thought processes (for solving problems)
