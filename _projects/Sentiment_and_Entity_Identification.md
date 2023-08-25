@@ -117,14 +117,12 @@ These stages are the details of what our group did to train various models and p
 
 The results are calculated using precision and recall. The F score is subsequently calculated based on both the precision and recall. Both entity and sentiments have their own corresponding score.
 
-## Before Changes (a typical default model with no smoothing)
+### Before Changes
+
 #### Initial Spanish Results
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/ES_2.png" title="Training Result" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/ES_8.png" title="Validation Result" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -142,7 +140,10 @@ The results are calculated using precision and recall. The F score is subsequent
     Russian results of the default HMM model with Viterbi algorithm
 </div>
 
-## After Changes (best model selected with absolute discount smoothing)
+---
+
+### After Changes
+
 #### Spanish Results
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
