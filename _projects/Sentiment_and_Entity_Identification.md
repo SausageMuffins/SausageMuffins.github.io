@@ -5,11 +5,14 @@ description: A machine learning project that identifies sentiments and entities 
 img: assets/img/tweet_img.jpg
 importance: 1
 category: work
+report_pdf: assets\pdf\NLP_report.pdf
 ---
+
+<h1 class="post-title">{{ page.title }} {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a>{% endif %}</h1>
 
 # Overview
 
-This machine learning (NLP) project deals with sentiment analysis and entity identification. The motivation behind this project is to identify how people feel towards certain products or "entities".
+This machine learning (NLP) project deals with sentiment analysis and entity identification. The motivation behind this project is to identify how people feel towards certain products or "entities". The project report can be found attached as a pdf in this post.
 
 
 ## Transferable Skills
