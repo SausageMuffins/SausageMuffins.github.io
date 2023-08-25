@@ -117,7 +117,8 @@ These stages are the details of what our group did to train various models and p
 
 The results are calculated using precision and recall. The F score is subsequently calculated based on both the precision and recall. Both entity and sentiments have their own corresponding score.
 
-#### Spanish Results
+## Before Changes (a typical default model with no smoothing)
+#### Initial Spanish Results
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/ES_2.png" title="Training Result" class="img-fluid rounded z-depth-1" %}
@@ -127,21 +128,38 @@ The results are calculated using precision and recall. The F score is subsequent
     </div>
 </div>
 <div class="caption">
-    Left: Results on the training Spanish training data set
-    Right: Results on the validation Spanish validation set
+    Spanish results of the default HMM model with Viterbi algorithm
 </div>
 
-#### Russian Results
+#### Initial Russian Results
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/RU_2.png" title="Training Result" class="img-fluid rounded z-depth-1" %}
     </div>
+</div>
+<div class="caption">
+    Russian results of the default HMM model with Viterbi algorithm
+</div>
+
+## After Changes (best model selected with absolute discount smoothing)
+#### Spanish Results
+<div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/RU_8.png" title="Validation Result" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/ES_4.png" title="Training Result" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Left: Results on the training Russian training data set
-    Right: Results on the validation Russian validation set
+    Spanish results after our changes and implementation of our system
 </div>
+
+#### Russian Results
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/RU_4.png" title="Training Result" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Russian results after our changes and implementation of our system
+</div>
+
