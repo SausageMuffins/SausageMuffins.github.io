@@ -168,3 +168,8 @@ The results are calculated using precision and recall. The F score is subsequent
     Russian results after our changes and implementation of our system
 </div>
 
+---
+
+
+The final project report can be found attached as a pdf here:  
+<a href="{{ site.baseurl }}{{ page.report_pdf }}" target="_blank" class="pdf-download-icon"><i class="fas fa-file-pdf"></i> Final Report</a>
