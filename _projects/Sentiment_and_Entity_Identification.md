@@ -161,7 +161,7 @@ The results are calculated using precision and recall. The F score is subsequent
 #### Russian Results
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/RU_4.png" title="Training Result" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/RU_4.PNG" title="Training Result" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
