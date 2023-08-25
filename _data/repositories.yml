@@ -2,6 +2,7 @@ github_users:
   - SausageMuffins
 
 github_repos:
-  - SausageMuffins/Mind-Palace
   - SausageMuffins/Learning-OpenCV 
-
+  - Context-Aware-Interaction-Lab/SmartDrive
+  - a-nnza-r/ML-proj
+  - esctmp/osl-fifth-row-app
