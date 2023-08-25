@@ -12,9 +12,6 @@ report_pdf: '/assets/pdf/NLP_report.pdf'
 
 This machine learning (NLP) project deals with sentiment analysis and entity identification. The motivation behind this project is to identify how people feel towards certain products or "entities". 
 
-The project report can be found attached as a pdf in this post.
-<a href="{{ site.baseurl }}{{ page.report_pdf }}" target="_blank" class="pdf-download-icon"><i class="fas fa-file-pdf"></i> Final Report</a>
-
 
 ## Transferable Skills
 1. Understanding and applying Hidden Markov Models (HMM).
@@ -23,7 +20,9 @@ The project report can be found attached as a pdf in this post.
 4. Data processing and tweaking algorithms to achieve desired results (smoothing techniques)
 5. Training and cross validating different models to achieve optimal results.
 
+
 ---
+
 
 # Introduction
 
@@ -48,7 +47,11 @@ Here are the possible tags:
 
 The data set will be involved with Spanish and Russian tweets.
 
+
+
 ---
+
+
 
 ## General Approach
 
@@ -75,7 +78,11 @@ hyperparameters (if any) with the objective of achieving a robust system. We con
 
 As such, we wanted the new system to train a model to be as robust as possible by accounting for zero probabilities and unknown words.
 
+
+
 ---
+
+
 
 ## Project Stages:
 
