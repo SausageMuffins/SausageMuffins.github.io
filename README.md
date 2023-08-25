@@ -1,6 +1,10 @@
 # al-folio
 This is a custom website with it's template based on Al-folio! The proper credits are given below.
 
+
+
+---
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [maintainers]: https://img.shields.io/badge/maintainers-4-success.svg 'Number of maintainers'
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
