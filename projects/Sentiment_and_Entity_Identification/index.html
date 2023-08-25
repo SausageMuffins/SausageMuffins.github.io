@@ -10,9 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>project 1 | Ryan  Wang</title>
+    <title>Sentiment and Entity Identification | Ryan  Wang</title>
     <meta name="author" content="Ryan  Wang">
-    <meta name="description" content="a project with a background image">
+    <meta name="description" content="A machine learning project that identifies sentiments and entities on russian and spanish tweets.">
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
 
@@ -35,7 +35,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%8D%94&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://sausagemuffins.github.io/projects/1_project/">
+    <link rel="canonical" href="https://sausagemuffins.github.io/projects/Sentiment_and_Entity_Identification/">
 
     <!-- Dark Mode -->
     
@@ -120,126 +120,171 @@
         <div class="post">
 
           <header class="post-header">
-            <h1 class="post-title">project 1</h1>
-            <p class="post-description">a project with a background image</p>
+            <h1 class="post-title">Sentiment and Entity Identification</h1>
+            <p class="post-description">A machine learning project that identifies sentiments and entities on russian and spanish tweets.</p>
           </header>
 
           <article>
-            <p>Every project has a beautiful feature showcase page.
-It’s easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.</p>
+            <h1 id="overview">Overview</h1>
 
-<p>To give your project a background in the portfolio page, just add the img tag to the front matter like so:</p>
+<p>This machine learning (NLP) project deals with sentiment analysis and entity identification. The motivation behind this project is to identify how people feel towards certain products or “entities”.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
-layout: page
-title: project
-description: a project with a background image
-img: /assets/img/12.jpg
----
-</code></pre></div></div>
+<h2 id="transferable-skills">Transferable Skills</h2>
+<ol>
+  <li>Understanding and applying Hidden Markov Models (HMM).</li>
+  <li>Supervised Learning techniques (EM algorithm) to train a model based on text.</li>
+  <li>Understanding and applying algorithms to predict and decode sentences. (Viterbi algorithm, forward and backward algorithm)</li>
+  <li>Data processing and tweaking algorithms to achieve desired results (smoothing techniques)</li>
+  <li>Training and cross validating different models to achieve optimal results.</li>
+</ol>
 
-<!-- <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
+<hr>
 
-  <picture>
-    
-    <source 
-        class="responsive-img-srcset"
-        media="(max-width: 480px)" 
-        srcset="/assets/img/1-480.webp"
-      />
-    <source 
-        class="responsive-img-srcset"
-        media="(max-width: 800px)" 
-        srcset="/assets/img/1-800.webp"
-      />
-    <source 
-        class="responsive-img-srcset"
-        media="(max-width: 1400px)" 
-        srcset="/assets/img/1-1400.webp"
-      />
-    
+<h1 id="introduction">Introduction</h1>
 
-    <!-- Fallback to the original file -->
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;img 
-  src="/assets/img/1.jpg"
-  class="img-fluid rounded z-depth-1"  
-  width="auto" 
-  height="auto" 
-   
-   
-   
-   
-   
-  title="example image" 
-  
-  onerror="this.onerror=null; $('.responsive-img-srcset').remove();"
-/&gt;
-</code></pre></div></div>
+<h3 id="tokens-and-tags">Tokens and Tags</h3>
 
-<p>&lt;/picture&gt;</p>
+<p>Let’s use the example <strong>“The Ice-cream from X-company is BUSSIN!”</strong>.</p>
 
-<p>&lt;/figure&gt;</p>
+<p>Each individual word is a token and has a tag to indicate 
+1) whether it is an entity.
+2) a positive or negative sentiment.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;/div&gt;
-&lt;div class="col-sm mt-3 mt-md-0"&gt;
-    &lt;figure&gt;
-</code></pre></div></div>
+<p>Eg: “The” has a tag of “O” to indicate outside of an entity whereas “Ice-cream” could have a tag of “B-Positive” for the beginning of an entity + positive sentiments.</p>
 
-<picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/3-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/3-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/3-1400.webp"></source>
-    
+<p>Here are the possible tags:</p>
+<ul>
+  <li>“O” outside</li>
+  <li>“B-Positive” beginning of an entity with positive sentiments</li>
+  <li>“B-Neutral” beginning of an entity with neutral sentiments</li>
+  <li>“B-Negative” beginning of an entity with negative sentiments</li>
+  <li>“I-Positive” inside of an entity with positive sentiments</li>
+  <li>“I-Neutral” inside of an entity with neutral sentiments</li>
+  <li>“I-Negative” inside of an entity with negative sentiments</li>
+</ul>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/3.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+<p>The data set will be involved with Spanish and Russian tweets.</p>
 
-  </picture>
+<hr>
 
-<p>&lt;/figure&gt;</p>
+<h2 id="general-approach">General Approach</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;/div&gt;
-&lt;div class="col-sm mt-3 mt-md-0"&gt;
-    &lt;figure&gt;
-</code></pre></div></div>
+<p>This project is done together with three other amazing people: Lucas Toh, Ansar and Jone Chong. This post will mainly document my contributions in this project and what I have learnt.</p>
 
-<picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/5-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/5-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/5-1400.webp"></source>
-    
+<p><a href="https://github.com/a-nnza-r/ML-proj" rel="external nofollow noopener" target="_blank">Project Code</a></p>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/5.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+<p>General Algorithm for the project:</p>
+<ol>
+  <li>Define necessary constants such as results (dictionary) and k_values (a list with a range
+of hyperparameters to try) to be used later.</li>
+  <li><strong>Data Preparation stage</strong></li>
+  <li>Estimate transmission probabilities.</li>
+  <li>
+<strong>Model Training</strong>: Estimate emission probabilities with different smoothing techniques and
+store their results into the results dictionary.</li>
+  <li>
+<strong>Prediction and Validation</strong>: Predict using viterbi’s algorithm and select the best smoothing
+method (highest entity F scores)</li>
+  <li>Use the selected models (includes emission and transition probabilities) to predict tags on the development set (which we also used as
+the validation set) as well as the given test set.</li>
+</ol>
 
-  </picture>
+<p>We came up with this general algorithm after considering other methods and realized that the most (time and meaningfully) efficient way (within our capabilities) to improve F scores without drastically changing the system entirely is to train models using various smoothing methods.</p>
 
-<p>&lt;/figure&gt;</p>
+<p>Hence, we explored three different smoothing techniques and experimented with the
+hyperparameters (if any) with the objective of achieving a robust system. We considered the nature of the project, and realized that there can be a lot of unknown words in any test data set.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;/div&gt;
-</code></pre></div></div>
-<p>&lt;/div&gt;</p>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
+<p>As such, we wanted the new system to train a model to be as robust as possible by accounting for zero probabilities and unknown words.</p>
+
+<hr>
+
+<h2 id="project-stages">Project Stages:</h2>
+
+<p>These stages are the details of what our group did to train various models and predict the tags associated with each token.</p>
+
+<ol>
+  <li>Data Preparation
+    <ul>
+      <li>prepare_data(file_path): Prepares the data including mappings for states and
+ observations.</li>
+    </ul>
+  </li>
+  <li>Hyperparameter Tuning
+    <ul>
+      <li>Laplace Smoothing: Iterates through k values (from 0.1 to 1) to optimize emission
+ probabilities.</li>
+      <li>Absolute Discounting: Iterates through d values (from 0.01 to 1) to optimize emission
+ probabilities using absolute discounting.</li>
+      <li>Witten-Bell Smoothing: Applies Witten-Bell smoothing to emission probabilities.</li>
+    </ul>
+  </li>
+  <li>Model Training
+    <ul>
+      <li>estimate_transmission_parameters(): Estimates transition probabilities.</li>
+      <li>estimate_emission_parameters(): Estimates emission probabilities specific to Laplace
+ smoothing.</li>
+      <li>estimate_emission_parameters_absolute_discounting(): Specific to Absolute
+ Discounting.</li>
+      <li>estimate_emission_parameters_witten_bell(): Specific to Witten-Bell smoothing.</li>
+    </ul>
+  </li>
+  <li>Prediction &amp; Cross Validation
+    <ul>
+      <li>viterbi(): Runs the Viterbi algorithm on validation data (dev data set).</li>
+      <li>write_predictions_to_file(): Writes the predicted tags to a file.</li>
+      <li>compute_scores(): Computes metrics such as precision, recall, and F1 score for both
+ entities and sentiments by importing the given evaluation script.</li>
+    </ul>
+  </li>
+  <li>Final Model Selection &amp; Testing
+    <ul>
+      <li>best_results(): Identifies the best smoothing method and corresponding
+ hyperparameters.</li>
+      <li>Retraining the model with the best method.</li>
+      <li>Prediction on the validation set and writing predictions (dev.p4.out).</li>
+      <li>Prediction on the test set with viterbi() and writing predictions to file. (test.p4.out)</li>
+    </ul>
+  </li>
+</ol>
+
+<hr>
+
+<h1 id="results">Results</h1>
+
+<p>The results are calculated using precision and recall. The F score is subsequently calculated based on both the precision and recall. Both entity and sentiments have their own corresponding score.</p>
+
+<h4 id="spanish-results">Spanish Results</h4>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <figure>
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/5-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/5-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/5-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/ES_2-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/ES_2-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/ES_2-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/5.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/ES_2.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="Training Result" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/ES_8-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/ES_8-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/ES_8-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/ES_8.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="Validation Result" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
@@ -248,46 +293,43 @@ img: /assets/img/12.jpg
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    Left: Results on the training Spanish training data set
+    Right: Results on the validation Spanish validation set
 </div>
-<p>–&gt;</p>
 
-<p>You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, <em>bled</em> for your project, and then… you reveal its glory in the next row of images.
-&lt;!–</p>
+<h4 id="russian-results">Russian Results</h4>
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
         <figure>
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/6-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/6-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/6-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/RU_2-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/RU_2-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/RU_2-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/6.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/RU_2.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="Training Result" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
 </figure>
 
     </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
+    <div class="col-sm mt-3 mt-md-0">
         <figure>
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/11-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/11-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/11-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/RU_8-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/RU_8-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/RU_8-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/11.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/RU_8.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="Validation Result" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
@@ -296,26 +338,9 @@ You describe how you toiled, sweated, <em>bled</em> for your project, and then�
     </div>
 </div>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+    Left: Results on the training Russian training data set
+    Right: Results on the validation Russian validation set
 </div>
-<p>–&gt;</p>
-
-<p>The code is simple.
-Just wrap your images with <code class="language-plaintext highlighter-rouge">&lt;div class="col-sm"&gt;</code> and place them inside <code class="language-plaintext highlighter-rouge">&lt;div class="row"&gt;</code> (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/" rel="external nofollow noopener" target="_blank">Bootstrap Grid</a> system).
-To make images responsive, add <code class="language-plaintext highlighter-rouge">img-fluid</code> class to each; for rounded corners and shadows use <code class="language-plaintext highlighter-rouge">rounded</code> and <code class="language-plaintext highlighter-rouge">z-depth-1</code> classes.
-Here’s the code for the last row of images above:
-&lt;!–</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-sm-center"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-8 mt-3 mt-md-0"</span><span class="nt">&gt;</span>
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4 mt-3 mt-md-0"</span><span class="nt">&gt;</span>
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-<p>–&gt;</p>
 
           </article>
 
