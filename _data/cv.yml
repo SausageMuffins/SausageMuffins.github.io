@@ -16,11 +16,10 @@
       year: 2021 - 2025
       description:
         - Undergraduate Merit Scholar
-        - Cumulative GPA 4.55/5
+        - Cumulative GPA 4.57/5
         - title: Major in Computer Science and Design
           contents:
-            - Focus tracks in Data Analytics and Artificial Intelligence
-            - Pursuing a Minor in Artificial Intelligence.
+            - Focus tracks in Artificial Intelligence and Data Analytics
     # - title: Federal teaching diploma
     #   institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
     #   year: 1900
@@ -52,9 +51,20 @@
 - title: Experience
   type: time_table
   contents:
+    - title: Intern
+      institution: Defence Science Organisation (DSO) National Laboratories, Singapore
+      year: Aug 2023 - Current
+      description: Large Language Models for Code Understanding & Synthesis
+        - title: 
+          contents:
+            - Examine and identify relevant research and technologies in both the fields of cyber security and machine learning.
+
+- title: Experience
+  type: time_table
+  contents:
     - title: Undergraduate Research Assistant
       institution: Singapore University of Technology and Design
-      year: 2023 - Current
+      year: May 2023 - Current
       description:
         - title: SmartDrive - Undergraduate Research Opportunities Programme (UROP)
           contents:
@@ -101,5 +111,5 @@
 - title: Other Interests
   type: list
   contents:
-    - Hobbies: Bouldering, Relaxing Runs and Writing.
-    - Food: Lor Mee, Chicken Rice and Mc Spicy.
+    - <u>Hobbies:</u> Bouldering, Running.
+    - <u>Favourite Food:</u> Cheese Burgers, Mc Spicy (Singapore Mcdonalds), noodles.
