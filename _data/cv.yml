@@ -20,9 +20,7 @@
         - title: Major in Computer Science and Design
           contents:
             - Focus tracks in Artificial Intelligence and Data Analytics
-- title: Education
-  type: time_table
-  contents:
+
     - title: Global Exchange Program
       institution: Aalto University, Finland
       year: Dec 2023 - Jun 2024
@@ -59,16 +57,7 @@
       items:
         - <a href="https://www.sutd.edu.sg/Student-Development/Global/Scholarships-and-Awards/KKH-Global-Exchange-Award">KKH Global Exchange Award (Spring 2024)</a>
 
-- title: Experience
-  type: time_table
-  contents:
-    - title: Intern
-      institution: Defence Science Organisation (DSO) National Laboratories, Singapore
-      year: Aug 2023 - Current
-      description: 
-        - title: Large Language Models for Code Understanding & Synthesis
-          contents:
-            - Examine and identify relevant research and technologies in both the fields of cyber security and machine learning.
+    
 
 - title: Experience
   type: time_table
@@ -84,6 +73,14 @@
             - Develop and implement machine learning and data analysis algorithms.
             - Testing the system's performance and providing feedback for improvements.
             - Analyzing data and results to optimize the algorithms and overall system.
+
+    - title: Intern
+      institution: Defence Science Organisation (DSO) National Laboratories, Singapore
+      year: Aug 2023 - Current
+      description: 
+        - title: Large Language Models for Code Understanding & Synthesis
+          contents:
+            - Examine and identify relevant research and technologies in both the fields of cyber security and machine learning.
 
     # - title: Visiting Professor
     #   institution: California Institute of Technology, Pasadena, California, US
@@ -123,4 +120,4 @@
   type: list
   contents:
     - <u>Hobbies:</u> Bouldering, Running.
-    - <u>Favourite Food:</u> Cheese Burgers, Mc Spicy (Singapore Mcdonalds), noodles.
+    - <u>Favourite Food:</u> Cheese Burgers, Mc Spicy (Singapore Mcdonalds), Noodles (of ALL types).
