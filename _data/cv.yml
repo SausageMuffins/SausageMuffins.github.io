@@ -20,6 +20,17 @@
         - title: Major in Computer Science and Design
           contents:
             - Focus tracks in Artificial Intelligence and Data Analytics
+- title: Education
+  type: time_table
+  contents:
+    - title: Global Exchange Program
+      institution: Aalto University, Finland
+      year: Dec 2023 - Jun 2024
+      description:
+        - To be updated.
+        - title: Modules Taken
+          contents:
+            - To be updated.
     # - title: Federal teaching diploma
     #   institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
     #   year: 1900
