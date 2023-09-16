@@ -78,7 +78,7 @@ Most of the challenges we faced (John from the backend team and myself) was amen
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/code.jpg" title="Example Code" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/code.png" title="Example_Test.PNG" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
