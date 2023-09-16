@@ -2,7 +2,7 @@
   type: map
   contents:
     - name: Full Name
-      value: Wang Jun Long Ryan
+      value: Ryan Wang Jun Long
     - name: Date of Birth
       value: 6th July 2000
     - name: Languages
@@ -16,16 +16,16 @@
       year: 2021 - 2025
       description:
         - Undergraduate Merit Scholar
-        - Cumulative GPA 4.57/5
+        - Cumulative GPA 4.57/5 | Honours with Highest Distinction
         - title: Major in Computer Science and Design
           contents:
             - Focus tracks in Artificial Intelligence and Data Analytics
 
     - title: Global Exchange Program
       institution: Aalto University, Finland
-      year: Dec 2023 - Jun 2024
+      year: 2024
       description:
-        - To be updated.
+        - Exchange student to Aalto University School of Science
         - title: Modules Taken
           contents:
             - To be updated.
@@ -62,6 +62,17 @@
 - title: Experience
   type: time_table
   contents:
+    - title: Research Intern (Cyber Security, Large Language Models)
+      institution: Defence Science Organisation (DSO) National Laboratories, Singapore
+      year: Aug 2023 - Current
+      description: 
+        - title: Large Language Models (LLMs) for Code Understanding & Synthesis
+          contents:
+            - Utilized state of the art LLMs such as Code Llama to analyze and detect code vulnerabilities.  	   
+            - Explore LLM frameworks such as the Graph of Thoughts to solve elaborate problems in a cyber security context.
+            - Finetuned state of the art LLMs and adjusted LLM systems to fit in a cyber security context.
+            - Hands on experience with reverse engineering, using tools such as Ghidra to identify code vulnerabilities.
+
     - title: Undergraduate Research Assistant
       institution: Singapore University of Technology and Design
       year: May 2023 - Current
@@ -73,14 +84,6 @@
             - Develop and implement machine learning and data analysis algorithms.
             - Testing the system's performance and providing feedback for improvements.
             - Analyzing data and results to optimize the algorithms and overall system.
-
-    - title: Intern
-      institution: Defence Science Organisation (DSO) National Laboratories, Singapore
-      year: Aug 2023 - Current
-      description: 
-        - title: Large Language Models for Code Understanding & Synthesis
-          contents:
-            - Examine and identify relevant research and technologies in both the fields of cyber security and machine learning.
 
     # - title: Visiting Professor
     #   institution: California Institute of Technology, Pasadena, California, US
@@ -113,6 +116,7 @@
   type: nested_list
   contents:
     - title: Machine Learning
+    - title: Artificial Intelligence
     - title: Data Science
 
 
