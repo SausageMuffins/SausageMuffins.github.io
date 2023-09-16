@@ -72,8 +72,16 @@ In an ideal world, the project would be complete with automated CI/CD with compl
 
 Most of the challenges we faced (John from the backend team and myself) was amending the test code to accept the JSON inputs from API gateway to the Lambda services. Moreover, we had to ensure that the software was integrated well and deployed on AWS which was a higher priority when compared to automated testing in the CI/CD pipeline.
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/code.jpg" title="Example Code" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Evidence of testing for microservices (Lambda functions) using AWS SDK - Screenshot provided by John.
+</div>
 
-
+---
 
 # Reflection
 
