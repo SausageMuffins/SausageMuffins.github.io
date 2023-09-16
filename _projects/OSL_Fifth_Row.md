@@ -15,21 +15,21 @@ OSL-Fifth Row App is a web application that aims to improve the event proposal f
 
 ## Transferable Skills
 1. Understood and applied the software development process to a medium to large scale project.
-2. Utilized widely accepted notations and patterns, like UML diagrams, to articulate and explore problems efficiently which faciliated smooth development workflows.
-3. Various methods of testing such as Black Box, White Box, Integration and System tests.
+2. Utilized widely accepted notations and patterns, like **Unified Modelling Language (UML)**, to articulate and explore problems efficiently which faciliated smooth development workflows.
+3. Various methods of testing such as **Black Box, White Box, Integration and System tests**.
 4. Followed safe coding practices to ensure thread safety, prevent race conditions, and establish consistent clean code.
-5. Amazon Web Services (AWS) for CI/CD, automated scaling and permission management for the software. 
+5. **Amazon Web Services (AWS)** for CI/CD, automated scaling and permission management for the software. 
 
 
 ---
 
-# Introduction
+## Project Contributions
 
-## My Contributions
+This project is quite elaborate with 8 project members - categorized into the front end, back end and integration team. Hence, I will mostly be talking about my contributions to the project as part of the integration team (Cheng Ee and myself). Most of my work lie in **integrating the web application with AWS** as well as the **backend tests with the deployed software**. This project was coded in javascript.
 
-This project is quite elaborate with 8 project members - categorized into the front end, back end and integration team. Hence, I will mostly be talking about my contributions to the project as part of the integration team (Cheng Ee and myself). Most of my work lie in integrating the web application with AWS as well as the backend test with the deployed software. This project was coded in javascript.
+In addition, I was involved with the initial design and planning stages of the software development life cycle. Specifically, I proposed the idea of utilizing Iterative and Incremental Development before switching to the Agile Manifesto throughout the whole process. 
 
-In addition, I was involved with the initial design and planning stages of the software development life cycle. Specifically, I proposed the idea of utilizing Iterative and Incremental Development before switching to the Agile Manifesto throughout the whole process. The rationale behind this approach was to ensure the local product was thoroughly developed (Iterative Incremental Development) and tested before deploying on AWS (Agile Manifesto). This design stage also involved drafting the backend architecture - for which I was responsible for drawing up the AWS blueprint in this project.
+The rationale behind this approach was to ensure the local product was thoroughly developed (Iterative Incremental Development) and tested before deploying on AWS (Agile Manifesto). This design stage also involved drafting the backend architecture - for which I was responsible for drawing up the AWS blueprint in this project.
 
 The Github Repository can be found: [frontend](https://github.com/esctmp/osl-fifth-row-app), [backend](https://github.com/a-nnza-r/ESC_backend) as well as the [video presentation](https://drive.google.com/file/d/1sQpJY8KudrkNaZZT0YPnvjGOF1c7M81x/view). Kudos to my Vy and Chun Mun for the great presentation!
 
@@ -52,11 +52,15 @@ The Github Repository can be found: [frontend](https://github.com/esctmp/osl-fif
     </div>
 </div>
 
-I had to do a lot of exploration and self learning about AWS for this project. In particular, this project made use of the AWS Amplify for a CI/CD pipeline from the the Github repository to deployement. In addition, I learnt a lot about permission management and networks through configurations with the IAM service and the Virtual Private Cloud features of AWS. As the cloud architect, I had keep the project secure whilst allowing access to technical services wherever necessary for the project members.
+I had to do a lot of exploration and self learning about AWS for this project. In particular, this project made use of the AWS Amplify for a CI/CD pipeline from the the Github repository to deployement. 
 
-In the technical aspect, I had to configure the AWS RDS PostgreSQL database, serverless Lambda functions to interact with the database, API Gateway to trigger these lambda functions and the tests required for these microservices. Through API Gateway, the frontend can effectively interact with the backend through API calls which abstracts away the backend details and keep the application secure.
+In addition, I learnt a lot about permission management and networks through configurations with the **IAM service** and the **Virtual Private Cloud (VPC)** features of AWS. As the cloud architect, I had keep the project secure whilst allowing access to technical services wherever necessary for the project members.
 
-Lastly, the integration team also included an authentication feature for various user types using AWS Cognito to fit the client's (OSL) requirements. These "hands on" type of experiences and self learning brought out my curiosity and made learning so much more fun!  
+In the technical aspect, I had to configure the **AWS RDS PostgreSQL database**, serverless **Lambda functions** to interact with the database, **API Gateway** to trigger these lambda functions and the tests required for these microservices. 
+
+Through API Gateway, the frontend can effectively interact with the backend through API calls which abstracts away the backend details and keep the application secure.
+
+Lastly, the integration team also included an authentication feature for various user types using **AWS Cognito** to fit the client's (OSL) requirements as it is being hosted on **AWS Amplify**. These "hands on" type of experiences and self learning brought out my curiosity and made learning so much more fun!  
 
 ---
 
@@ -83,7 +87,7 @@ Most of the challenges we faced (John from the backend team and myself) was amen
 
 ---
 
-# Reflection
+## Reflection
 
 In my opinion, the project was a great learning experience and is successful because of the following points: 
 
