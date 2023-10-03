@@ -71,7 +71,7 @@
             - Utilized state of the art LLMs such as Code Llama to analyze and detect code vulnerabilities.  	   
             - Explore LLM frameworks such as the Graph of Thoughts to solve elaborate problems in a cyber security context.
             - Finetuned state of the art LLMs and adjusted LLM systems to fit in a cyber security context.
-            - Hands on experience with reverse engineering, using tools such as Ghidra to identify code vulnerabilities.
+            - Analyze and conclude the presence of vulnerabilities (from CVE) in software (eg - open source code such as Linux).
 
     - title: Undergraduate Research Assistant
       institution: Singapore University of Technology and Design
