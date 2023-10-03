@@ -31,7 +31,7 @@ In addition, I was involved with the initial design and planning stages of the s
 
 The rationale behind this approach was to ensure the local product was thoroughly developed (Iterative Incremental Development) and tested before deploying on AWS (Agile Manifesto). This design stage also involved drafting the backend architecture - for which I was responsible for drawing up the AWS blueprint in this project.
 
-The Github Repository can be found: [frontend](https://github.com/esctmp/osl-fifth-row-app), [backend](https://github.com/a-nnza-r/ESC_backend) as well as the [video presentation](https://drive.google.com/file/d/1sQpJY8KudrkNaZZT0YPnvjGOF1c7M81x/view). Kudos to my Vy and Chun Mun for the great presentation!
+The Github Repository can be found: [frontend](https://github.com/esctmp/osl-fifth-row-app), [backend](https://github.com/a-nnza-r/ESC_backend) as well as the [video presentation](https://drive.google.com/file/d/1sQpJY8KudrkNaZZT0YPnvjGOF1c7M81x/view). Kudos to my group mates Vy and Chun Mun for the great presentation!
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
