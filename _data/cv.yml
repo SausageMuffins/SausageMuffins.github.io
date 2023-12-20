@@ -21,14 +21,19 @@
           contents:
             - Focus tracks in Artificial Intelligence and Data Analytics
 
-    - title: Global Exchange Program
+    - title: Global Exchange
       institution: Aalto University, Finland
       year: 2024
       description:
-        - Exchange student to Aalto University School of Science
-        - title: Modules Taken
+        - Exchange student to Aalto University School of Science from Jan 2024 to Jun 2024.
+        - title: Modules
           contents:
-            - To be updated.
+            - CS-E4800 Artificial Intelligence
+            - CS-E4890 Deep Learning
+            - CS-E4500 Advanced Course in Algorithms
+            - ELEC-E555 Statistical Natural Language Processing
+            - CS-E4730 Computational Social Science
+            - FIN-A0106 Personal Finance
     # - title: Federal teaching diploma
     #   institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
     #   year: 1900
@@ -62,28 +67,26 @@
 - title: Experience
   type: time_table
   contents:
-    - title: Research Intern (Cyber Security, Large Language Models)
+    - title: Research Intern (Large Language Models)
       institution: Defence Science Organisation (DSO) National Laboratories, Singapore
-      year: Aug 2023 - Current
+      year: Aug 2023 - Dec 2023
       description: 
         - title: Large Language Models (LLMs) for Code Understanding & Synthesis
           contents:
             - Utilized state of the art LLMs such as Code Llama to analyze and detect code vulnerabilities.  	   
-            - Explore LLM frameworks such as the Graph of Thoughts to solve elaborate problems in a cyber security context.
-            - Finetuned state of the art LLMs and adjusted LLM systems to fit in a cyber security context.
+            - Explore prompt engineering frameworks such as the Graph of Thoughts to solve elaborate problems in a cyber security context.
+            - Utilized LangChain to automate the analysis process of code vulnerabilities and implement various prompt engineering techniques such as a chain of thoughts.
             - Analyze and conclude the presence of vulnerabilities (from CVE) in software (eg - open source code such as Linux).
 
     - title: Undergraduate Research Assistant
       institution: Singapore University of Technology and Design
-      year: May 2023 - Current
+      year: May 2023 - Dec 2023
       description:
         - title: SmartDrive - Undergraduate Research Opportunities Programme (UROP)
           contents:
-            - Conduct literature reviews and identify relevant research and technologies.
-            - Collect and preprocess sensor data from depth cameras and/or other devices for analysis.
-            - Develop and implement machine learning and data analysis algorithms.
-            - Testing the system's performance and providing feedback for improvements.
-            - Analyzing data and results to optimize the algorithms and overall system.
+            - Conduct literature reviews and identify relevant research and technologies for detecting driver fatigue.
+            - Collect and preprocess sensor data from depth and thermal cameras to prepare it for algorithms to detect fatigue.
+            - Implement and test algorithms relevant to Computer Vision, and utilized various techniques such as PERCLOS, Head Pose Estimation, and Eye Gaze Estimation.
 
     # - title: Visiting Professor
     #   institution: California Institute of Technology, Pasadena, California, US
@@ -124,4 +127,4 @@
   type: list
   contents:
     - <u>Hobbies:</u> Bouldering, Running.
-    - <u>Favourite Food:</u> Cheese Burgers, Mc Spicy (Singapore Mcdonalds), Noodles (of ALL types).
+    - <u>Favourite Food:</u> Burgers, Mc Spicy, Pasta.
