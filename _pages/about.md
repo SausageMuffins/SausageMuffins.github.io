@@ -6,7 +6,7 @@ subtitle: A Budding Researcher
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: me.jpeg
   image_circular: false # crops the image to make it circular
   address: >
     <p>Year 3 Undergraduate</p>
