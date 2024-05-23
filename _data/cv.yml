@@ -26,12 +26,10 @@
       year: 2024
       description:
         - Exchange student to Aalto University School of Science from Jan 2024 to Jun 2024.
-        - title: Modules
+        - title: Modules Taken
           contents:
             - CS-E4800 Artificial Intelligence
             - CS-E4890 Deep Learning
-            - CS-E4500 Advanced Course in Algorithms
-            - CS-E4730 Computational Social Science
             - ELEC-E555 Statistical Natural Language Processing
             - FIN-A0106 Personal Finance
     # - title: Federal teaching diploma
@@ -67,16 +65,16 @@
 - title: Experience
   type: time_table
   contents:
-    - title: Research Intern (Large Language Models)
+    - title: Research Intern
       institution: Defence Science Organisation (DSO) National Laboratories, Singapore
       year: Aug 2023 - Dec 2023
       description: 
         - title: Large Language Models (LLMs) for Code Understanding & Synthesis
           contents:
-            - Utilized state of the art LLMs such as Code Llama to analyze and detect code vulnerabilities.  	   
-            - Explore prompt engineering frameworks such as the Graph of Thoughts to solve elaborate problems in a cyber security context.
-            - Utilized LangChain to automate the analysis process of code vulnerabilities and implement various prompt engineering techniques such as a chain of thoughts.
-            - Analyze and conclude the presence of vulnerabilities (from CVE) in software (eg - open source code such as Linux).
+            - Utilized quantized versions of state-of-the-art Large Language Models (LLMs) from HuggingFace such as Code Llama to analyze and detect code vulnerabilities in open-source software.
+            - Explore and applied recent advances in research such as the “Graph of Thoughts” to encourage logical reasoning in LLMs, leading to significant improvements in detecting code vulnerabilities.
+            - Extensively used tools and libraries such as LangChain to develop applications that integrates LLMs and perform Retrieval Augmented Generations (RAG).
+
 
     - title: Undergraduate Research Assistant
       institution: Singapore University of Technology and Design
