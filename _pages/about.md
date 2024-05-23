@@ -18,9 +18,21 @@ latest_posts: true  # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-I often wonder how can we, or at least, myself be able to improve people's lives. Even though humanity has never been more advanced, there are still so many people who need help. Hence, I aspire to be someone who is able to significantly contribute to society (or perhaps, even to humanity) in improving the lives of these people.
+I am Ryan Wang, an undergraduate at the Singapore University of Technology and Design, majoring in Computer Science and Design with a focus on Artificial Intelligence.
 
-To do so, I am working towards being an expert in Artificial Intelligence and Data Analytics. I truly believe that these technologies can be a great leveler to improve lives. To achieve this goal, I am actively researching and taking on projects with regards to these fields. Currently, I am working on "SmartDrive" under the Undergraduate Research Opportunity Programme at Singapore University of Technology and Design.
 
-I dream of a day where talented people can join me in this cause and contribute their skills towards helping others. One of my main goal in life is to establish a system or organization to do Pro Bono work for non-profit organizations in the technology space so that these organizations can help others easily.
+## Research Interests
 
+#### Responsible AI
+As the AI field rapidly advances, I felt that safety in AI is being overshadowed by the wonderful promises of AI. Whilst incredible developments like Sora and ChatGPT 4o builds optimism and accessibility to improve lives, these techonologies are developing at a rate where regulations and safety considerations can't keep up. 
+
+I am particularly interested in research questions about *human issues related to AI* (such as echo chambers, ethical dilemmas, overreliance on AI) and *how we might solve these conundrums from a technical perspective*. In other words, I am interested in novel methods that challenge existing deep learning fundamentals to move towards a more reponsible path for AI.
+
+#### Collaborative AI
+The aforementioned "technical perspectives" that I am interested in lies in the field of Collaborative AI - *Knowledge Representation* and *Transfer Learning*. I am interested in conducting research to further how we can represent knowledge (embeddings, reasoning abilities), as well as the ability to transfer knowledge to an AI (fine-tuning) in existing deep learning methods that results in safer AI.
+
+
+#### Motivation
+Ultimately, I seek to prevent a dystopian world where humans regress to the point of no return as painted by the (many) cautionary movies and video games centered around AI. While I recognize that further developing AI can be very beneficial to humanity, I would also be careful of the consequences that AI can bring.
+
+P.S. if it seems like I am being overly dramatic for worrying about AI, perhaps the dystopian descent has already begun.
