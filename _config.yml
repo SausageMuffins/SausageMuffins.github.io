@@ -62,15 +62,15 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : yuriel-ryan # Username
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
   soundcloud       : # Username
   steam            : # Username
-  telegram         : # URL
+  telegram         : https://t.me/SausageMuffins # URL
   tumblr           : # Username
-  twitter          : # Username for X / Twitter
+  twitter          : YurielRyan # Username for X / Twitter
   vine             : # Username
   weibo            : # Username
   wikipedia        : # Username
@@ -137,7 +137,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter
+  username               : &twitter "YurielRyan"
 facebook:
   username               :
   app_id                 :
