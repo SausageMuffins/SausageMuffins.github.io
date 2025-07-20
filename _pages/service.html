@@ -1,0 +1,16 @@
+---
+layout: archive
+title: "Service"
+permalink: /service/
+author_profile: true
+---
+
+<!-- <ul>{% for post in site.service reversed %}
+  {% include archive-single-cv.html %}
+{% endfor %}</ul> -->
+
+{% include base_path %}
+
+{% for post in site.service reversed %}
+  {% include archive-single.html %}
+{% endfor %}
