@@ -44,7 +44,7 @@ CS-E4890 Deep Learning                             | Exchange
 ELEC-E5550 Statistical Natural Language Processing | Exchange
 CS-E4800 Artificial Intelligence                   | Exchange
 
----
+<br>
 
 Work Experience
 ======
@@ -74,7 +74,7 @@ Work Experience
 
 **Technical Skills:** Python, PyTorch, TensorFlow, Google Cloud Platform, SQL, Java
 
----
+<br>
 
 # Publications
 {% if site.publication_category %}
@@ -82,7 +82,6 @@ Work Experience
 {% assign posts_in_category = site.publications | where: "category", category[0] | reverse %}
 {% if posts_in_category.size > 0 %}
 ### {{ category[1].title }}
----
 <ul>
 {% for post in posts_in_category %}
 <li>{% include archive-single-cv.html post=post %}</li>
@@ -105,14 +104,14 @@ Work Experience
     {% include archive-single-talk-cv.html  %}
   {% endfor %}</ul> -->
 
----
+<br>
 
 # Teaching
   <ul>{% for post in site.teaching reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
----
+<br>
 
 # Community Service
   <ul>{% for post in site.service reversed %}
