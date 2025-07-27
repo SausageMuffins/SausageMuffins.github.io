@@ -14,22 +14,30 @@ redirect_from:
 
 Education
 ======
-**MEng** (Research), *Singapore University of Technology and Design*  
-Singapore, Expected 2025 Sep to 2026 Sep 
+**MEng** (Research) <br>
+*Singapore University of Technology and Design* <br>
+Expected 2025 Sep to 2026 Sep 
 - Cumulative GPA: -, -
 - **AI Singapore Accelerated Masters Scholar** (2024 Sep - 2026 Sep)
-- Expected Graduation Year: 2026
+- Thesis-based research program
 
-**BEng** in Computer Science, Minor in AI, *Singapore University of Technology and Design*  
-Singapore, 2021 Sep to 2025 May
+---
+
+**BEng** (Computer Science, Minor in AI) <br>
+*Singapore University of Technology and Design* <br>
+2021 Sep to 2025 May
 - Cumulative GPA: 4.70/5.00, **Honors with Highest Distinction**
-- AI Singapore Accelerated Masters Scholar (2024 Sep - 2026 Sep)
 - SUTD Undergraduate Merit Scholar (2021 Sep - 2024 Aug)
 
-**Global Exchange Program**, *Aalto University*  
+---
+
+**Global Exchange Program** <br>
+*Aalto University* <br>
 Finland, Jan 2024 to Jun 2025
 - Awarded the KKH Global Exchange Award (2024 Spring)
 - Exchange Student under Aalto University's School of Science
+
+<br>
 
 Relevant Courses | Grade 
 -----------------|------
