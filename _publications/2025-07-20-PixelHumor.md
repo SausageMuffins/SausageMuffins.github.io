@@ -5,7 +5,7 @@ category: conferences
 permalink: /publication/2025-07-20-PixelHumor
 excerpt: 'Evaluating humor and sequence comprehension in Large Multimodal Models with web comics.'
 date: 2025-07-20
-venue: 'Findings of the Association for Computational Linguistics (EMNLP 2025)'
+venue: 'Findings of the Association for Computational Linguistics, Suzhou, China (EMNLP 2025)'
 authors: 'Yuriel Ryan*, Rui Yang Tan*, Kenny Tsu Wei Choo, Roy Ka-Wei Lee'
 authors_note: '* co-first authors'
 paperurl: 'https://aclanthology.org/2025.findings-emnlp.755/'
