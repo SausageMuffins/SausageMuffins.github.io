@@ -21,6 +21,7 @@ I try my best to aim for more rigorous "good science" to achieve actionable find
 
 Date | News
 -----|-------
+2026-05-01 | One paper accepted to **ICML (Main)** 2026: [Self-Captioning Multimodal Interaction Tuning]()
 2025-08-22 | One paper accepted to **EMNLP (Findings)** 2025: [Humor in Pixels](https://aclanthology.org/2025.findings-emnlp.755/)
 2025-08-16 | Awarded the <a href="https://aisingapore.org/research/dso-aisg-research-awards/" target="_blank">DSO-AISG Incentive Program</a> to support fundamental research on Multimodal LLMs!
 2025-07-01 | Achieved **1st Runner Up** in the <a href="https://learn.aisingapore.org/national-ai-student-challenge-2025/" target="_blank">National AI Student Challenge (TikTok)</a> for short-form video understanding with Large Multimodal Models. [\[Github\]](https://github.com/SausageMuffins/LMM-Video-Understanding)
