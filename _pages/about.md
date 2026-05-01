@@ -9,9 +9,19 @@ redirect_from:
 
 Hi! My name is Yuriel (or Ryan if your prefer) and I am a M.Eng student at the Singapore University of Technology and Design, kindly supported by the [AI Singapore Accelerated Masters Program](https://aisingapore.org/research/ai-amp/) and the [DSO-AISG Research Award](https://aisingapore.org/research/dso-aisg-research-awards/). I go by "Yuriel Ryan" in my publications.
 
-Currently, I primarily focus on fundamental Multimodal ML research. My [interests](https://yurielryan.github.io/research/) lie in developing **systematic approaches to represent emergent knowledge/phenomena** through three directions: **comprehending emergent ideas**, such as culture or humor; **analyzing emergent attributes** such as data quality or biases; and **managing emergent behaviors/properties** such as hallucinations and robustness. This means using theoretical frameworks, such as those from information theory, to construct my hypotheses and experiments. 
+Broadly speaking, my [interests](https://yurielryan.github.io/research/) lie in understanding **what** is relevant to a large model, **how** do these sources of information produce that task-relevant information, and **where** can we identify them. This means using theoretical frameworks, such as those from information theory, to construct my hypotheses and experiments. 
 
-I try my best to aim for more rigorous "good science" to achieve actionable findings instead of chasing whatever that is popular in the AI space---this seems to change every couple of weeks anyways. If this research philosophy resonates with you, let's work on something together! :)
+**Sources of Information** could range from raw (multimodal) data to representations found within the hidden layers of a large model.
+
+**1) What is relevant?**: training or evaluating models on difficult and abstract (human-specific) concepts (see [Humor in Pixels](https://yurielryan.github.io/publication/2025-07-20-PixelHumor)).
+
+**2) How is it relevant?**: applying or developing frameworks (See [Multimodal Interaction Tuning]()) to illuminate how different sources of information come together in deep networks to produce the necessary information for a task.
+
+**3) Where can we find them?**: designing solutions to train and search for the weights that contribute to a task (Currently working on this!) --- I was particularly inspired by this [Neural Thickets](https://thickets.mit.edu/) paper.
+
+I managed to publish a few works on either (1) or (2) during my undergraduate and M.Eng days at SUTD. However, I am not quite satisfied just yet! I am continuously working on these three questions with the eventual goal of unifying them to produce useful Collaborative Artificial Intelligence that learn efficiently, and possess true understanding -- as opposed to "memorizing/rote learning" --- about the world. 
+
+I try my best to aim for rigorous "good science" to achieve actionable findings instead of chasing whatever that is popular in the AI space---this seems to change every couple of weeks anyways. If this research philosophy resonates with you, let's work on something together! :)
 
 
 
