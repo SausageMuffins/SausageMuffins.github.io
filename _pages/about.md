@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi! My name is Yuriel (or Ryan if your prefer) and I'm an M.Eng student at the Singapore University of Technology and Design, kindly supported by the [AI Singapore Accelerated Masters Program](https://aisingapore.org/research/ai-amp/) and the [DSO-AISG Research Award](https://aisingapore.org/research/dso-aisg-research-awards/). I go by "Yuriel Ryan" in my publications.
+Hi! My name is Yuriel (or Ryan if you prefer) and I'm an M.Eng student at the Singapore University of Technology and Design, kindly supported by the [AI Singapore Accelerated Masters Program](https://aisingapore.org/research/ai-amp/) and the [DSO-AISG Research Award](https://aisingapore.org/research/dso-aisg-research-awards/). I go by "Yuriel Ryan" in my publications.
 
 Broadly speaking, my [interests](https://yurielryan.github.io/research/) lie in understanding **what** is relevant to a large model, **how** do the **sources of information** interact to produce task-relevant information, and **where** can we identify them. This means using theoretical frameworks, such as those from information theory, to inform my hypotheses and experiments. 
 
@@ -31,8 +31,8 @@ My personal goal is to aim for rigorous "good science" to achieve actionable fin
 
 Date | News
 -----|-------
-2026-05-01 | One paper accepted to **ICML (Main)** 2026: [Self-Captioning Multimodal Interaction Tuning]()
-2025-08-22 | One paper accepted to **EMNLP (Findings)** 2025: [Humor in Pixels](https://aclanthology.org/2025.findings-emnlp.755/)
+2026-05-01 | One (first authored) paper accepted to **ICML (Main)** 2026: [Self-Captioning Multimodal Interaction Tuning]()
+2025-08-22 | One (co-first authored) paper accepted to **EMNLP (Findings)** 2025: [Humor in Pixels](https://aclanthology.org/2025.findings-emnlp.755/)
 2025-08-16 | Awarded the <a href="https://aisingapore.org/research/dso-aisg-research-awards/" target="_blank">DSO-AISG Incentive Program</a> to support fundamental research on Multimodal LLMs!
 2025-07-01 | Achieved **1st Runner Up** in the <a href="https://learn.aisingapore.org/national-ai-student-challenge-2025/" target="_blank">National AI Student Challenge (TikTok)</a> for short-form video understanding with Large Multimodal Models. [\[Github\]](https://github.com/SausageMuffins/LMM-Video-Understanding)
 2025-06-15 | Placed on the <a href="Attachments/Honours_List_2024.pdf" target="_blank">Honours List 2024</a>, awarded to students who achieve outstanding term results. ~**top 10% of the cohort**
