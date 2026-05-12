@@ -8,7 +8,7 @@ date: 2026-05-01
 venue: '43rd Proceedings of the International Conference on Machine Learning, Seoul, South Korea (ICML 2026)'
 authors: 'Yuriel Ryan, Ip Hei Man, Adriel Kuek, Paul Pu Liang, Roy Ka-Wei Lee'
 authors_note: 
-paperurl: ''
+paperurl: 'https://arxiv.org/abs/2605.08145'
 citation: |
   TBA
 ---

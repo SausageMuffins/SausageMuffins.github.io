@@ -15,7 +15,7 @@ Broadly speaking, my [interests](https://yurielryan.github.io/research/) lie in 
 
 **1) On what is relevant?**: training or evaluating models on difficult and abstract (human-specific) concepts (see [Humor in Pixels](https://yurielryan.github.io/publication/2025-07-20-PixelHumor)) to isolate salient (and hopefully surprising) features.
 
-**2) On how is it relevant?**: applying or developing frameworks (See [Multimodal Interaction Tuning]()) to explain/tune interactions between distinct sources of information within deep networks.
+**2) On how is it relevant?**: applying or developing frameworks (See [Multimodal Interaction Tuning](https://arxiv.org/abs/2605.08145)) to explain/tune interactions between distinct sources of information within deep networks.
 
 **3) On where can we find them?**: designing methods to train and search for the weights that contribute to a task (currently working on this!) --- I was particularly inspired by this [Neural Thickets](https://thickets.mit.edu/) paper.
 
@@ -31,7 +31,7 @@ My personal goal is to aim for rigorous "good science" to achieve actionable fin
 
 Date | News
 -----|-------
-2026-05-01 | One (first authored) paper accepted to **ICML (Main)** 2026: [Self-Captioning Multimodal Interaction Tuning]()
+2026-05-01 | One (first authored) paper accepted to **ICML (Main)** 2026: [Self-Captioning Multimodal Interaction Tuning](https://arxiv.org/abs/2605.08145)
 2025-08-22 | One (co-first authored) paper accepted to **EMNLP (Findings)** 2025: [Humor in Pixels](https://aclanthology.org/2025.findings-emnlp.755/)
 2025-08-16 | Awarded the <a href="https://aisingapore.org/research/dso-aisg-research-awards/" target="_blank">DSO-AISG Incentive Program</a> to support fundamental research on Multimodal LLMs!
 2025-07-01 | Achieved **1st Runner Up** in the <a href="https://learn.aisingapore.org/national-ai-student-challenge-2025/" target="_blank">National AI Student Challenge (TikTok)</a> for short-form video understanding with Large Multimodal Models. [\[Github\]](https://github.com/SausageMuffins/LMM-Video-Understanding)
