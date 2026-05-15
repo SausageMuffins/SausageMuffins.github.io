@@ -41,13 +41,12 @@ Finland, Jan 2024 to Jun 2025
 
 Relevant Courses | Grade 
 -----------------|------
+51.511 Multimodal Generative AI – Postgraduate | A
 99.512 Mathematics for AI – Postgraduate | A
 51.504 Machine Learning – Postgraduate | A
-50.050 Discrete Mathematics and Algorithm Design | A
+50.050 Advanced Algorithms (Formerly Discrete Mathematics and Algorithm Design) | A
 50.035 Computer Vision | A
 50.007 Machine Learning - Undergraduate | A
-50.005 Elements of Software Construction | A-
-01.401 Capstone Project (2 Terms) | A-
 01.117 Brain-Inspired Computing and it's Applications | A
 CS-E4890 Deep Learning                             | Exchange
 ELEC-E5550 Statistical Natural Language Processing | Exchange
