@@ -11,19 +11,14 @@ Hi! My name is Yuriel (or Ryan if you prefer) and I'm an M.Eng student at the Si
 
 Broadly speaking, my [interests](https://yurielryan.github.io/research/) lie in understanding **what** is relevant to a large model, **how** do the **sources of information** interact to produce task-relevant information, and **where** can we identify them. This means using theoretical frameworks, such as those from information theory, to inform my hypotheses and experiments. 
 
-**Sources of Information** could range from raw (multimodal) data to representations found within the hidden layers of a deep network.
+- **Sources of Information** could range from raw (multimodal) data to representations found within the hidden layers of a deep network.
+- **On what is relevant?**: training / evaluating models on difficult and abstract (human) concepts (see [Humor in Pixels](https://yurielryan.github.io/publication/2025-07-20-PixelHumor)) to isolate vital (and hopefully surprising) features.
+- **On how is it relevant?**: applying or developing frameworks (See [Multimodal Interaction Tuning](https://arxiv.org/abs/2605.08145)) to explain/tune interactions between distinct sources of information in neural networks.
+- **On where can we find them?**: designing methods to train or localize weights that contribute to a task (currently working on this!) --- I was particularly inspired by [this](https://thickets.mit.edu/) work.
 
-**1) On what is relevant?**: training or evaluating models on difficult and abstract (human-specific) concepts (see [Humor in Pixels](https://yurielryan.github.io/publication/2025-07-20-PixelHumor)) to isolate salient (and hopefully surprising) features.
+I managed to publish a few works on either (1) or (2) during my undergraduate + Masters at SUTD. I'll be working on these three questions with the eventual goal of *unifying them* to build towards Collaborative Artificial Intelligence: models of our reality that learn efficiently and possess true understanding --- as opposed to "memorizing/rote learning". 
 
-**2) On how is it relevant?**: applying or developing frameworks (See [Multimodal Interaction Tuning](https://arxiv.org/abs/2605.08145)) to explain/tune interactions between distinct sources of information within deep networks.
-
-**3) On where can we find them?**: designing methods to train and search for the weights that contribute to a task (currently working on this!) --- I was particularly inspired by this [Neural Thickets](https://thickets.mit.edu/) paper.
-
-I managed to publish a few works on either (1) or (2) during my undergraduate and M.Eng days at SUTD. However, I'm not quite satisfied just yet! For now, I'll be working on these three questions with the eventual goal of unifying them to produce useful Collaborative Artificial Intelligence that learn efficiently, and possess true understanding --- as opposed to "memorizing/rote learning" --- about the world. 
-
-My personal goal is to aim for rigorous "good science" to achieve actionable findings instead of chasing whatever that is currently popular in the AI/ML space---this seems to change every couple of weeks anyways. If this research philosophy resonates with you, let's work on something together! :)
-
-
+My personal goal is to aim for rigorous "good science" to achieve actionable findings instead of chasing the current trends in the AI/ML space---this seems to change every couple of weeks anyways. If this research philosophy resonates with you, let's work on something together! :)
 
 ---
 
