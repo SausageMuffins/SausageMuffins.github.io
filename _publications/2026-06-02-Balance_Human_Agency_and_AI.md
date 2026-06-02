@@ -8,7 +8,7 @@ date: 2026-05-01
 venue: 'Trustworthy AI for Good (AI4GOOD) Workshop, Seoul, South Korea (ICML 2026)'
 authors: 'Zi-Yu Khoo, Yuriel Ryan, Nicole Heng Yim Oo, Hui En Pang, Eric J. W. Orlowski, Hakim Norhashim, Ruth Wan Theng Chew, Davin Choo, Rachael Hwee Ling Sim, Simon Chesterman, Jungpil Hahn, Bryan Kian Hsiang Low'
 authors_note: 
-paperurl: 'https://arxiv.org/abs/2605.08145'
+paperurl: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6185399'
 citation: |
   TBA
 ---
