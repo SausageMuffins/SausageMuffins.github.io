@@ -86,6 +86,8 @@ publication_category:
     title: 'Conference Papers'
   manuscripts:
     title: 'Journal Articles'    
+  workshops:
+    title: 'Workshop Papers'
   review:
     title: 'Under Review'
   
