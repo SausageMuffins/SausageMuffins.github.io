@@ -12,7 +12,7 @@ layout: default
   {% endunless %}
 {% endif %}
 
-<div id="main" role="main">
+<div id="main" role="main" class="layout {% if page.toc %}layout--with-toc{% else %}layout--no-toc{% endif %}">
   {% include sidebar.html %}
 
   <div class="archive">
@@ -21,4 +21,10 @@ layout: default
     {% endunless %}
     {{ content }}
   </div>
+
+  {% if page.toc %}
+    <aside class="sidebar__right">
+      {% include toc_auto.html html=content %}
+    </aside>
+  {% endif %}
 </div>

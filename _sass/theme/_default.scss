@@ -26,22 +26,33 @@ $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
+/* ----------------------------------------------------------------------------
+   Brand palette — orange accents on a teal / navy base.
+   Tweak these three values to re-tune the whole site.
+   -------------------------------------------------------------------------- */
+$brand-navy                 : #1b3a4b;  // structural fills: buttons, nav pill, hamburger, ToC header
+$brand-teal                 : #1f7a8c;  // links + structural accents
+$brand-orange               : #e8772e;  // the "pop" accent: hovers, underline reveal, highlights
+
 /* Default light theme for the site */
 :root {
-    --global-base-color                 : #{$gray};
-    --global-bg-color                   : #fff;
-    --global-footer-bg-color            : #f2f3f3;
-    --global-border-color               : #{$lighter-gray};
-    --global-dark-border-color          : #bdc1c4;
-    --global-code-background-color      : #fafafa;
-    --global-code-text-color            : #{$darker-gray};
-    --global-fig-caption-color          : mix(#fff,  #{$dark-gray}, 25%);
-    --global-link-color                 : #52adc8;
-    --global-link-color-hover           : mix(#000, #2f7f93, 25%);
-    --global-link-color-visited         : mix(#fff, #2f7f93, 25%);  
-    --global-masthead-link-color        : #{$dark-gray};
-    --global-masthead-link-color-hover  : mix(#000, #{$gray}, 25%);    
-    --global-text-color                 : #{$dark-gray};
-    --global-text-color-light           : #{$light-gray};
-    --global-thead-color                : #{$lighter-gray};
+    --global-base-color                 : #{$brand-navy};
+    --global-primary-color              : #{$brand-teal};
+    --global-accent-color               : #{$brand-orange};
+    --global-bg-color                   : #faf8f3;   /* warm ivory — softer than stark white */
+    --global-surface-color              : #ffffff;   /* cards / raised panels lift off the page */
+    --global-footer-bg-color            : #f1ece3;
+    --global-border-color               : #e7e1d6;
+    --global-dark-border-color          : #cfc7b8;
+    --global-code-background-color      : #f4f1ea;
+    --global-code-text-color            : #{$brand-navy};
+    --global-fig-caption-color          : #6a7681;
+    --global-link-color                 : #{$brand-teal};
+    --global-link-color-hover           : #{$brand-orange};
+    --global-link-color-visited         : #176b7a;
+    --global-masthead-link-color        : #33424e;
+    --global-masthead-link-color-hover  : #{$brand-teal};
+    --global-text-color                 : #2f3b44;
+    --global-text-color-light           : #6a7681;
+    --global-thead-color                : #efeae1;
 }

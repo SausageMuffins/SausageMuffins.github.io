@@ -1,0 +1,56 @@
+{% include base_path %}
+{% assign pub_title = post.title | markdownify | remove: "<p>" | remove: "</p>" | strip %}
+{% assign pub_authors = post.authors | replace: 'Yuriel Ryan', '<strong>Yuriel Ryan</strong>' %}
+{% assign pub_id = post.url | slugify %}
+
+{% comment %} Colour-coded venue tag: explicit `venue_short`, else sniff the venue string. {% endcomment %}
+{% assign vtag = post.venue_short %}
+{% unless vtag %}
+  {% assign v = post.venue | default: '' %}
+  {% if v contains 'EMNLP' %}{% assign vtag = 'EMNLP' %}
+  {% elsif v contains 'NeurIPS' or v contains 'NIPS' %}{% assign vtag = 'NeurIPS' %}
+  {% elsif v contains 'ICLR' %}{% assign vtag = 'ICLR' %}
+  {% elsif v contains 'ICML' %}{% assign vtag = 'ICML' %}
+  {% elsif v contains 'CVPR' %}{% assign vtag = 'CVPR' %}
+  {% elsif v contains 'AAAI' %}{% assign vtag = 'AAAI' %}
+  {% elsif v contains 'NAACL' %}{% assign vtag = 'NAACL' %}
+  {% elsif v contains 'ACL' %}{% assign vtag = 'ACL' %}
+  {% endif %}
+{% endunless %}
+{% assign vtag_class = vtag | default: 'default' | downcase %}
+
+{% comment %} Auto-build a BibTeX entry from the available metadata. {% endcomment %}
+{% assign bib_year = post.date | default: '1900-01-01' | date: '%Y' %}
+{% assign bib_authors = post.authors | replace: '*', '' | replace: ', ', ' and ' %}
+{% assign bib_first = post.authors | replace: '*', '' | split: ',' | first | strip | split: ' ' | last | downcase %}
+{% assign bib_key = bib_first | append: bib_year %}
+{% if post.category == 'manuscripts' %}{% assign bib_type = 'article' %}{% assign bib_field = 'journal' %}{% else %}{% assign bib_type = 'inproceedings' %}{% assign bib_field = 'booktitle' %}{% endif %}
+{% assign bib_title = post.title | replace: '&', '\&' %}
+{% capture pub_bibtex %}@{{ bib_type }}{ {{ bib_key }},
+  title     = { {{ bib_title }} },
+  author    = { {{ bib_authors }} },
+  {{ bib_field }} = { {{ post.venue }} },
+  year      = { {{ bib_year }} }
+}{% endcapture %}
+<div class="pub-card">
+  {% if post.header.teaser or post.image %}
+    {% assign pub_img = post.header.teaser | default: post.image %}
+    <div class="pub-card__media">
+      <img src="{% if pub_img contains '://' %}{{ pub_img }}{% else %}{{ pub_img | prepend: '/images/' | prepend: base_path }}{% endif %}" alt="" loading="lazy" />
+    </div>
+  {% endif %}
+  <div class="pub-card__body">
+    {% if vtag %}<p class="pub-card__tags"><span class="pub-tag pub-tag--{{ vtag_class }}">{{ vtag }}</span></p>{% endif %}
+    <h3 class="pub-card__title"><a href="{{ base_path }}{{ post.url }}">{{ pub_title }}</a></h3>
+    {% if post.authors %}<p class="pub-card__authors">{{ pub_authors }}</p>{% endif %}
+    {% if post.venue %}<p class="pub-card__venue">{{ post.venue }}{% if post.date %} &middot; {{ bib_year }}{% endif %}</p>{% endif %}
+    <p class="pub-card__links">
+      <a class="pub-link" href="{{ base_path }}{{ post.url }}">Details</a>
+      {% if post.paperurl %}<a class="pub-link" href="{{ post.paperurl }}" target="_blank" rel="noopener">Paper</a>{% endif %}
+      {% if post.slidesurl %}<a class="pub-link" href="{{ post.slidesurl }}" target="_blank" rel="noopener">Slides</a>{% endif %}
+      {% if post.bibtexurl %}<a class="pub-link" href="{{ post.bibtexurl }}" target="_blank" rel="noopener">BibTeX file</a>{% endif %}
+      <button type="button" class="pub-link pub-bibtex-btn" data-bibtex-target="bib-{{ pub_id }}">Copy BibTeX</button>
+    </p>
+    <pre id="bib-{{ pub_id }}" class="pub-bibtex-source" hidden>{{ pub_bibtex | escape }}</pre>
+  </div>
+</div>

@@ -2,12 +2,11 @@
 permalink: /markdown/
 title: "Markdown"
 author_profile: true
+toc: true
 redirect_from: 
   - /md/
   - /markdown.html
 ---
-
-{% include toc %}
 
 ## Locations of key files/directories
 

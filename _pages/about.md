@@ -26,9 +26,9 @@ My personal goal is to aim for rigorous "good science" to achieve actionable fin
 
 Date | News
 -----|-------
-2026-06-02 | One (second authored) paper accepted to **ICML (Workshop Trustworthy AI for Good)** 2026: [Balance Human Agency & AI Assistance in the Tussle for the ``Right'' to Choose, Own, Work, and Learn](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6185399)
-2026-05-01 | One (first authored) paper accepted to **ICML (Main)** 2026: [Self-Captioning Multimodal Interaction Tuning](https://arxiv.org/abs/2605.08145)
-2025-08-22 | One (co-first authored) paper accepted to **EMNLP (Findings)** 2025: [Humor in Pixels](https://aclanthology.org/2025.findings-emnlp.755/)
+2026-06-02 | <span class="pub-tag pub-tag--icml">ICML</span> One (second authored) paper accepted to **ICML (Workshop Trustworthy AI for Good)** 2026: [Balance Human Agency & AI Assistance in the Tussle for the ``Right'' to Choose, Own, Work, and Learn](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6185399)
+2026-05-01 | <span class="pub-tag pub-tag--icml">ICML</span> One (first authored) paper accepted to **ICML (Main)** 2026: [Self-Captioning Multimodal Interaction Tuning](https://arxiv.org/abs/2605.08145)
+2025-08-22 | <span class="pub-tag pub-tag--emnlp">EMNLP</span> One (co-first authored) paper accepted to **EMNLP (Findings)** 2025: [Humor in Pixels](https://aclanthology.org/2025.findings-emnlp.755/)
 2025-08-16 | Awarded the <a href="https://aisingapore.org/research/dso-aisg-research-awards/" target="_blank">DSO-AISG Incentive Program</a> to support fundamental research on Multimodal LLMs!
 2025-07-01 | Achieved **1st Runner Up** in the <a href="https://learn.aisingapore.org/national-ai-student-challenge-2025/" target="_blank">National AI Student Challenge (TikTok)</a> for short-form video understanding with Large Multimodal Models. [\[Github\]](https://github.com/SausageMuffins/LMM-Video-Understanding)
 2025-06-15 | Placed on the <a href="Attachments/Honours_List_2024.pdf" target="_blank">Honours List 2024</a>, awarded to students who achieve outstanding term results. ~**top 10% of the cohort**

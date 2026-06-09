@@ -12,20 +12,18 @@ main:
     url: /research/
 
   # - title: "Talks"
-  #   url: /talks/    
+  #   url: /talks/
 
+  # Teaching is now merged into the Service page
   - title: "Service"
     url: /service/
 
-  - title: "Teaching"
-    url: /teaching/    
-    
-  - title: "Portfolio"
+  - title: "Projects"
     url: /portfolio/
-        
-  - title: "Blog Posts"
+
+  - title: "Thoughts"
     url: /year-archive/
-    
+
   - title: "CV"
     url: /cv/
     

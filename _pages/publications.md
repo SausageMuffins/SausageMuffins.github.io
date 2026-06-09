@@ -3,11 +3,10 @@ layout: archive
 title: ""
 permalink: /research/
 author_profile: true
+toc: true
 ---
 
 {% include base_path %}
-
-{% include toc %}
 
 # Research Interests
 ## Motivations
@@ -21,17 +20,6 @@ My long term vision is to develop **systematic approaches to represent emergent 
 I enjoy bridging theories from outside machine learning---such as information theory (if we can even call this outside of ML...), the social sciences, or even philosophy---to construct rigorous hypotheses. Through these hypotheses, I seek to advance artificial intelligence in three key directions: **comprehending emergent ideas**, such as culture or humor; **analyzing emergent attributes** such as data quality or biases; and **managing emergent behaviors/properties** such as hallucinations and robustness.
 
 My latest work utilizes the Partial Information Decomposition (PID) framework (from information theory) to analyze multimodal data. This allows me to derive insights from how modalities interact---redundant interactions (overlapping information), unique interactions (exclusive information), synergistic interactions (emergent information)---to provide task-relevant information. From these insights, I hypothesize and test how tuning these interactions, specifically increasing redundant interactions, would affect robustness.
-
-
-## Intrigued but Unavailable
-I'm always intrigued by the potential of AI and the impact it can make in a variety of topics. Below is a list of projects that I wanted to explore, but currently unable to due to existing commitments. These projects are my "hear me out" ideas. If you are interested in collaborating for any of these, please do reach out :)
-
-**Supervised Yearning: Learning the language of Love.**
-Beyond the "5 love languages" (acts of service, quality time, gifts, touch, and affirmation) that naturally involve multiple modalities, I'm intrigued by the interplay of culture and romance. In particular,
-
-- Can models learn "love languages" and adapt that knowledge to different cultures (East vs West).
-- Can we quantify romance? What makes a love letter romantic?
-- Can a model, trained on being an expert in romance, counter love scams: a type of scam that is not only <a href="https://www.dbs.com/livemore/money/types-of-scams-singapore.html" target="_blank">common</a> in Singapore, but also painful financially and emotionally? 
 
 <br>
 
@@ -55,11 +43,26 @@ Beyond the "5 love languages" (acts of service, quality time, gifts, touch, and 
 ##      {{ category[1].title }}
         {% assign title_shown = true %}
       {% endunless %}
-      {% include archive-single.html %}
+      {% include archive-single-publication.html %}
     {% endfor %}
   {% endfor %}
 {% else %}
   {% for post in site.publications reversed %}
-    {% include archive-single.html %}
+    {% include archive-single-publication.html %}
   {% endfor %}
 {% endif %}
+
+{% include copy-bibtex.html %}
+
+
+---
+
+## Intrigued but Unavailable
+I'm always intrigued by the potential of AI and the impact it can make in a variety of topics. Below is a list of projects that I wanted to explore, but currently unable to due to existing commitments. These projects are my "hear me out" ideas. If you are interested in collaborating for any of these, please do reach out :)
+
+**Supervised Yearning: Learning the language of Love.**
+Beyond the "5 love languages" (acts of service, quality time, gifts, touch, and affirmation) that naturally involve multiple modalities, I'm intrigued by the interplay of culture and romance. In particular,
+
+- Can models learn "love languages" and adapt that knowledge to different cultures (East vs West).
+- Can we quantify romance? What makes a love letter romantic?
+- Can a model, trained on being an expert in romance, counter love scams: a type of scam that is not only <a href="https://www.dbs.com/livemore/money/types-of-scams-singapore.html" target="_blank">common</a> in Singapore, but also painful financially and emotionally? 

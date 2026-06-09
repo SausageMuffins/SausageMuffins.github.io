@@ -3,13 +3,12 @@ layout: archive
 title: ""
 permalink: /cv/
 author_profile: true
+toc: true
 redirect_from:
   - /resume
 ---
 
 {% include base_path %}
-
-{% include toc %}
 
 
 Education
@@ -90,20 +89,14 @@ Work Experience
 {% assign posts_in_category = site.publications | where: "category", category[0] | reverse %}
 {% if posts_in_category.size > 0 %}
 ### {{ category[1].title }}
-<ul>
-{% for post in posts_in_category %}
-<li>{% include archive-single-cv.html post=post %}</li>
-{% endfor %}
-</ul>
+{% for post in posts_in_category %}{% include archive-single-publication.html %}{% endfor %}
 {% endif %}
 {% endfor %}
 {% else %}
-<ul>
-{% for post in site.publications reversed %}
-<li>{% include archive-single-cv.html %}</li>
-{% endfor %}
-</ul>
+{% for post in site.publications reversed %}{% include archive-single-publication.html %}{% endfor %}
 {% endif %}
+
+{% include copy-bibtex.html %}
   
 
 <!-- Talks

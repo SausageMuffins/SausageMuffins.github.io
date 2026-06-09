@@ -1,0 +1,36 @@
+<script>
+(function () {
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'absolute';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } finally { document.body.removeChild(ta); }
+    return Promise.resolve();
+  }
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.pub-bibtex-btn') : null;
+    if (!btn) return;
+    var src = document.getElementById(btn.getAttribute('data-bibtex-target'));
+    if (!src) return;
+    var text = src.innerText || src.textContent || '';
+    copyText(text).then(function () {
+      var original = btn.getAttribute('data-label') || btn.textContent;
+      btn.setAttribute('data-label', original);
+      btn.textContent = 'Copied!';
+      btn.classList.add('is-copied');
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove('is-copied');
+      }, 1500);
+    });
+  });
+})();
+</script>

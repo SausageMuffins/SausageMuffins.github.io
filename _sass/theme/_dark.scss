@@ -8,13 +8,15 @@ $dark-gray                  : mix(#000, $gray, 40%);
 $darker-gray                : mix(#000, $gray, 60%);
 $light-gray                 : mix(#fff, $gray, 50%);
 
-$background                 : #474747;
-$background-light           : mix(#fff, $background, 80%);
-$background-lighter         : mix(#fff, $background, 90%);
-$text                       : #ffffff;
-$link                       : #0ea1c5;
-$link-dark                  : mix(#000, $link, 25%);
-$link-light                 : mix(#fff, $link, 25%);
+/* Deep navy base with teal fills + orange accent to match the light theme */
+$d-navy-bg                  : #0f1f2a;  // page background
+$d-navy-bg-deep             : #0b1720;  // footer / deeper surfaces
+$d-teal-fill                : #2b8c9b;  // structural fills (buttons, nav pill, hamburger, ToC)
+$d-teal-link                : #4db8c8;  // links
+$d-orange                   : #f08a43;  // accent / hover
+$d-text                     : #e7eef2;  // body text
+$d-text-light               : #9fb0bb;
+$d-border                   : #253a47;
 
 /* Color codes used for the site */
 $danger-color               : #ee5f5b;
@@ -35,20 +37,23 @@ $sidebar-screen-min-width   : 1024px;
 
 /* Dark theme for the site */
 html[data-theme="dark"] {
-    --global-base-color                 : #{$background};
-    --global-bg-color                   : #{$background};
-    --global-footer-bg-color            : #{$background};
-    --global-border-color               : #{$light-gray};
-    --global-dark-border-color          : #{$background-light};
+    --global-base-color                 : #{$d-teal-fill};
+    --global-primary-color              : #{$d-teal-link};
+    --global-accent-color               : #{$d-orange};
+    --global-bg-color                   : #{$d-navy-bg};
+    --global-surface-color              : #152935;   /* cards lift slightly off the navy page */
+    --global-footer-bg-color            : #{$d-navy-bg-deep};
+    --global-border-color               : #{$d-border};
+    --global-dark-border-color          : #32505f;
     --global-code-background-color      : #fafafa;
     --global-code-text-color            : #{$darker-gray};
-    --global-fig-caption-color          : #{$light-gray};
-    --global-link-color                 : #{$link};
-    --global-link-color-hover           : #{$link-dark};
-    --global-link-color-visited         : #{$link-light};
-    --global-masthead-link-color        : #{$text};
-    --global-masthead-link-color-hover  : #{$background-light};
-    --global-text-color                 : #{$text};
-    --global-text-color-light           : #{$light-gray};
-    --global-thead-color                : #{$background-lighter};
+    --global-fig-caption-color          : #{$d-text-light};
+    --global-link-color                 : #{$d-teal-link};
+    --global-link-color-hover           : #{$d-orange};
+    --global-link-color-visited         : #7fd0dc;
+    --global-masthead-link-color        : #{$d-text};
+    --global-masthead-link-color-hover  : #{$d-teal-link};
+    --global-text-color                 : #{$d-text};
+    --global-text-color-light           : #{$d-text-light};
+    --global-thead-color                : #1a2c38;
 }

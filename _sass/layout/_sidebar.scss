@@ -95,7 +95,7 @@
 
   img {
     max-width: 175px;
-    border-radius: 50%;
+    border-radius: 6px; // square profile photo with softened corners
 
     @include breakpoint($large) {
       padding: 5px;
@@ -235,7 +235,7 @@
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
-    border-color: #fff transparent;
+    border-color: var(--global-bg-color) transparent;
     z-index: 1;
 
     @include breakpoint($large) {

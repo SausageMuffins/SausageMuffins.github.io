@@ -1,0 +1,33 @@
+{% comment %}
+  Pure-Liquid table of contents.
+
+  Unlike the kramdown `{:toc}` helper (which must live inside the Markdown body),
+  this builds the TOC from already-rendered `content`, so it can be placed in a
+  layout as its own column. Pass the page content in:
+
+    {% include toc_auto.html html=content %}
+
+  Only h1–h3 are listed. Headings get their ids from kramdown's auto-id.
+{% endcomment %}
+<nav class="toc" aria-label="Table of contents">
+  <header><h4 class="nav__title"><i class="fa fa-{{ include.icon | default: 'file-text' }}"></i> {{ include.title | default: site.data.ui-text[site.locale].toc_label | default: "Contents" }}</h4></header>
+  <ul class="toc__menu">
+    {% assign nodes = include.html | split: '<h' %}
+    {% for node in nodes %}
+      {% assign level = node | slice: 0, 1 %}
+      {% if level == '1' or level == '2' or level == '3' %}
+        {% comment %} Only real section headings carry an id in their opening tag.
+           This skips e.g. the publication cards' <h3 class="pub-card__title">,
+           whose titles must not pollute the table of contents. {% endcomment %}
+        {% assign open_tag = node | split: '>' | first %}
+        {% if open_tag contains 'id="' %}
+          {% assign id = open_tag | split: 'id="' | last | split: '"' | first %}
+          {% assign heading_text = node | split: '</h' | first | split: '>' | last | strip_html | strip %}
+          {% if heading_text != "" %}
+            <li class="toc-h{{ level }}"><a href="#{{ id }}">{{ heading_text }}</a></li>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>

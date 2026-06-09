@@ -1,16 +1,22 @@
 ---
 layout: archive
-title: "Service"
+title: "Service & Teaching"
 permalink: /service/
 author_profile: true
 ---
 
-<!-- <ul>{% for post in site.service reversed %}
-  {% include archive-single-cv.html %}
-{% endfor %}</ul> -->
-
 {% include base_path %}
 
-{% for post in site.service reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+{% if site.service.size > 0 %}
+  <h2 class="archive__subtitle">Service</h2>
+  {% for post in site.service reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
+
+{% if site.teaching.size > 0 %}
+  <h2 class="archive__subtitle">Teaching</h2>
+  {% for post in site.teaching reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}

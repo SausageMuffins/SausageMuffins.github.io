@@ -28,9 +28,12 @@
 }
 
 .archive__subtitle {
-  margin: 1.414em 0 0;
-  padding-bottom: 0.5em;
-  font-size: $type-size-5;
+  margin: 2em 0 0.5em;
+  padding-bottom: 0.4em;
+  font-size: $type-size-6;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--global-text-color-light);
   border-bottom: 1px solid var(--global-border-color);
 

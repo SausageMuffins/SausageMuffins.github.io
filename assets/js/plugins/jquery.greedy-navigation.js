@@ -74,9 +74,14 @@ function updateNav() {
 $(window).on('resize', function () {
   updateNav();
 });
-screen.orientation.addEventListener("change", function () {
-  updateNav();
-});
+// `screen.orientation` is undefined in some browsers (e.g. Safari, certain mobile
+// webviews). Guard it so a missing API doesn't throw and abort the rest of the
+// bundle (which would silently break the menu toggle and the theme switcher).
+if (screen.orientation && screen.orientation.addEventListener) {
+  screen.orientation.addEventListener("change", function () {
+    updateNav();
+  });
+}
 
 $btn.on('click', function () {
   $hlinks.toggleClass('hidden');
