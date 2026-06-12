@@ -57,6 +57,13 @@ Work Experience
 ======
 
 
+### Research Intern, DSO-AISG Research Award
+2025 September – Present
+- Collaborated with research scientists from DSO National Laboratories as part of the research award to improve VLM robustness against ambiguous and corrupted modalities.
+- Applied the Partial Information Decomposition (information theoretic) framework to motivate hypotheses and design experiments for tuning multimodal interactions.
+- Curated training (e.g. cleaning, deduplication) and validation partitions using vLLM, yielding three training sets (984,000 samples) of varying redundant interactions for supervised fine-tuning.
+- Tested the hypotheses by fine-tuning VLMs — ranging from 256M (SmolVLM) to 8B (LLaVa-OneVision) parameters — with low rank adapters, leading to a 38.3% decrease in visual-induced hallucinations and 16.8% gain in consistency; methods and findings were accepted into the ICML main track.
+
 ### Founding AI Engineer, Pallo (formerly Check) (Iterative W25)
 2025 January – March
 - Built a Retrieval Augmented Generation (RAG) workflow to produce syllabus-accurate outputs, securing a Pre-Seed fund from Iterative VC (Winter 2025).
