@@ -47,6 +47,7 @@ html[data-theme="dark"] {
     --global-dark-border-color          : #32505f;
     --global-code-background-color      : #fafafa;
     --global-code-text-color            : #{$darker-gray};
+    --global-toc-link-color             : #{mix(#fff, $d-orange, 30%)};  /* lighter orange, legible on navy */
     --global-fig-caption-color          : #{$d-text-light};
     --global-link-color                 : #{$d-teal-link};
     --global-link-color-hover           : #{$d-orange};
