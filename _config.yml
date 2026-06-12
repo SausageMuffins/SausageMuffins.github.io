@@ -13,7 +13,7 @@ title                    : "Yuriel Wang Jun Long Ryan"
 title_separator          : "-"
 name                     : &name "Yuriel Wang Jun Long Ryan"
 description              : &description "personal description"
-url                      : https://yurielryan.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+url                      : https://yurielryan.com # the base hostname & protocol for your site; must match the custom domain in CNAME, otherwise assets load cross-origin and the JS module bundle fails CORS
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "yurielryan/yurielryan.github.io"
 
