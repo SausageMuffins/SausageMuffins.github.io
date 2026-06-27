@@ -8,14 +8,14 @@ toc: true
 
 {% include base_path %}
 
-## Motivations
+# Motivations
 My research is driven by the goal of **Collaborative AI** --- a symbiosis where humans and AI continuously improve or augment one another in a positive feedback loop. To establish this loop, I believe that artificial intelligence must possess **social intelligence** to communicate effectively with humans, and be able to **adapt** as the context evolves.
 
 Current models exhibit an "intelligence" that appears to meet these needs, but this capability often stems from [scaling compute, data, and parameters](https://openai.com/index/scaling-laws-for-neural-language-models/). This approach is not only inefficient (relative to how humans learn), but also promotes a black-box paradigm that discourages scientific methods. For these reasons, I try to move beyond simply scaling anything and everything, and work towards a more mechanistic understanding of how concepts --- and by extension, intelligence --- emerge; this usually involves tuning one "knob" while holding others constant to isolate specific causes and effects.
 
 I also think this symbiosis could manifest as a form of **collective intelligence**: humans and agents (or even between clusters of each side) exchanging what they know so that the whole improves or adapts. To this end, I am looking to work on self/co-evolving agents (as a prospective PhD student) through an information theoretic lens. For example, modelling multi-agent system as a communication channel (e.g., how much of the task-relevant signal is accessible/preserved/is faithful when information flows from one agent to another).
 
-## Current Works
+# Current Works
 I enjoy bridging ideas from outside machine learning --- such as information theory (if we can even call this outside of ML...), the social sciences, or even philosophy --- to construct research questions. 
 
 My [latest work](https://icml.cc/virtual/2026/poster/61360) utilizes the Partial Information Decomposition (PID) framework to analyze multimodal data. This allows me to derive insights from how modalities interact --- redundant interactions (overlapping information), unique interactions (exclusive information), synergistic interactions (emergent information) --- to produce task-relevant information. I then operationalize these insights to systematically tune these interactions in instruction datasets. In doing so, I showed that carefully increasing redundant interactions could train vision language models that are more robust to hallucinations and ambiguous modalities.
