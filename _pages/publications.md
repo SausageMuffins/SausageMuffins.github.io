@@ -8,18 +8,21 @@ toc: true
 
 {% include base_path %}
 
-# Research Interests
 ## Motivations
-My research is driven by the goal of Collaborative AI---to attain a symbiosis where humans and AI continuously improve or augment one another in a positive feedback loop. To establish this loop, I believe that artificial intelligence must possess **social intelligence** to communicate effectively with humans, and be able to **comprehend emergent knowledge** as the context evolves.
+My research is driven by the goal of **Collaborative AI** --- a symbiosis where humans and AI continuously improve or augment one another in a positive feedback loop. To establish this loop, I believe that artificial intelligence must possess **social intelligence** to communicate effectively with humans, and be able to **adapt** as the context evolves.
 
-Current models exhibit an "intelligence" that appears to meet these needs, but this capability often stems from [scaling compute, data, and parameters](https://openai.com/index/scaling-laws-for-neural-language-models/). This approach is not only inefficient (relative to how humans learn), but it also promotes a black-box paradigm that discourages scientific methods. For these reasons, I try to move beyond simply "scaling" anything and everything and work towards a more mechanistic understanding of how concepts (and by extension, intelligence) emerge; this usually involves tuning one "knob" while holding others constant to isolate specific causes and effects. 
+Current models exhibit an "intelligence" that appears to meet these needs, but this capability often stems from [scaling compute, data, and parameters](https://openai.com/index/scaling-laws-for-neural-language-models/). This approach is not only inefficient (relative to how humans learn), but also promotes a black-box paradigm that discourages scientific methods. For these reasons, I try to move beyond simply scaling anything and everything, and work towards a more mechanistic understanding of how concepts --- and by extension, intelligence --- emerge; this usually involves tuning one "knob" while holding others constant to isolate specific causes and effects.
 
-My long term vision is to develop **systematic approaches to represent emergent knowledge and phenomena** within or outside of the AI field. In doing so, I hope that my work would establish the positive feedback loop in Collaborative AI, driving the human-AI symbiosis to progress both artifical intelligence *and* humans.
+I also think this symbiosis could manifest as a form of **collective intelligence**: humans and AIs (both possibly groups of either party) exchanging what they know so that the whole improves or adapts. To this end, I am looking to work on self/co-evolving agents (as a prospective PhD student) through an information theoretic lens. For example, modelling multi-agent system as a communication channel (e.g., how much of the task-relevant signal is accessible/preserved/is faithful when information flows from one agent to another).
 
-## Current Interests
-I enjoy bridging theories from outside machine learning---such as information theory (if we can even call this outside of ML...), the social sciences, or even philosophy---to construct rigorous hypotheses. Through these hypotheses, I seek to advance artificial intelligence in three key directions: **comprehending emergent ideas**, such as culture or humor; **analyzing emergent attributes** such as data quality or biases; and **managing emergent behaviors/properties** such as hallucinations and robustness.
+## Current Works
+I enjoy bridging ideas from outside machine learning --- such as information theory (if we can even call this outside of ML...), the social sciences, or even philosophy --- to construct research questions. 
 
-My latest work utilizes the Partial Information Decomposition (PID) framework (from information theory) to analyze multimodal data. This allows me to derive insights from how modalities interact---redundant interactions (overlapping information), unique interactions (exclusive information), synergistic interactions (emergent information)---to provide task-relevant information. From these insights, I hypothesize and test how tuning these interactions, specifically increasing redundant interactions, would affect robustness.
+My [latest work](https://icml.cc/virtual/2026/poster/61360) utilizes the Partial Information Decomposition (PID) framework to analyze multimodal data. This allows me to derive insights from how modalities interact --- redundant interactions (overlapping information), unique interactions (exclusive information), synergistic interactions (emergent information) --- to produce task-relevant information. I then operationalize these insights to systematically tune these interactions in instruction datasets. In doing so, I showed that carefully increasing redundant interactions could train vision language models that are more robust to hallucinations and ambiguous modalities.
+
+**[Ongoing]** Self-evolving agents for social behavior. I'm thinking about representing how we (the humans) infer social cues (e.g., emotions) through a "lossy channel" (See figure below). This could help inform "how much information is lost/preserved" for an agent to improve itself in producing a faithful internal state.
+
+![](/images/lossy_humans.jpg)
 
 <br>
 
