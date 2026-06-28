@@ -20,7 +20,7 @@ So far, my published work has mostly looked at the forward direction --- what co
 
 **What do I want to work on next?** 
 
-I am excited to work on other directions that information can flow in as well as the decision of when to *optimally switch* between them. Of particular interest, I'm exploring ideas of **collective intelligence** and **co-evolving systems**, where a population of agents improves themselves by interacting with the world and sharing what they have learned --- through perhaps an episodic memory --- to other agents. In this manner, information not only flows forward / backward, but also laterally to other agents! 
+I am excited to work on other directions that information can flow in as well as the decision of when to *optimally switch* between them. For instance, thinking about augmented LMs (e.g., RAG / tool calling), world modelling, or meta systems through the different lenses of information theory (e.g., [usable information](https://arxiv.org/pdf/2002.10689)). Of particular interest, I'm exploring ideas of **collective intelligence** and **co-evolving systems**, where a population of agents improves themselves by interacting with the world and sharing what they have learned --- through perhaps an episodic memory --- to other agents. In this manner, information not only flows forward / backward, but also laterally to other agents! 
 
 A couple of works that really inspired me: [CORAL](https://github.com/Human-Agent-Society/CORAL) (multi-agent self-evolution), [Colony](https://en.wikipedia.org/wiki/Colony_(2026_film)) (a film --- the zombies exhibit collective intelligence!), [R-Zero](https://github.com/Chengsong-Huang/R-Zero) (Self-evolving agent)
 
