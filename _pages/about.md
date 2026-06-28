@@ -18,7 +18,7 @@ I think of "information flow" as having directions. A system can move informatio
 
 So far, my published work has mostly looked at the forward direction --- what components of the data form the task-relevant signals ([Humor in Pixels](https://yurielryan.github.io/publication/2025-07-20-PixelHumor): benchmarking humor comprehension as a social signal), and how to exploit them ([Multimodal Interaction Tuning](https://arxiv.org/abs/2605.08145): amplifying redundant information to train more robust vision-language models).
 
-**What I wish to work on next?** 
+**What do I want to work on next?** 
 
 I am excited to work on other directions that information can flow in as well as the decision of when to *optimally switch* between them. Of particular interest, I'm exploring ideas of **collective intelligence** and **co-evolving systems**, where a population of agents improves themselves by interacting with the world and sharing what they have learned --- through perhaps an episodic memory --- to other agents. In this manner, information not only flows forward / backward, but also laterally to other agents! 
 
