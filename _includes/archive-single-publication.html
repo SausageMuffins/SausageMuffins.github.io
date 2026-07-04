@@ -1,6 +1,6 @@
 {% include base_path %}
 {% assign pub_title = post.title | markdownify | remove: "<p>" | remove: "</p>" | strip %}
-{% assign pub_authors = post.authors | replace: 'Yuriel Ryan', '<strong>Yuriel Ryan</strong>' %}
+{% assign pub_authors = post.authors | replace: 'Yuriel Wang Jun Long Ryan', '<strong>Yuriel Wang Jun Long Ryan</strong>' | replace: 'Yuriel Ryan', '<strong>Yuriel Ryan</strong>' %}
 {% assign pub_id = post.url | slugify %}
 
 {% comment %} Colour-coded venue tag: explicit `venue_short`, else sniff the venue string. {% endcomment %}

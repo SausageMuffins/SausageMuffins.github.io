@@ -140,7 +140,8 @@
   &--neurips{ background: #1f7a8c; }            /* teal */
   &--iclr   { background: #6b4fb0; }            /* violet */
   &--cvpr   { background: #2f9e6f; }            /* green */
-  &--aaai   { background: #c0492f; }            /* rust */
+  &--aaai,
+  &--icwsm  { background: #c0492f; }            /* rust */
   &--acl,
   &--naacl  { background: #9b2d4f; }            /* maroon */
 }

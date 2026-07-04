@@ -34,6 +34,7 @@ While this relatively new direction of AI research is exciting, I'm also mindful
 Date | News
 -----|-------
 2026-06-02 | <span class="pub-tag pub-tag--icml">ICML</span> One (second authored) paper accepted to **ICML (Workshop Trustworthy AI for Good)** 2026: [Balance Human Agency & AI Assistance in the Tussle for the ``Right'' to Choose, Own, Work, and Learn](https://openreview.net/forum?id=Mv8gKVRAqp)
+2026-05-25 | <span class="pub-tag pub-tag--icwsm">ICWSM</span> One (co-authored) paper published at **ICWSM** 2026: [Large Scale Narrative Analysis of Multimodal Memes](https://ojs.aaai.org/index.php/ICWSM/article/view/42722)
 2026-05-01 | <span class="pub-tag pub-tag--icml">ICML</span> One (first authored) paper accepted to **ICML (Main)** 2026: [Self-Captioning Multimodal Interaction Tuning](https://arxiv.org/abs/2605.08145)
 2025-08-22 | <span class="pub-tag pub-tag--emnlp">EMNLP</span> One (co-first authored) paper accepted to **EMNLP (Findings)** 2025: [Humor in Pixels](https://aclanthology.org/2025.findings-emnlp.755/)
 2025-08-16 | Awarded the <a href="https://aisingapore.org/research/dso-aisg-research-awards/" target="_blank">DSO-AISG Incentive Program</a> to support fundamental research on Multimodal LLMs!

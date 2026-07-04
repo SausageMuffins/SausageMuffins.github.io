@@ -2,9 +2,11 @@
 title: "Self-Captioning Multimodal Interaction Tuning: Amplifying Exploitable Redundancies for Robust Vision Language Models"
 collection: publications
 category: conferences
-permalink: /publication/2026-05-01-MIT
+permalink: /publication/2026-07-07-MIT
+redirect_from:
+  - /publication/2026-05-01-MIT
 excerpt: 'Amplifying redundant interactions to train robust vision language models.'
-date: 2026-05-01
+date: 2026-07-07
 venue: '43rd Proceedings of the International Conference on Machine Learning, Seoul, South Korea (ICML 2026)'
 authors: 'Yuriel Ryan, Ip Hei Man, Adriel Kuek, Paul Pu Liang, Roy Ka-Wei Lee'
 authors_note: 
