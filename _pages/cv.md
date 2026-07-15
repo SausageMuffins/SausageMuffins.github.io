@@ -59,9 +59,18 @@ Work Experience
 
 ### Research Intern, DSO-AISG Research Award
 2025 September – Present
+
+**Label-Free Self-Evolving VLMs** (ongoing project) | [GitHub](https://github.com/yurielryan/LMM-Video-Understanding) <br>
+2026 June – Present
+- Reproduced the full training stack of Video-Zero (self-evolving video LLM) from the paper's equations as the project's baseline: GRPO co-evolution of a Questioner–Solver pair (Qwen 3.5 9B on verl and vLLM) with consensus pseudo-labeling.
+- Orchestrated multi-model RL on shared GPUs — a frozen vLLM policy server scores rewards during GRPO training — running 5-iteration co-evolution pipelines end-to-end in ~4.5h on 2× H200 (SLURM).
+- Adapted the pipeline to ternary sentiment with self-generated pseudo-labels (majority voting), improving video-only accuracy over the base model from 41.9% to 44.2% without human-written annotation or labels.
+
+**Self-Reinforcing VLMs** (completed project – ICML 2026) | [GitHub](https://github.com/yurielryan/Multimodal-Interaction-Tuning) <br>
+2025 September – 2026 June
 - Collaborated with research scientists from DSO National Laboratories as part of the research award to improve VLM robustness against ambiguous and corrupted modalities.
 - Applied the Partial Information Decomposition (information theoretic) framework to motivate hypotheses and design experiments for tuning multimodal interactions.
-- Curated training (e.g. cleaning, deduplication) and validation partitions using vLLM, yielding three training sets (984,000 samples) of varying redundant interactions for supervised fine-tuning.
+- Curated training (e.g. cleaning, deduplication) and validation partitions using vLLM, yielding three training sets (984,000 samples) of varying redundant interactions for supervised fine-tuning (PEFT with LoRA).
 - Tested the hypotheses by fine-tuning VLMs — ranging from 256M (SmolVLM) to 8B (LLaVa-OneVision) parameters — with low rank adapters, leading to a 38.3% decrease in visual-induced hallucinations and 16.8% gain in consistency; methods and findings were accepted into the ICML main track.
 
 ### Founding AI Engineer, Pallo (formerly Check) (Iterative W25)
