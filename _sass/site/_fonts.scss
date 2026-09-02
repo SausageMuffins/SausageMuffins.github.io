@@ -1,0 +1,77 @@
+// Self-hosted subsets (assets/fonts, OFL). Plan §2.1, §6.6.
+// font-display: optional + preload: the page paints in the webfont or, on a
+// slow first visit, in the metric-matched fallback; never a swap, so CLS = 0.
+// Fallback overrides measured with fontTools (sample-average advance width at
+// opsz 16; hhea ascent/descent/lineGap divided by size-adjust):
+//   Newsreader 400  vs Georgia        size-adjust 97.07%  asc 75.72%  desc 27.30%  gap 0%
+//   Newsreader 600  vs Georgia Bold   size-adjust 87.79%  asc 83.72%  desc 30.19%  gap 0%
+//   Newsreader It.  vs Georgia Italic size-adjust 89.32%  asc 82.29%  desc 29.67%  gap 0%
+//   Plex Mono 400   vs Menlo          size-adjust 99.66%  asc 102.85% desc 27.59%  gap 0%
+
+@font-face {
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: optional;
+  src: url("../fonts/Newsreader.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Newsreader";
+  font-style: italic;
+  font-weight: 400;
+  font-display: optional;
+  src: url("../fonts/Newsreader-Italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url("../fonts/PlexMono-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Newsreader Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Georgia");
+  size-adjust: 97.07%;
+  ascent-override: 75.72%;
+  descent-override: 27.30%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Newsreader Fallback";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Georgia Bold"), local("Georgia-Bold");
+  size-adjust: 87.79%;
+  ascent-override: 83.72%;
+  descent-override: 30.19%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Newsreader Fallback";
+  font-style: italic;
+  font-weight: 400;
+  src: local("Georgia Italic"), local("Georgia-Italic");
+  size-adjust: 89.32%;
+  ascent-override: 82.29%;
+  descent-override: 29.67%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "PlexMono Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Menlo"), local("Menlo-Regular");
+  size-adjust: 99.66%;
+  ascent-override: 102.85%;
+  descent-override: 27.59%;
+  line-gap-override: 0%;
+}

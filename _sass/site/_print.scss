@@ -1,0 +1,63 @@
+// Print (§4.17): ink on white, chrome hidden, /cv/ prints as a résumé.
+@media print {
+  @page {
+    margin: 18mm;
+  }
+
+  :root {
+    --bg: #fff;
+    --surface: #fff;
+    --ink: #000;
+    --ink-muted: #333;
+    --rule: #bbb;
+    --rule-strong: #888;
+    --accent: #000;
+  }
+
+  html,
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .nav,
+  .theme-toggle,
+  .rail,
+  .toc,
+  .colophon .contact,
+  .channel,
+  .skip-link {
+    display: none !important;
+  }
+
+  .masthead {
+    position: static;
+    border: 0;
+  }
+
+  .shell,
+  .colophon__inner {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .pub,
+  .entry,
+  pre,
+  table,
+  figure {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}

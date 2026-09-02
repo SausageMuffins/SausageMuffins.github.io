@@ -1,0 +1,533 @@
+// Type: prose, headings (+ section counters on Contents pages), lists, links,
+// tables, code (+ Rouge in three tones), blockquote, figures. Plan §2.1, §4.3,
+// §4.4, §4.16 and the home hooks of §3.1.
+
+.prose {
+  font-size: var(--t-body);
+  line-height: 1.55;
+  hanging-punctuation: first last;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+p {
+  margin: 0 0 1.1rem;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+@media (max-width: 47.99em) {
+  .prose p,
+  .prose li {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+}
+
+strong,
+b {
+  font-weight: 600;
+}
+
+em,
+i,
+cite {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--t-small);
+}
+
+sup,
+sub {
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+// Headings — all Newsreader 500, balanced, no rules beneath.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--serif);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0;
+  text-wrap: balance;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+h1 {
+  font-size: var(--t-h1);
+  line-height: 1.15;
+  margin: 3rem 0 0.75rem;
+}
+
+h2 {
+  font-size: var(--t-h2);
+  line-height: 1.2;
+  margin: 2.25rem 0 0.5rem;
+}
+
+h3 {
+  font-size: var(--t-h3);
+  line-height: 1.3;
+  margin: 1.75rem 0 0.375rem;
+}
+
+h4,
+h5,
+h6 {
+  font-size: var(--t-body);
+  line-height: 1.4;
+  margin: 1.5rem 0 0.375rem;
+}
+
+h1 + h2,
+h2 + h3,
+h3 + h4 {
+  margin-top: 0.75rem;
+}
+
+hr + h1,
+hr + h2 {
+  margin-top: 2rem;
+}
+
+.prose > h1:first-child,
+.prose > h2:first-child,
+.prose > h3:first-child {
+  margin-top: 0;
+}
+
+// Page title (outside .prose, never counted)
+.page__title {
+  font-size: var(--t-title);
+  line-height: 1.1;
+  margin: 0 0 0.75rem;
+}
+
+.page__header {
+  margin-bottom: 2rem;
+}
+
+.page__meta {
+  font: 400 var(--t-meta) / 1.5 var(--mono);
+  color: var(--ink-muted);
+  font-variant-numeric: lining-nums tabular-nums;
+  margin: 0 0 0.5rem;
+}
+
+.page__meta a {
+  color: inherit;
+}
+
+.page__authors {
+  font-size: var(--t-small);
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin: 0 0 0.35rem;
+}
+
+.page__authors strong {
+  color: var(--ink);
+}
+
+.page__venue {
+  font-size: var(--t-small);
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin: 0 0 0.35rem;
+}
+
+.page__venue i {
+  font-style: italic;
+}
+
+.page__venue .year {
+  font: 400 var(--t-meta) / 1.5 var(--mono);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+// Section counters: only on pages that carry a Contents list (§4.3).
+.page--research .prose,
+.page--cv .prose {
+  counter-reset: sec;
+}
+
+.page--research .prose > h1,
+.page--cv .prose > h1 {
+  counter-increment: sec;
+  position: relative;
+}
+
+.page--research .prose > h1::before,
+.page--cv .prose > h1::before {
+  content: counter(sec);
+  font: 400 var(--t-micro) / 1 var(--mono);
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--ink-muted);
+  margin-right: 0.75em;
+}
+
+@media (min-width: 64em) {
+  .page--research .prose > h1::before,
+  .page--cv .prose > h1::before {
+    position: absolute;
+    right: calc(100% + 1rem);
+    top: 0.3em;
+    text-align: right;
+    margin-right: 0;
+    line-height: 1.5;
+  }
+}
+
+// Links (§4.4)
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+  text-decoration-color: var(--rule-strong);
+  text-decoration-skip-ink: auto;
+  transition: color var(--d-1) var(--ease), text-decoration-color var(--d-1) var(--ease);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+// Apparatus links: mono, no underline at rest.
+.apparatus a,
+a.apparatus {
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.apparatus a:hover,
+a.apparatus:hover,
+.apparatus a:focus-visible,
+a.apparatus:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+}
+
+[data-copy].is-copied {
+  color: var(--accent);
+}
+
+// Lists
+ul,
+ol {
+  margin: 0 0 1.1rem;
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+}
+
+.prose ul {
+  list-style: none;
+}
+
+.prose ul > li {
+  position: relative;
+}
+
+.prose ul > li::before {
+  content: "\2013";
+  position: absolute;
+  left: -1.25rem;
+  color: var(--ink-muted);
+}
+
+.prose ol > li::marker {
+  color: var(--ink-muted);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+dl {
+  margin: 0 0 1.1rem;
+}
+
+dt {
+  font-weight: 600;
+}
+
+dd {
+  margin: 0 0 0.5rem 1.25rem;
+}
+
+// Rules
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule-strong);
+  margin: 2.5rem 0;
+}
+
+// Tables (generic; the Updates and Courses transforms live in _tables)
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0;
+  margin: 1.5rem 0 2rem;
+  font-size: var(--t-small);
+  line-height: 1.5;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.6rem 0.75rem 0.6rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+th {
+  font: 400 var(--t-micro) / 1.45 var(--mono);
+  color: var(--ink-muted);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+// Code
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--mono);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-variant-ligatures: none;
+}
+
+code,
+kbd {
+  font-size: 0.875em;
+  background: var(--surface);
+  padding: 0.1em 0.35em;
+  border-radius: var(--r-1);
+}
+
+pre {
+  font-size: var(--t-meta);
+  line-height: 1.5;
+  background: var(--surface);
+  padding: 1rem 1.25rem;
+  border-radius: var(--r-1);
+  overflow-x: auto;
+  margin: 1.5rem 0 2rem;
+  tab-size: 2;
+}
+
+pre code {
+  font-size: inherit;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+@media (max-width: 47.99em) {
+  pre {
+    margin-inline: calc(-1 * var(--pad));
+    border-radius: 0;
+    padding-inline: var(--pad);
+  }
+}
+
+pre.citation-bibtex,
+pre.pub-bibtex-source {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+div.highlighter-rouge,
+figure.highlight {
+  margin: 1.5rem 0 2rem;
+  background: none;
+  border: 0;
+}
+
+div.highlighter-rouge pre,
+figure.highlight pre {
+  margin: 0;
+}
+
+// Rouge: three tones — ink (default), muted italic (comments), accent (strings, numbers).
+.highlight {
+  color: var(--ink);
+}
+
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .cs,
+.highlight .cp,
+.highlight .ch,
+.highlight .cd {
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sa,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr,
+.highlight .ss,
+.highlight .dl,
+.highlight .m,
+.highlight .mb,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .mx,
+.highlight .il {
+  color: var(--accent);
+}
+
+.highlight .gd,
+.highlight .gi,
+.highlight .ge,
+.highlight .gs,
+.highlight .gh,
+.highlight .gu,
+.highlight .gr,
+.highlight .err {
+  color: inherit;
+  background: none;
+  font-weight: inherit;
+}
+
+.highlight table td {
+  padding: 0;
+  border: 0;
+}
+
+.highlight table pre {
+  margin: 0;
+}
+
+// Blockquote, figures, images
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0 0 0 1rem;
+  border-left: 1px solid var(--rule-strong);
+  font-style: italic;
+  font-size: var(--t-small);
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  margin: 1.5rem 0;
+  border-radius: var(--r-1);
+}
+
+figure {
+  margin: 1.5rem 0 2rem;
+}
+
+figure img {
+  margin: 0;
+}
+
+figcaption {
+  font-size: var(--t-small);
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin-top: 0.5rem;
+}
+
+// Venue labels (§4.5): one style, mono, muted, no fills.
+.pub-tag {
+  font: 400 var(--t-micro) / 1.45 var(--mono);
+  letter-spacing: 0.04em;
+  color: var(--tag-default);
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin-right: 0.5em;
+  white-space: nowrap;
+}
+
+.pub-tag--icml {
+  color: var(--tag-icml);
+}
+
+.pub-tag--icwsm {
+  color: var(--tag-icwsm);
+}
+
+.pub-tag--emnlp {
+  color: var(--tag-emnlp);
+}
+
+// Home hooks (§3.1)
+.page--home .prose > p:first-of-type {
+  font-size: var(--t-lead);
+  line-height: 1.4;
+}
+
+.page--home .prose p:has(> strong:only-child) {
+  font-family: var(--serif);
+  font-size: var(--t-h3);
+  line-height: 1.3;
+  font-weight: 500;
+  margin: 1.75rem 0 0;
+}
+
+.page--home .prose p:has(> strong:only-child) > strong {
+  font-weight: 500;
+}
+
+// Spacer paragraphs authored as <p><br></p>
+.prose p:has(> br:only-child) {
+  display: none;
+}
+
+// Anchor offset under the sticky masthead
+[id] {
+  scroll-margin-top: 1rem;
+}
+
+@media (min-width: 48em) {
+  [id] {
+    scroll-margin-top: calc(var(--masthead-h) + 1rem);
+  }
+}

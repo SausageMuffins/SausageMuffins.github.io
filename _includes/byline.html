@@ -1,0 +1,16 @@
+{% include base_path %}
+{% comment %}
+  Byline (PLAN §4.2), rendered on "/" only by single.html: photo 88px (64px on
+  phones), name + pronouns, bio, location · employer and contact links.
+  Until decision 16 the existing JPEG avatar is used and sized.
+{% endcomment %}
+<div class="byline" itemscope itemtype="http://schema.org/Person">
+  {% if site.author.avatar %}
+    <img class="byline__photo" src="{% if site.author.avatar contains '://' %}{{ site.author.avatar }}{% else %}{{ base_path }}/images/{{ site.author.avatar }}{% endif %}" width="88" height="88" alt="{{ site.author.name }}" fetchpriority="high" decoding="async" itemprop="image">
+  {% endif %}
+  <p class="byline__name"><span itemprop="name">{{ site.author.name }}</span>{% if site.author.pronouns %} <span class="byline__pronouns">{{ site.author.pronouns }}</span>{% endif %}</p>
+  {% if site.author.bio %}<p class="byline__bio" itemprop="description">{{ site.author.bio }}</p>{% endif %}
+  <div class="byline__contact">
+    {% include contact-line.html %}
+  </div>
+</div>

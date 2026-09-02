@@ -1,0 +1,54 @@
+// Shell grid (§3.0). body: masthead → .shell (flex: 1) → footer.colophon.
+// Desktop ≥ 1024: rail | reading (37rem) | margin. Below: one centred column.
+.shell {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: calc(var(--measure) + 2 * var(--pad));
+  margin-inline: auto;
+  padding: 2rem var(--pad) 0;
+}
+
+.reading {
+  min-width: 0;
+}
+
+.rail {
+  display: none;
+}
+
+@media (min-width: 64em) {
+  .shell {
+    max-width: var(--container);
+    padding-top: 3rem;
+    display: grid;
+    grid-template-columns: var(--rail) var(--measure) var(--margin);
+    column-gap: var(--gap);
+    align-items: start;
+  }
+
+  .rail {
+    display: block;
+    grid-column: 1;
+    position: sticky;
+    top: calc(var(--masthead-h) + 2rem);
+    max-height: calc(100vh - var(--masthead-h) - 3rem);
+    max-height: calc(100dvh - var(--masthead-h) - 3rem);
+    overflow-y: auto;
+  }
+
+  .reading {
+    grid-column: 2;
+  }
+
+  // Wide objects may bleed into the empty right margin (≥ 1150).
+  @media (min-width: 71.875em) {
+    .bleed {
+      width: calc(var(--measure) + 10rem);
+      max-width: calc(var(--measure) + 10rem);
+    }
+  }
+}
+
+.page {
+  min-width: 0;
+}

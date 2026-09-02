@@ -1,26 +1,29 @@
 {% include base_path %}
+{% comment %}
+  Masthead (PLAN §4.1): wordmark (site.author.name → home) · nav from
+  _data/navigation.yml with aria-current · theme toggle. No "About" item:
+  the wordmark is the home link. Collection docs light their section.
+{% endcomment %}
+{%- assign nav_current = page.url -%}
+{%- if page.collection == "publications" -%}{%- assign nav_current = "/research/" -%}
+{%- elsif page.collection == "portfolio" -%}{%- assign nav_current = "/portfolio/" -%}
+{%- elsif page.collection == "service" or page.collection == "teaching" -%}{%- assign nav_current = "/service/" -%}
+{%- elsif page.collection == "posts" -%}{%- assign nav_current = "/year-archive/" -%}
+{%- endif -%}
 
-<div class="masthead">
-  <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
-        <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="{{ base_path }}/">About</a></li>
-          {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-            {% else %}
-              {% assign domain = base_path %}
-            {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-          <li id="theme-toggle" class="masthead__menu-item persist tail">
-            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
-          </li>
-        </ul>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
+<header class="masthead">
+  <div class="masthead__inner">
+    <a class="wordmark" href="{{ base_path }}/"{% if page.url == "/" %} aria-current="page"{% endif %}>{{ site.author.name }}</a>
+    <button type="button" class="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+      <svg class="theme-toggle__glyph" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1"/><path d="M8 1a7 7 0 0 0 0 14z" fill="currentColor"/></svg>
+    </button>
+    <nav class="nav" aria-label="Site">
+      <ul>
+        {% for link in site.data.navigation.main %}
+          {% if link.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = base_path %}{% endif %}
+          <li><a href="{{ domain }}{{ link.url }}"{% if link.url == nav_current %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
   </div>
-</div>
+</header>

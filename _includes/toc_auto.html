@@ -1,33 +1,77 @@
 {% comment %}
-  Pure-Liquid table of contents.
+  Contents (PLAN §4.12). Pure Liquid, built from rendered content: h1–h3 that
+  carry an id (kramdown auto-ids), nested by level (decision 23).
 
-  Unlike the kramdown `{:toc}` helper (which must live inside the Markdown body),
-  this builds the TOC from already-rendered `content`, so it can be placed in a
-  layout as its own column. Pass the page content in:
+    {% include toc_auto.html html=content variant="rail" %}     → nav.toc.toc--rail (≥ 1024, sticky rail)
+    {% include toc_auto.html html=content variant="details" %}  → details.toc.toc--inline (< 1024, closed)
 
-    {% include toc_auto.html html=content %}
-
-  Only h1–h3 are listed. Headings get their ids from kramdown's auto-id.
+  Both variants are emitted by the layout; CSS shows one. Works with JS off.
+  li.toc-hN carries the real heading level (counters key off toc-h1); nesting
+  depth is relative to the shallowest heading on the page.
 {% endcomment %}
-<nav class="toc" aria-label="Table of contents">
-  <header><h4 class="nav__title"><i class="fa fa-{{ include.icon | default: 'file-text' }}"></i> {{ include.title | default: site.data.ui-text[site.locale].toc_label | default: "Contents" }}</h4></header>
-  <ul class="toc__menu">
-    {% assign nodes = include.html | split: '<h' %}
-    {% for node in nodes %}
-      {% assign level = node | slice: 0, 1 %}
-      {% if level == '1' or level == '2' or level == '3' %}
-        {% comment %} Only real section headings carry an id in their opening tag.
-           This skips e.g. the publication cards' <h3 class="pub-card__title">,
-           whose titles must not pollute the table of contents. {% endcomment %}
-        {% assign open_tag = node | split: '>' | first %}
-        {% if open_tag contains 'id="' %}
-          {% assign id = open_tag | split: 'id="' | last | split: '"' | first %}
-          {% assign heading_text = node | split: '</h' | first | split: '>' | last | strip_html | strip %}
-          {% if heading_text != "" %}
-            <li class="toc-h{{ level }}"><a href="#{{ id }}">{{ heading_text }}</a></li>
-          {% endif %}
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  </ul>
+{%- assign toc_nodes = include.html | split: '<h' -%}
+{%- assign toc_min = 9 -%}
+{%- for node in toc_nodes -%}
+  {%- assign level = node | slice: 0, 1 -%}
+  {%- if level == '1' or level == '2' or level == '3' -%}
+    {%- assign open_tag = node | split: '>' | first -%}
+    {%- if open_tag contains 'id="' -%}
+      {%- assign heading_text = node | split: '</h' | first | remove_first: open_tag | remove_first: '>' | strip_html | strip -%}
+      {%- if heading_text != "" -%}
+        {%- assign lvl = level | plus: 0 -%}
+        {%- if lvl < toc_min -%}{%- assign toc_min = lvl -%}{%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- capture toc_list -%}
+{%- assign stack = "" | split: "," -%}
+<ol>
+{%- for node in toc_nodes -%}
+  {%- assign level = node | slice: 0, 1 -%}
+  {%- if level == '1' or level == '2' or level == '3' -%}
+    {%- assign open_tag = node | split: '>' | first -%}
+    {%- if open_tag contains 'id="' -%}
+      {%- assign id = open_tag | split: 'id="' | last | split: '"' | first -%}
+      {%- assign heading_text = node | split: '</h' | first | remove_first: open_tag | remove_first: '>' | strip_html | strip -%}
+      {%- if heading_text != "" -%}
+        {%- assign lvl = level | plus: 0 -%}
+        {%- assign popped = false -%}
+        {%- for i in (1..3) -%}
+          {%- assign top = stack | last -%}
+          {%- if stack.size > 0 and top >= lvl -%}
+            {%- assign stack = stack | pop -%}
+            {%- assign popped = true -%}</li>
+            {%- assign top = stack | last -%}
+            {%- if stack.size > 0 and top >= lvl -%}</ol>{%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if popped == false and stack.size > 0 -%}<ol>{%- endif -%}
+        <li class="toc-h{{ lvl }}"><a href="#{{ id }}">{{ heading_text }}</a>
+        {%- assign stack = stack | push: lvl -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- for i in (1..3) -%}
+  {%- if stack.size > 0 -%}
+    {%- assign stack = stack | pop -%}</li>
+    {%- if stack.size > 0 -%}</ol>{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+</ol>
+{%- endcapture -%}
+{%- assign toc_list = toc_list | strip -%}
+{%- if toc_list != "<ol></ol>" -%}
+{%- if include.variant == "details" -%}
+<details class="toc toc--inline">
+  <summary>{{ include.title | default: "Contents" }}</summary>
+  {{ toc_list }}
+</details>
+{%- else -%}
+<nav class="toc toc--rail" aria-labelledby="toc-label">
+  <p class="toc__label" id="toc-label">{{ include.title | default: "Contents" }}</p>
+  {{ toc_list }}
 </nav>
+{%- endif -%}
+{%- endif -%}

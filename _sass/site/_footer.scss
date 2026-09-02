@@ -1,0 +1,51 @@
+// Colophon (§4.13): hairline across the container, text aligned to the
+// reading column; contact line, then © · Jekyll · rev. date.
+.colophon {
+  margin-top: 4rem;
+  border-top: 1px solid var(--rule);
+}
+
+.colophon__inner {
+  width: 100%;
+  max-width: calc(var(--measure) + 2 * var(--pad));
+  margin-inline: auto;
+  padding: 2.5rem var(--pad) 3rem;
+}
+
+.colophon__body {
+  min-width: 0;
+}
+
+.colophon__meta {
+  font: 400 var(--t-micro) / 1.45 var(--mono);
+  color: var(--ink-muted);
+  margin: 0.75rem 0 0;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.colophon__meta a {
+  display: inline-block;
+  padding-block: 0.35rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.colophon__meta a:hover,
+.colophon__meta a:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+}
+
+@media (min-width: 64em) {
+  .colophon__inner {
+    max-width: var(--container);
+    display: grid;
+    grid-template-columns: var(--rail) var(--measure) var(--margin);
+    column-gap: var(--gap);
+  }
+
+  .colophon__body {
+    grid-column: 2;
+  }
+}

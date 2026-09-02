@@ -1,0 +1,38 @@
+// Theme toggle (§4.14): 2.25rem square hit area, 16px half-disc, rotates 180°
+// in dark (transform only). Hidden without JS (system theme applies anyway).
+.theme-toggle {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-muted);
+  border-radius: var(--r-0);
+  transition: color var(--d-1) var(--ease);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--ink);
+}
+
+.theme-toggle__glyph {
+  width: 16px;
+  height: 16px;
+  display: block;
+  transition: transform var(--d-2) var(--ease);
+}
+
+:root[data-theme="dark"] .theme-toggle__glyph {
+  transform: rotate(180deg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle__glyph {
+    transform: rotate(180deg);
+  }
+}
+
+.no-js .theme-toggle {
+  display: none;
+}

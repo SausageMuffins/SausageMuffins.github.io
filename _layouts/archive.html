@@ -2,29 +2,33 @@
 layout: default
 ---
 
-{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
+{% include base_path %}
+{% comment %}
+  Archive page (PLAN §3.2–3.6): same shell as single. h1.page__title only when
+  page.title is non-blank (Research and CV set title: ""), Contents rail and
+  inline <details> when toc: true, content wrapped in div.prose.
+{% endcomment %}
+
+{% if page.toc %}
+  <aside class="rail">
+    {% include toc_auto.html html=content variant="rail" %}
+  </aside>
 {% endif %}
 
-{% if page.url != "/" and site.breadcrumbs %}
-  {% unless paginator %}
-    {% include breadcrumbs.html %}
-  {% endunless %}
-{% endif %}
+<main class="reading" id="main">
+  <div class="page">
+    {% if page.title and page.title != "" %}
+      <header class="page__header">
+        <h1 class="page__title">{{ page.title }}</h1>
+      </header>
+    {% endif %}
 
-<div id="main" role="main" class="layout {% if page.toc %}layout--with-toc{% else %}layout--no-toc{% endif %}">
-  {% include sidebar.html %}
+    {% if page.toc %}
+      {% include toc_auto.html html=content variant="details" %}
+    {% endif %}
 
-  <div class="archive">
-    {% unless page.header.overlay_color or page.header.overlay_image %}
-      <h1 class="page__title">{{ page.title }}</h1>
-    {% endunless %}
-    {{ content }}
+    <div class="prose">
+      {{ content }}
+    </div>
   </div>
-
-  {% if page.toc %}
-    <aside class="sidebar__right">
-      {% include toc_auto.html html=content %}
-    </aside>
-  {% endif %}
-</div>
+</main>

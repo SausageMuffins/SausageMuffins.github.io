@@ -1,0 +1,120 @@
+// Masthead (§4.1): wordmark · nav · toggle. Static two-row on phones,
+// sticky one-row from 768. Hairline below, opaque paper, no shadow.
+.masthead {
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 0.75rem var(--pad) 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1;
+  font-variation-settings: "opsz" 24;
+  color: var(--ink);
+  text-decoration: none;
+  padding-block: 0.5rem;
+  white-space: nowrap;
+}
+
+.wordmark:hover,
+.wordmark:focus-visible {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.nav {
+  grid-column: 1 / -1;
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.nav li {
+  margin: 0;
+}
+
+.nav a {
+  display: inline-block;
+  font: 400 var(--t-micro) / 1.45 var(--mono);
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding-block: 0.5rem;
+  min-height: 36px;
+  transition: color var(--d-1) var(--ease);
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--rule-strong);
+  text-underline-offset: 0.45em;
+}
+
+.nav a[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.45em;
+}
+
+@media (min-width: 48em) {
+  .masthead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .masthead__inner {
+    height: var(--masthead-h);
+    padding-block: 0;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 1.5rem;
+  }
+
+  .wordmark {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .nav {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .theme-toggle {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .nav ul {
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+  }
+
+  .nav a {
+    font-size: var(--t-meta);
+    line-height: 1.5;
+    min-height: 0;
+  }
+}

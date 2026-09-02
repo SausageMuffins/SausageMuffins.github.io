@@ -3,29 +3,42 @@ layout: compress
 ---
 
 {% include base_path %}
+{% comment %}
+  Shell (PLAN §3.0): body.page--… → header.masthead → div.shell → footer.colophon.
+  The page class comes from page.url so page-scoped rules never leak.
+{% endcomment %}
+{%- assign page_class = "page--single" -%}
+{%- if page.url == "/" -%}{%- assign page_class = "page--home" -%}
+{%- elsif page.url == "/research/" -%}{%- assign page_class = "page--research" -%}
+{%- elsif page.url == "/cv/" -%}{%- assign page_class = "page--cv" -%}
+{%- elsif page.url == "/portfolio/" -%}{%- assign page_class = "page--portfolio" -%}
+{%- elsif page.url == "/year-archive/" -%}{%- assign page_class = "page--year-archive" -%}
+{%- elsif page.url == "/service/" -%}{%- assign page_class = "page--service" -%}
+{%- elsif page.url == "/404.html" -%}{%- assign page_class = "page--404" -%}
+{%- elsif page.collection or page.id -%}{%- assign page_class = "page--single" -%}
+{%- else -%}{%- assign page_class = "page--other" -%}
+{%- endif -%}
 
 <!doctype html>
-<html lang="{{ site.locale | slice: 0,2 }}" class="no-js"{% if site.site_theme == "dark" %} data-theme="dark"{% endif %}>
+<html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
   <head>
     {% include head.html %}
     {% include head/custom.html %}
   </head>
 
-  <body>
-
-    {% include browser-upgrade.html %}
+  <body class="{{ page_class }}{% if page.toc %} has-toc{% endif %}">
+    <a class="skip-link" href="#main">Skip to content</a>
     {% include masthead.html %}
 
-    {{ content }}
-
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include footer.html %}
-      </footer>
+    <div class="shell">
+      {{ content }}
     </div>
 
-    {% include scripts.html %}
+    <footer class="colophon">
+      {% include footer/custom.html %}
+      {% include footer.html %}
+    </footer>
 
+    {% include scripts.html %}
   </body>
 </html>

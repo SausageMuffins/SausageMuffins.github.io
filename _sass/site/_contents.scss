@@ -1,0 +1,148 @@
+// Contents (§4.12). Rendered twice by the layout: .toc--rail (≥ 1024, sticky
+// in the left rail) and .toc--inline (<details>, top of the column below 1024).
+.toc {
+  font: 400 var(--t-meta) / 1.45 var(--mono);
+  color: var(--ink-muted);
+}
+
+.toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc li {
+  margin: 0;
+}
+
+.toc a {
+  display: block;
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding: 0.3rem 0 0.3rem 0.75rem;
+  border-left: 2px solid transparent;
+  transition: color var(--d-1) var(--ease), border-color var(--d-1) var(--ease);
+}
+
+.toc a:hover,
+.toc a:focus-visible {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.toc a[aria-current] {
+  color: var(--ink);
+  border-left-color: var(--accent);
+}
+
+// Nesting: depth classes carry the indent; level classes carry the counter.
+.toc ol ol a {
+  padding-left: 1.25rem;
+}
+
+.toc ol ol ol a {
+  padding-left: 2.25rem;
+  font-size: var(--t-micro);
+}
+
+.toc__label {
+  font: 400 var(--t-micro) / 1.45 var(--mono);
+  color: var(--ink-muted);
+  margin: 0 0 0.5rem;
+  padding-left: calc(0.75rem + 2px);
+}
+
+// Plain counters on h1 entries, only where the headings are counted (§4.3).
+.page--research .toc ol,
+.page--cv .toc ol {
+  counter-reset: toc;
+}
+
+.page--research .toc li.toc-h1 > a::before,
+.page--cv .toc li.toc-h1 > a::before {
+  counter-increment: toc;
+  content: counter(toc) " ";
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+// Rail variant
+.toc--rail {
+  display: none;
+}
+
+// Inline (details) variant
+.toc--inline {
+  margin: 0 0 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.toc--inline summary {
+  font: 400 var(--t-micro) / 1.45 var(--mono);
+  color: var(--ink-muted);
+  cursor: pointer;
+  list-style: none;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--rule);
+}
+
+.toc--inline summary::-webkit-details-marker {
+  display: none;
+}
+
+.toc--inline summary::before {
+  content: "+";
+  display: inline-block;
+  width: 1.25rem;
+  color: var(--ink-muted);
+}
+
+.toc--inline[open] summary::before {
+  content: "\2013";
+}
+
+.toc--inline summary:hover,
+.toc--inline summary:focus-visible {
+  color: var(--ink);
+}
+
+.toc--inline > ol {
+  padding: 0.5rem 0 0.75rem;
+}
+
+.toc--inline a {
+  padding-block: 0.55rem;
+  min-height: 40px;
+  border-left: 0;
+  padding-left: 1.25rem;
+}
+
+.toc--inline ol ol a {
+  padding-left: 2.25rem;
+}
+
+.toc--inline ol ol ol a {
+  padding-left: 3.25rem;
+}
+
+@media (min-width: 48em) {
+  .toc--inline > ol {
+    columns: 2;
+    column-gap: 2rem;
+  }
+
+  .toc--inline > ol > li {
+    break-inside: avoid;
+  }
+}
+
+@media (min-width: 64em) {
+  .toc--rail {
+    display: block;
+  }
+
+  .toc--inline {
+    display: none;
+  }
+}

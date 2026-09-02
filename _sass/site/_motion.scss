@@ -1,0 +1,13 @@
+// Reduced motion (§4.17): every duration to 0, no animation, no smooth scroll.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0ms !important;
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
