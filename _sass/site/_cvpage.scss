@@ -1,1 +1,58 @@
-// Placeholder: filled by a later component agent (Phase 2/3). Keep the import order in assets/css/site.scss.
+// CV page (plan §3.3, §4.9). Everything here reaches authored markdown through
+// structure alone: the degree blocks are `**Degree** <br> *Institution* <br>
+// dates` paragraphs, the roles are `### Role` followed by a bare date line.
+// Section counters (gutter + Contents) are generic in _type / _contents;
+// `<p><br></p>` spacers are hidden generically; bullet en-dashes are generic.
+
+// Degree / sub-project titles: only paragraphs that contain a <br> qualify,
+// so `**Technical Skills:**` keeps ordinary emphasis.
+.page--cv .prose p:has(> br) {
+  margin-bottom: 0.75rem;
+}
+
+.page--cv .prose p:has(> br) > strong:first-child {
+  font-family: var(--serif);
+  font-size: var(--t-h3);
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.page--cv .prose p:has(> br) > em {
+  color: var(--ink-muted);
+}
+
+// The rule between degrees is a hairline, closer than the generic hr.
+.page--cv .prose hr {
+  border-top-color: var(--rule);
+  margin: 1.75rem 0;
+}
+
+// Role meta line (`2025 September – Present`, optionally `| [[GitHub]]`):
+// mono apparatus directly under the h3. Direct-child combinator keeps the
+// publication entries' own h3 + p pairs out of this rule.
+.page--cv .prose > h3 + p {
+  font: 400 var(--t-meta) / 1.5 var(--mono);
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--ink-muted);
+  margin: -0.25rem 0 0.6rem;
+}
+
+.page--cv .prose > h3 + p a {
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.page--cv .prose > h3 + p a:hover,
+.page--cv .prose > h3 + p a:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+}
+
+// Print: degree titles and role meta stay legible in ink on white; the
+// résumé keeps its degree blocks together.
+@media print {
+  .page--cv .prose p:has(> br) {
+    break-inside: avoid;
+  }
+}

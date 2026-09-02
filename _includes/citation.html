@@ -1,5 +1,21 @@
 {% comment %}
-  Placeholder (PLAN §4.11). Owned by the citation agent (Phase 2): renders the
-  "BibTeX" label, pre.citation-bibtex and the "Copy BibTeX · Paper" actions
-  when page.citation is non-blank and not "TBA". Renders nothing yet.
+  Citation block for publication detail pages (PLAN §4.11, §3.7, decision 14).
+  Rendered by single.html inside .prose after the abstract. The BibTeX label and
+  pre appear only when page.citation is non-blank and not "TBA"; the actions
+  line (Copy BibTeX · Paper · Slides · BibTeX file) renders whenever any of
+  those exist, so the workshop paper shows only "Paper". Copy uses the shared
+  [data-copy] handler in site.js.
 {% endcomment %}
+{% assign cit = page.citation | default: "" | strip %}
+{% assign cit_dc = cit | downcase %}
+{% if cit_dc == "tba" %}{% assign cit = "" %}{% endif %}
+{% assign cit_id = page.url | slugify | prepend: "bib-" %}
+{% if cit != "" or page.paperurl or page.slidesurl or page.bibtexurl %}
+<section class="citation">
+{% if cit != "" %}
+<h2 class="citation__label">BibTeX</h2>
+<pre id="{{ cit_id }}" class="citation-bibtex">{{ cit | escape }}</pre>
+{% endif %}
+<p class="pub__actions">{% if cit != "" %}<button type="button" data-copy data-copy-target="{{ cit_id }}">Copy BibTeX</button> {% endif %}{% if page.paperurl %}<a href="{{ page.paperurl }}" rel="noopener">Paper</a>{% endif %}{% if page.slidesurl %} <a href="{{ page.slidesurl }}" rel="noopener">Slides</a>{% endif %}{% if page.bibtexurl %} <a href="{{ page.bibtexurl }}" rel="noopener">BibTeX file</a>{% endif %}</p>
+</section>
+{% endif %}

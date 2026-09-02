@@ -1,1 +1,151 @@
-// Placeholder: filled by a later component agent (Phase 2/3). Keep the import order in assets/css/site.scss.
+// List entries (§4.10; §3.4 Projects, §3.5 Thoughts, §3.6 Service & Teaching)
+// and the CV list items (§3.3). Markup from _includes/archive-single.html and
+// _includes/archive-single-cv.html. Hairlines, not boxes: rows are separated
+// by a --rule line between siblings only, so nothing follows the last entry
+// and nothing sits between a heading and its first entry.
+//
+//   article.entry                 ≥ 64em: grid 5.5rem 1fr, gap 1rem (same hanging
+//     time.entry__label           label as article.pub, §4.6); below: label above title
+//     div.entry__body
+//       h3.entry__title > a       Newsreader 500 --t-h3, no underline at rest
+//       p.entry__meta             mono --t-meta muted (teaching: type · venue; service: type)
+//       div.entry__excerpt        --t-small serif; authored bracket links after a <br> in mono
+
+.entry {
+  padding: 1.25rem 0;
+  margin: 0;
+}
+
+.entry + .entry {
+  border-top: 1px solid var(--rule);
+}
+
+.prose > .entry:first-child {
+  padding-top: 0;
+}
+
+.entry__label {
+  display: block;
+  font: 400 var(--t-meta) / 1.5 var(--mono);
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  margin: 0 0 0.25rem;
+}
+
+.entry__body {
+  min-width: 0;
+}
+
+.entry__title {
+  font-size: var(--t-h3);
+  line-height: 1.3;
+  font-weight: 500;
+  margin: 0;
+}
+
+.entry__title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.entry__title a:hover,
+.entry__title a:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+}
+
+.entry__meta {
+  font: 400 var(--t-meta) / 1.5 var(--mono);
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--ink-muted);
+  margin: 0.25rem 0 0;
+}
+
+.entry__excerpt {
+  font-size: var(--t-small);
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin-top: 0.5rem;
+}
+
+.entry__excerpt p {
+  margin: 0 0 0.5rem;
+}
+
+.entry__excerpt p:last-child {
+  margin-bottom: 0;
+}
+
+.entry__excerpt strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+// Authored "[GitHub]" / "[Project Report]" links follow a <br/> in the excerpt:
+// mono apparatus, brackets kept, no underline at rest.
+.entry__excerpt br ~ a {
+  font: 400 var(--t-meta) / 1.5 var(--mono);
+  color: var(--ink-muted);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.entry__excerpt br ~ a:hover,
+.entry__excerpt br ~ a:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+}
+
+.entry__excerpt br ~ a + a {
+  margin-left: 0.5em;
+}
+
+// Year subheads on Thoughts and the Service / Teaching labels (h2 at --t-h2 from _type).
+.archive__subtitle {
+  margin-bottom: 0.25rem;
+}
+
+.archive__subtitle + .entry {
+  padding-top: 0.75rem;
+}
+
+// Desktop: the date hangs in a label column beside the title (§4.6 grid).
+@media (min-width: 64em) {
+  .entry {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    column-gap: 1rem;
+    align-items: start;
+  }
+
+  .entry__label {
+    margin: 0;
+    padding-top: 1px; // sits the 14 px mono baseline on the 19 px title baseline (measured)
+  }
+
+  .entry__body {
+    grid-column: 2;
+  }
+}
+
+// CV list items (§3.3): the authored <ul> keeps its en-dash markers from _type;
+// the item is a prose link plus one mono meta line.
+.cv-item__title {
+  color: var(--ink);
+}
+
+.cv-item__meta {
+  display: block;
+  font: 400 var(--t-meta) / 1.5 var(--mono);
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--ink-muted);
+}
+
+.cv-item__meta i {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--t-small);
+}

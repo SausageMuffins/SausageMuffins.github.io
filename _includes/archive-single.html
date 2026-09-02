@@ -1,94 +1,21 @@
-{% include base_path %}
-
-{% if post.header.teaser %}
-  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
-{% else %}
-  {% assign teaser = site.teaser %}
-{% endif %}
-
-{% if post.id %}
-  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
-{% else %}
-  {% assign title = post.title %}
-{% endif %}
-
-<div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    {% if include.type == "grid" and teaser %}
-      <div class="archive__item-teaser">
-        <img src=
-          {% if teaser contains "://" %}
-            "{{ teaser }}"
-          {% else %}
-            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
-          {% endif %}
-          alt="">
-      </div>
-    {% endif %}
-
-    <h2 class="archive__item-title" itemprop="headline">
-      {% if post.link %}
-        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
-      {% else %}
-        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
-      {% endif %}
-    </h2>
-    
-    {% if post.read_time %}
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
-    {% endif %}
-
-        {% if post.collection == 'teaching' %}
-          <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
-        {% elsif post.collection == 'publications' %}
-          {% if post.venue %}
-            <p><i>{{ post.venue }}</i></p>
-          {% endif %}
-          {% if post.authors %}
-            <p>{{ post.authors }}</p>
-          {% endif %}
-          {% if post.authors_note %}
-            <p>{{ post.authors_note }}</p>
-          {% endif %}
-        {% elsif post.date %}
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
-        {% endif %}
-
-    {% if post.excerpt and site.read_more != 'enabled' and post.collection != 'publications' %}
-    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
-    {% elsif post.excerpt and site.read_more == 'enabled' and post.collection != 'publications' %}
-    <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
-    {% endif %}
-    
-    {% unless post.collection == 'publications' %}
-    {% if post.citation and post.paperurl and post.slidesurl and post.bibtexurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a> | <a href="{{ post.slidesurl }}">Download Slides</a> | <a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
-    {% elsif post.citation and post.paperurl and post.slidesurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a> | <a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% elsif post.citation and post.paperurl and post.bibtexurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a> | <a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
-    {% elsif post.citation and post.paperurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a></p>
-    {% elsif post.citation and post.slidesurl and post.bibtexurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">Download Slides</a> | <a href="{{ post.bibtexurl}}">Download Bibtex</a></p>
-    {% elsif post.citation and post.slidesurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% elsif post.citation and post.bibtexurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
-    {% elsif post.citation %}
-      <p>Recommended citation: {{ post.citation }}</p>
-    {% elsif post.paperurl and post.bibtexurl %}
-      <p><a href=" {{ post.paperurl }} ">Download Paper</a> | <a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
-    {% elsif post.paperurl %}
-      <p><a href=" {{ post.paperurl }} ">Download Paper</a></p>
-    {% elsif post.slidesurl and post.bibtexurl %}
-      <p><a href="{{ post.slidesurl }}">Download Slides</a> | <a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
-    {% elsif post.slidesurl %}
-      <p><a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% elsif post.bibtexurl %}
-      <p><a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
-    {% endif %}
-    {% endunless %}
-
-  </article>
+{% include base_path %}{% comment %}
+  List entry (PLAN §4.10; §3.4–3.6). One article.entry per item, emitted as a
+  sibling of the page's own headings — no wrapper, no card, no teaser image,
+  no read time, no tag chips, no "Published:" string or calendar glyph
+  (decisions 14, 19, 20). Label: ISO date in mono, hung beside the title at
+  ≥ 1024 and set above it below. Excerpt only when the collection provides a
+  non-blank one (Projects, Thoughts); portfolio excerpts carry inline HTML
+  links, which render. Service and Teaching carry no excerpt (§3.6): theirs
+  would be Jekyll's auto-excerpt of the body, prose never chosen as a teaser
+  (it starts with an "### My Role:" heading and its duplicated id).
+  Every emitted tag sits at column 0 so an indented {% include %} never
+  reaches kramdown as a code block.
+{% endcomment %}{% if post.id %}{% assign entry_title = post.title | markdownify | remove: "<p>" | remove: "</p>" | strip %}{% else %}{% assign entry_title = post.title %}{% endif %}{% capture entry_excerpt_text %}{% if post.collection != "publications" and post.collection != "service" and post.collection != "teaching" %}{{ post.excerpt | strip_html | strip }}{% endif %}{% endcapture %}{% assign entry_excerpt_text = entry_excerpt_text | strip %}
+<article class="entry" itemscope itemtype="http://schema.org/CreativeWork">
+{% if post.date %}<time class="entry__label" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y-%m-%d" }}</time>{% endif %}
+<div class="entry__body">
+<h3 class="entry__title" itemprop="headline"><a href="{% if post.link %}{{ post.link }}{% else %}{{ base_path }}{{ post.url }}{% endif %}" itemprop="url">{{ entry_title }}</a></h3>
+{% if post.collection == "teaching" and post.type or post.collection == "teaching" and post.venue %}<p class="entry__meta">{{ post.type }}{% if post.type and post.venue %} &middot; {% endif %}{{ post.venue }}</p>{% elsif post.collection == "service" and post.type %}<p class="entry__meta">{{ post.type }}</p>{% endif %}
+{% if entry_excerpt_text != "" %}<div class="entry__excerpt" itemprop="description">{{ post.excerpt | markdownify }}</div>{% endif %}
 </div>
+</article>

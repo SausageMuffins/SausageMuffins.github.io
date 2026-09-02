@@ -1,1 +1,34 @@
-// Placeholder: filled by a later component agent (Phase 2/3). Keep the import order in assets/css/site.scss.
+// 404 (plan §3.10): plain typographic treatment. `_pages/404.md` is content
+// (title "Page Not Found", the stock sentence); it takes the `single` layout
+// from the _pages default and default.html classes it `body.page--404`.
+// Phase 3 adds the channel strip at p = 0.5 after the sentence; the hooks
+// below leave room for it without changing anything here.
+
+.page--404 .page__header {
+  margin-bottom: 1rem;
+}
+
+// A mono status code above the title: the hanging-label idiom, not a
+// decoration — nothing else on the page says which error this is.
+.page--404 .page__title::before {
+  content: "404";
+  display: block;
+  font: 400 var(--t-meta) / 1.5 var(--mono);
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--ink-muted);
+  margin-bottom: 0.5rem;
+}
+
+.page--404 .prose {
+  font-size: var(--t-body);
+  line-height: 1.55;
+}
+
+.page--404 .prose p {
+  max-width: 30rem;
+}
+
+// Phase 3 hook: the static channel at p = 0.5 sits below the sentence.
+.page--404 .channel {
+  margin-top: 2.5rem;
+}
