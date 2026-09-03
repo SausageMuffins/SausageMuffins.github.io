@@ -5,7 +5,9 @@
 // figure > button > svg ×2 + figcaption, adopted by the channel module in
 // site.js; on /404.html the `.channel--static` figure has no button and the
 // module leaves it alone. Every bit is stroked --ink-muted (≥ 6.6:1); only a
-// flipped bit carries the accent. State, not motion: no transitions on cells.
+// flipped bit carries the accent. State, not motion: no transitions on cells
+// (nothing in the cascade transitions a rect, so none is declared). Stroke
+// width, caps and joins are the SVG defaults (1, butt, miter) and are not restated.
 // Print hides `.channel` in _print.scss; the focus ring is the one in _a11y.
 
 // The home page's sign-off: after the Updates list (whose 2rem bottom margin
@@ -21,29 +23,24 @@
   display: block;
   width: 100%;
   line-height: 0;
-  border-radius: var(--r-0);
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
-@media (hover: hover) and (pointer: fine) {
+// Crosshair only where scrubbing exists: hover-capable, fine pointer, and no
+// reduced-motion preference (site.js attaches the pointer listeners under the
+// same three conditions). Everywhere else the reset's pointer cursor stands.
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .channel__send {
     cursor: crosshair;
   }
 }
 
-// Pointer scrubbing is off under reduced motion (site.js); a click still sends.
-@media (prefers-reduced-motion: reduce) {
-  .channel__send {
-    cursor: pointer;
-  }
-}
 
 .channel__svg {
   display: block;
   width: 100%;
   height: auto;
-  overflow: visible;
 }
 
 // One variant at a time: N = 40 below 768, N = 64 from 768 up.
@@ -64,8 +61,6 @@
 .channel__bit {
   fill: none;
   stroke: var(--ink-muted);
-  stroke-width: 1;
-  transition: none;
 }
 
 .channel__bit--1 {
@@ -82,7 +77,6 @@
 
 .channel__line {
   stroke: var(--rule);
-  stroke-width: 1;
 }
 
 // Row labels: the page's mono at 13px; the hat over Ẑ is a drawn path, so
@@ -95,15 +89,12 @@
 .channel__hat {
   fill: none;
   stroke: var(--ink-muted);
-  stroke-width: 1;
-  stroke-linecap: butt;
-  stroke-linejoin: miter;
 }
 
-// The readout: p and I(Z;Ẑ) to two decimals, tabular so the digits hold still.
+// The readout: p and I(Z;Ẑ) to two decimals. The digits hold still without
+// font-variant-numeric: every Plex Mono figure is lining and one cell wide.
 .channel__caption {
   font: 400 var(--t-micro) / 1.5 var(--mono);
-  font-variant-numeric: lining-nums tabular-nums;
   color: var(--ink-muted);
   margin: 0.5rem 0 0;
 }

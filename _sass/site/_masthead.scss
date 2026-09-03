@@ -74,8 +74,12 @@
   transition: color var(--d-1) var(--ease);
 }
 
+// Hover, focus and the current page share one underline; only its colour
+// differs (rule-strong for hover/focus, accent for the current page, which
+// keeps the accent under a hover because its rule comes last).
 .nav a:hover,
-.nav a:focus-visible {
+.nav a:focus-visible,
+.nav a[aria-current="page"] {
   color: var(--ink);
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -84,11 +88,7 @@
 }
 
 .nav a[aria-current="page"] {
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
   text-decoration-color: var(--accent);
-  text-underline-offset: 0.45em;
 }
 
 @media (min-width: 48em) {

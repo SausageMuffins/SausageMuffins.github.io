@@ -112,8 +112,10 @@ def aria_label(p):
 
 
 def caption(p):
+    """Plan 4.15: the caption's Z-hat is Z + U+0302 (Plex Mono ships the combining mark and
+    its mark anchor), never precomposed U+1E90, which no font in the set encodes."""
     return ('<figcaption class="channel__caption">p = <span class="channel__p">%.2f</span> · '
-            'I(Z;Ẑ) = 1 − H₂(p) = <span class="channel__i">%.2f</span> bit</figcaption>' % (p, info(p)))
+            'I(Z;Z\u0302) = 1 − H₂(p) = <span class="channel__i">%.2f</span> bit</figcaption>' % (p, info(p)))
 
 
 def figure(z, u, p, seed=SEED, static=False):
