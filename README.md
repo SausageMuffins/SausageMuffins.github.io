@@ -1,4 +1,4 @@
-# yurielryan.com
+# Personal Site
 
 Personal academic site of Yuriel Ryan. Jekyll 3.10 on GitHub Pages (the `github-pages` gem), with a custom theme that replaces academicpages. The design is recorded in [DESIGN.md](DESIGN.md); read it before changing anything under `_layouts/`, `_includes/`, `_sass/site/` or `assets/`.
 

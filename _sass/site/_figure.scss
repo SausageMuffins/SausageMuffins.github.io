@@ -2,9 +2,10 @@
 // with a baked-in white plate and internal labels. Light: multiply, so the
 // plate vanishes into the paper. Dark (interim until decision 16 exports a
 // transparent file): invert + hue-rotate, then `lighten` so the inverted
-// plate (≈ #141414) disappears into --bg. ≥ 1150 the figure bleeds to
-// --measure-wide; below 768 its paragraph becomes a horizontal pan container
-// and the image is fixed at 56rem so its labels stay ≈ 11px.
+// plate (≈ #141414) disappears into --bg. The figure holds the reading
+// measure so its edges line up with the prose; below 768 its paragraph becomes
+// a horizontal pan container and the image is fixed at 56rem so its labels
+// stay ≈ 11px.
 
 .page--research .prose img[src*="lossy_humans"] {
   mix-blend-mode: multiply;
@@ -40,14 +41,6 @@
 // the page.
 .page--research .prose p:has(> img[src*="lossy_humans"]:only-child) {
   margin: 0 0 1.1rem;
-}
-
-// Bleed into the empty right margin at ≥ 1150.
-@media (min-width: 71.875em) {
-  .page--research .prose p:has(> img[src*="lossy_humans"]:only-child) {
-    width: var(--measure-wide);
-    max-width: var(--measure-wide);
-  }
 }
 
 // Phones: pan a strip instead of squinting at a thumbnail. The container

@@ -1,22 +1,44 @@
 ---
 layout: archive
-title: "Service & Teaching"
+title: "Service"
 permalink: /service/
 author_profile: true
 ---
 
 {% include base_path %}
 
-{% if site.service.size > 0 %}
-  <h2 class="archive__subtitle">Service</h2>
-  {% for post in site.service reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+{% comment %}
+  Reviewing is authored inline rather than as a collection: the items are one
+  line each with no detail page, so a file per venue would be all front matter.
+  The markup is archive-single's minus the link, and the label carries the year
+  alone -- a review has no meaningful day -- so datetime is "YYYY", which is a
+  valid HTML date string. .entry__body is grid-column 2, so these titles line up
+  with the dated entries below. Add a venue by copying one article block.
+{% endcomment %}
+<h2 class="archive__subtitle">Reviewing</h2>
+<article class="entry">
+<time class="entry__label" datetime="2026">2026</time>
+<div class="entry__body">
+<h3 class="entry__title">AAAI Social Impact Track</h3>
+</div>
+</article>
+<article class="entry">
+<time class="entry__label" datetime="2026">2026</time>
+<div class="entry__body">
+<h3 class="entry__title">NeurIPS Interpretability as a Science Workshop</h3>
+</div>
+</article>
 
 {% if site.teaching.size > 0 %}
   <h2 class="archive__subtitle">Teaching</h2>
   {% for post in site.teaching reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
+
+{% if site.service.size > 0 %}
+  <h2 class="archive__subtitle">Extracurriculars</h2>
+  {% for post in site.service reversed %}
     {% include archive-single.html %}
   {% endfor %}
 {% endif %}

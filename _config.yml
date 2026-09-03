@@ -126,7 +126,7 @@ include:
   - _pages
   - files
 exclude:
-  - images/profile_v2.jpg   # source for images/profile.webp; not published
+  - images/profile_v3.jpg   # source for images/profile.webp; not published
   - "*.ipynb"
   - "*.sublime-project"
   - .DS_Store
