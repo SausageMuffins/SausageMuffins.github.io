@@ -8,7 +8,6 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default"
 title                    : "Yuriel Wang Jun Long Ryan"
 title_separator          : "-"
 name                     : &name "Yuriel Wang Jun Long Ryan"
@@ -17,9 +16,9 @@ url                      : https://yurielryan.com # the base hostname & protocol
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "yurielryan/yurielryan.github.io"
 
-# Site Author - The following control what appear as part of the author content on the side bar.
-#               If a field is blank the icon and link will not appear, otherwise it will be shown.
-#               Additional customization can be done by editing /_includes/author-profile.html
+# Site Author - These fields feed the byline on / and the contact lines in the footer.
+#               A blank field renders nothing. Markup lives in /_includes/byline.html and
+#               /_includes/contact-line.html.
 author:
   # Biographic information
   avatar           : "profile.jpeg"
@@ -98,33 +97,6 @@ breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
 future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
-talkmap_link             : false      #change to true to add link to talkmap on talks page
-comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
-  disqus:
-    shortname            :
-  discourse:
-    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
-  facebook:
-    appid                :
-    num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
-staticman:
-  allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "gh-pages" # "master", "gh-pages"
-  commitMessage          : "New comment."
-  filename               : comment-{@timestamp}
-  format                 : "yml"
-  moderation             : true
-  path                   : "_data/comments/{options.slug}"
-  requiredFields         : ['name', 'email', 'message']
-  transforms:
-    email                : "md5"
-  generatedFields:
-    date:
-      type               : "date"
-      options:
-        format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
   hide                   : false     # change to true to hide the RSS feed in the footer
   path                   : # blank (default) uses feed.xml
@@ -146,19 +118,6 @@ facebook:
   publisher              :
 og_image                 :  # Social media default site image
 og_description           :  # Social media default site image description
-# For specifying social profiles
-# - https://developers.google.com/structured-data/customize/social-profiles
-social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
-
-
-# Analytics
-analytics:
-  provider               :  "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
-  google:
-    tracking_id          :
 
 
 # Reading Files
@@ -170,17 +129,12 @@ exclude:
   - "*.ipynb"
   - "*.sublime-project"
   - .DS_Store
-  - .devcontainer
   - .jekyll-cache
-  - CONTRIBUTING.md
+  - DESIGN.md
   - Gemfile.lock
   - README.md
   - _tools
-  - docker-compose.yaml
-  - markdown_generator
   - package-lock.json
-  - scripts
-  - talkmap.py
   - "*.sublime-workspace"
   - .asset-cache
   - .bundle
@@ -244,9 +198,6 @@ collections:
   portfolio:
     output: true
     permalink: /:collection/:path/
-  talks:
-    output: true
-    permalink: /:collection/:path/
 
 
 # These settings control how pages and collections are included in the site
@@ -299,14 +250,6 @@ defaults:
       layout: single
       author_profile: false
       share: false
-  # _talks
-  - scope:
-      path: ""
-      type: talks
-    values:
-      layout: talk
-      author_profile: false
-      share: false
 
 
 # Sass/SCSS
@@ -339,35 +282,6 @@ whitelist:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jemoji
-
-
-# Archives
-#  Type
-#  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
-#  - Jekyll Archives plugin archive pages ~> type: jekyll-archives
-#  Path (examples)
-#  - Archive page should exist at path when using Liquid method or you can
-#    expect broken links (especially with breadcrumbs enabled)
-#  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
-#  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
-#  - <base_path/my-awesome-category/index.html ~> path: /
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
-# https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
 
 
 # HTML Compression

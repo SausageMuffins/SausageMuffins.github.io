@@ -61,9 +61,12 @@
   font-size: var(--t-micro);
 }
 
+// min-width gives the one-glyph link (X, last in its list) a 24px target
+// without moving any text: the box grows into empty trailing space.
 .byline__contact .contact a {
   padding-block: 0.4rem;
   margin-block: -0.4rem;
+  min-width: 1.5rem;
 }
 
 @media (min-width: 48em) {
