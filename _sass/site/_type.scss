@@ -34,6 +34,16 @@ b {
   font-weight: 600;
 }
 
+// Rubrication: emphasis in running prose takes the accent, the way a rubric
+// coloured a passage in a manuscript. This shares a colour with a:hover, which
+// is safe because the link affordance here is the underline -- present at rest,
+// absent on bold -- and the accent is only the hover echo. Anything CSS has
+// already promoted to a heading stays in ink: headings never take the accent.
+.prose strong,
+.prose b {
+  color: var(--accent);
+}
+
 em,
 i,
 cite {
@@ -523,6 +533,7 @@ figcaption {
 
 .page--home .prose p:has(> strong:only-child) > strong {
   font-weight: 500;
+  color: var(--ink);
 }
 
 // Spacer paragraphs authored as <p><br></p>
