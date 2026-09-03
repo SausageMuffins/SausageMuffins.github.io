@@ -57,5 +57,10 @@ layout: default
     </div>
   </article>
 
-  {% comment %} HOOK (Phase 3): the channel strip renders here on "/" only — {% if page.url == "/" %}{% include channel.html %}{% endif %} {% endcomment %}
+  {% comment %} The channel (§4.15, §3.10): the home page's sign-off after the article; the static p = 0.5 strip on the 404 page. Nowhere else. {% endcomment %}
+  {% if page.url == "/" %}
+    {% include channel.html %}
+  {% elsif page.url == "/404.html" %}
+    {% include channel.html static=true %}
+  {% endif %}
 </main>

@@ -26,9 +26,14 @@
     align-items: start;
   }
 
+  // Hangs 0.75rem + 2px (the Contents bar and its padding) into the left
+  // margin so item text lands on the container edge under the wordmark. The
+  // offset lives here, not on .toc, because overflow-y makes .rail a scroll
+  // container that would clip a child's negative margin.
   .rail {
     display: block;
     grid-column: 1;
+    margin-left: calc(-0.75rem - 2px);
     position: sticky;
     top: calc(var(--masthead-h) + 2rem);
     max-height: calc(100vh - var(--masthead-h) - 3rem);

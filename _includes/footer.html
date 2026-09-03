@@ -1,11 +1,13 @@
 {% include base_path %}
 {% comment %}
-  Colophon (PLAN §4.13): contact line on every page, then
+  Colophon (PLAN §4.13): two deliberate contact lines on every page —
+  identity (name · location · employer) and links (Email … X · RSS) — then
   "© YEAR site.title · Jekyll · rev. YYYY-MM-DD" (rev. replaces "Site last updated").
 {% endcomment %}
 <div class="colophon__inner">
   <div class="colophon__body">
-    {% include contact-line.html name=true rss=true %}
+    {% include contact-line.html part="identity" name=true %}
+    {% include contact-line.html part="links" rss=true %}
     <p class="colophon__meta">&copy; {{ site.time | date: '%Y' }} {{ site.title }} &middot; <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &middot; rev. <time datetime="{{ site.time | date: '%Y-%m-%d' }}">{{ site.time | date: '%Y-%m-%d' }}</time></p>
   </div>
 </div>

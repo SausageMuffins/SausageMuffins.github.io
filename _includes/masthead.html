@@ -14,9 +14,6 @@
 <header class="masthead">
   <div class="masthead__inner">
     <a class="wordmark" href="{{ base_path }}/"{% if page.url == "/" %} aria-current="page"{% endif %}>{{ site.author.name }}</a>
-    <button type="button" class="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
-      <svg class="theme-toggle__glyph" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1"/><path d="M8 1a7 7 0 0 0 0 14z" fill="currentColor"/></svg>
-    </button>
     <nav class="nav" aria-label="Site">
       <ul>
         {% for link in site.data.navigation.main %}
@@ -25,5 +22,9 @@
         {% endfor %}
       </ul>
     </nav>
+    {%- comment -%} Toggle last in the DOM (keyboard order wordmark → nav → toggle); grid places it top-right on phones. {%- endcomment -%}
+    <button type="button" class="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+      <svg class="theme-toggle__glyph" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1"/><path d="M8 1a7 7 0 0 0 0 14z" fill="currentColor"/></svg>
+    </button>
   </div>
 </header>

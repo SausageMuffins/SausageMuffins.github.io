@@ -1,7 +1,8 @@
 {% include base_path %}
 {% comment %}
   Byline (PLAN §4.2), rendered on "/" only by single.html: photo 88px (64px on
-  phones), name + pronouns, bio, location · employer and contact links.
+  phones), name + pronouns, italic bio, then two mono lines — location ·
+  employer and the contact links (contact-line.html, part=identity | links).
   Until decision 16 the existing JPEG avatar is used and sized.
 {% endcomment %}
 <div class="byline" itemscope itemtype="http://schema.org/Person">
@@ -11,6 +12,7 @@
   <p class="byline__name"><span itemprop="name">{{ site.author.name }}</span>{% if site.author.pronouns %} <span class="byline__pronouns">{{ site.author.pronouns }}</span>{% endif %}</p>
   {% if site.author.bio %}<p class="byline__bio" itemprop="description">{{ site.author.bio }}</p>{% endif %}
   <div class="byline__contact">
-    {% include contact-line.html %}
+    {% include contact-line.html part="identity" %}
+    {% include contact-line.html part="links" %}
   </div>
 </div>

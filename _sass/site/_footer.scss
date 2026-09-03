@@ -9,7 +9,7 @@
   width: 100%;
   max-width: calc(var(--measure) + 2 * var(--pad));
   margin-inline: auto;
-  padding: 2.5rem var(--pad) 3rem;
+  padding: 2rem var(--pad) 2.5rem;
 }
 
 .colophon__body {
@@ -19,7 +19,7 @@
 .colophon__meta {
   font: 400 var(--t-micro) / 1.45 var(--mono);
   color: var(--ink-muted);
-  margin: 0.75rem 0 0;
+  margin: 0.5rem 0 0;
   font-variant-numeric: lining-nums tabular-nums;
 }
 

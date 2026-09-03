@@ -5,8 +5,11 @@
   border-bottom: 1px solid var(--rule);
 }
 
+// The inner box is the same width as .shell and .colophon__inner at every
+// breakpoint (measure + pads below 1024, the container from 1024), so the
+// wordmark's left edge is the reading column's edge, then the rail's.
 .masthead__inner {
-  max-width: var(--container);
+  max-width: calc(var(--measure) + 2 * var(--pad));
   margin-inline: auto;
   padding: 0.75rem var(--pad) 0.5rem;
   display: grid;
@@ -15,7 +18,11 @@
   column-gap: 1rem;
 }
 
+// Phone placement by grid: DOM order is wordmark → nav → toggle (keyboard
+// order), the layout is wordmark + toggle on row 1, nav on row 2.
 .wordmark {
+  grid-row: 1;
+  grid-column: 1;
   font-family: var(--serif);
   font-weight: 500;
   font-size: 1.125rem;
@@ -33,7 +40,14 @@
   text-decoration: none;
 }
 
+.theme-toggle {
+  grid-row: 1;
+  grid-column: 2;
+  justify-self: end;
+}
+
 .nav {
+  grid-row: 2;
   grid-column: 1 / -1;
 }
 
@@ -116,5 +130,11 @@
     font-size: var(--t-meta);
     line-height: 1.5;
     min-height: 0;
+  }
+}
+
+@media (min-width: 64em) {
+  .masthead__inner {
+    max-width: var(--container);
   }
 }

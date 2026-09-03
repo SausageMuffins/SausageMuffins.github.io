@@ -4,7 +4,7 @@
 // transparent file): invert + hue-rotate, then `lighten` so the inverted
 // plate (≈ #141414) disappears into --bg. ≥ 1150 the figure bleeds to
 // --measure-wide; below 768 its paragraph becomes a horizontal pan container
-// and the image keeps a 56rem minimum so its labels stay ≥ 10px.
+// and the image is fixed at 56rem so its labels stay ≈ 11px.
 
 .page--research .prose img[src*="lossy_humans"] {
   mix-blend-mode: multiply;
@@ -63,7 +63,7 @@
   }
 
   .page--research .prose img[src*="lossy_humans"] {
-    min-width: 56rem;
+    width: 56rem;
     max-width: none;
   }
 }

@@ -1,21 +1,28 @@
 // Byline (home only, §4.2) and the contact line shared with the footer.
+// Photo 64px (88px from 768) top-aligned with the name's cap height; name at
+// --t-h1 with mono pronouns on the line; italic serif bio; then two quiet mono
+// lines (location · employer, the links). 2.5rem to the opening paragraph.
 .byline {
   display: grid;
   grid-template-columns: 4rem 1fr;
   column-gap: 1rem;
   row-gap: 0.25rem;
-  align-items: center;
+  align-items: start;
   margin-bottom: 2.5rem;
 }
 
+// Cap-height alignment: at line-height 1.15 the cap top of Newsreader (hhea
+// ascent 0.735em, cap 0.67em) sits 0.14em below the line-box top, which the
+// browser's whole-pixel ascent rounding makes 2px at 25px and 4px at 28px
+// (measured in Chrome; the whole pixel also keeps the photo's edge crisp).
 .byline__photo {
   grid-row: 1 / span 2;
   width: 4rem;
   height: 4rem;
+  margin: 2px 0 0;
   border-radius: var(--r-1);
   object-fit: cover;
   display: block;
-  margin: 0;
 }
 
 .byline__name {
@@ -35,14 +42,28 @@
 }
 
 .byline__bio {
-  font: 400 var(--t-meta) / 1.5 var(--mono);
+  font: italic 400 var(--t-small) / 1.5 var(--serif);
   color: var(--ink-muted);
   margin: 0;
+  text-wrap: balance;
 }
 
+// Two lists (contact-line.html part=identity | links) at 13px, stacked at the
+// line pitch. Link padding is cancelled by an equal negative margin, so the
+// 32px tap target never opens the rhythm; the list's clip-path reaches 0.5rem
+// past the line box, the target 0.4rem, so nothing is cut.
 .byline__contact {
   grid-column: 1 / -1;
   margin-top: 0.25rem;
+}
+
+.byline__contact .contact {
+  font-size: var(--t-micro);
+}
+
+.byline__contact .contact a {
+  padding-block: 0.4rem;
+  margin-block: -0.4rem;
 }
 
 @media (min-width: 48em) {
@@ -50,47 +71,56 @@
     grid-template-columns: 5.5rem 1fr;
     column-gap: 1.5rem;
     row-gap: 0.125rem;
-    align-items: start;
   }
 
+  // The photo stands beside the whole stack: name, bio and both contact lines
+  // fit column 2 (the links line is ≈ 385px of 480px).
   .byline__photo {
     grid-row: 1 / span 3;
     width: 5.5rem;
     height: 5.5rem;
+    margin-top: 4px;
   }
 
   .byline__contact {
     grid-column: 2;
-    margin-top: 0.25rem;
+    grid-row: 3;
+    margin-top: 0.5rem;
   }
 }
 
 // Contact line: plain mono text and links, · separators, ≥ 32px targets.
+// Every item carries its own separator in a 1.5rem gutter to its left (dot
+// cell at 0.5–1rem); the list starts 1.5rem into the margin and a clip-path
+// cuts its first 1.0625rem — past the dot, short of the 2px + 3px focus ring
+// — so a separator that lands at a line start is simply not visible and no
+// line ever starts or ends with a dot. clip-path rather than overflow: hidden
+// so the ring is not cut top and bottom, and the right edge is left open.
 .contact {
   list-style: none;
-  margin: 0;
+  margin: 0 0 0 -1.5rem;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   font: 400 var(--t-meta) / 1.5 var(--mono);
   color: var(--ink-muted);
+  clip-path: inset(-0.5rem -0.5rem -0.5rem 1.0625rem);
 }
 
 .contact li {
+  position: relative;
   margin: 0;
+  padding-left: 1.5rem;
   display: inline-flex;
   align-items: center;
 }
 
-.contact li::after {
+.contact li::before {
   content: "\00b7";
   color: var(--rule-strong);
-  padding-inline: 0.5rem;
-}
-
-.contact li:last-child::after {
-  content: none;
+  position: absolute;
+  left: 0.5rem;
 }
 
 .contact a {

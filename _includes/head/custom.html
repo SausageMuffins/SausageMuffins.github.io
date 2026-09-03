@@ -1,2 +1,4 @@
-{% comment %} Favicon: the black cat SVG stays until decision 10 is made (Phase 3). No manifest: nothing is installable. {% endcomment %}
-<link rel="icon" type="image/svg+xml" href="{{ base_path }}/images/favicon.svg">
+{% comment %} Favicon (decision 10): the 1-bit black cat, tail tip = the flipped bit. PNG first so Safari takes it; Chromium/Firefox take the SVG, which follows the OS colour scheme. Deliberately no manifest: nothing is installable. {% endcomment %}
+<link rel="icon" href="{{ base_path }}/images/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="{{ base_path }}/images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ base_path }}/images/apple-touch-icon.png">

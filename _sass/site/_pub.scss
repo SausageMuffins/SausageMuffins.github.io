@@ -88,6 +88,7 @@ h3 + .pub {
   font: 400 var(--t-micro) / 1.45 var(--mono);
   color: var(--ink-muted);
   white-space: nowrap;
+  margin-left: 0.6em;
 }
 
 .pub__venue {
@@ -102,7 +103,9 @@ h3 + .pub {
 }
 
 // Actions: mono text links ≥ 24px tall; separators in --rule-strong at ≥ 48em,
-// a plain wrapping gap below it.
+// a plain wrapping gap below it. The separator is an out-of-flow ::before in
+// the preceding item's margin, so it takes no underline, outline or copied
+// colour from the action it belongs to.
 .pub__actions {
   display: flex;
   flex-wrap: wrap;
@@ -138,15 +141,36 @@ h3 + .pub {
   color: var(--accent);
 }
 
+// Without JS the clipboard button is inert: hide it (PLAN §5 #5). The BibTeX
+// stays readable and selectable on the detail page.
+.no-js [data-copy] {
+  display: none;
+}
+
 @media (min-width: 48em) {
   .pub__actions {
     gap: 0;
   }
 
+  .pub__actions > * + * {
+    position: relative;
+    margin-left: 1.2em;
+  }
+
   .pub__actions > * + *::before {
     content: "\00B7";
     color: var(--rule-strong);
-    margin: 0 0.6em;
+    position: absolute;
+    left: -0.9em;
+  }
+
+  // The item after a hidden (no-js) Copy button is first in line: no separator.
+  .no-js .pub__actions > [data-copy] + * {
+    margin-left: 0;
+  }
+
+  .no-js .pub__actions > [data-copy] + *::before {
+    content: none;
   }
 
   // Tablet: hanging label column.

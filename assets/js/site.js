@@ -1,6 +1,6 @@
-/* yurielryan.com — one classic deferred script (PLAN §5, §6.3).
-   Modules: theme toggle, delegated clipboard, Contents scroll-spy, channel (stub until Phase 3).
-   No timers except the 1.5 s "Copied" revert; no scroll listeners; no layout measurement. */
+/* yurielryan.com — one classic deferred script (PLAN §5, §6.3): theme toggle,
+   delegated clipboard, Contents scroll-spy, the channel (§4.15).
+   No timers except the 1.5 s "Copied" revert; no scroll listeners. */
 (function () {
   'use strict';
 
@@ -128,10 +128,76 @@
     update();
   }
 
-  /* ---- Channel (§4.15): stub; the Phase 3 agent fills this in ------------ */
+  /* ---- Channel (§4.15): adopt the static strip; pointer sets p, click re-seeds.
+     mulberry32/message/h2 must match _tools/channel_svg.py. */
   function channel() {
-    if (!document.querySelector('.channel .channel__send')) return;
-    // Phase 3: adopt the static SVG (seed 0x5EED, mulberry32), pointer sets p, click re-seeds.
+    var send = document.querySelector('.channel .channel__send');
+    if (!send) return;
+    var SEED = 0x5EED, P0 = 0.10, MAXN = 64;
+    var z = new Uint8Array(MAXN), u = new Float64Array(MAXN), p = P0;
+    function mulberry32(a) {
+      return function () {
+        a = a + 0x6D2B79F5 | 0;
+        var t = Math.imul(a ^ a >>> 15, 1 | a);
+        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      };
+    }
+    // flip(i) = u[i] < p is derived, never stored: raising p only adds flips.
+    function message(seed) {
+      var rand = mulberry32(seed | 0);
+      for (var i = 0; i < MAXN; i++) { z[i] = rand() < 0.5 ? 1 : 0; u[i] = rand(); }
+    }
+    function h2(q) {
+      return q <= 0 || q >= 1 ? 0 : -q * Math.log2(q) - (1 - q) * Math.log2(1 - q);
+    }
+    function bit(on, flip) {
+      return 'channel__bit' + (on ? ' channel__bit--1' : '') + (flip ? ' channel__bit--flip' : '');
+    }
+    var fig = send.parentNode;
+    var pOut = fig.querySelector('.channel__p'), iOut = fig.querySelector('.channel__i');
+    var strips = [].map.call(send.querySelectorAll('svg'), function (svg) {
+      var zr = svg.querySelectorAll('.channel__z rect');
+      return { n: zr.length, z: zr, zh: svg.querySelectorAll('.channel__zhat rect'), title: svg.querySelector('title') };
+    });
+    function paint(checkOnly) {
+      var same = true, P = p.toFixed(2);
+      function put(el, c) {
+        if (el.getAttribute('class') === c) return;
+        same = false;
+        if (!checkOnly) el.setAttribute('class', c);
+      }
+      for (var j = 0; j < strips.length; j++) {
+        var s = strips[j], k = 0;
+        for (var i = 0; i < s.n; i++) {
+          var f = u[i] < p ? 1 : 0;
+          k += f;
+          put(s.z[i], bit(z[i], 0));
+          put(s.zh[i], bit(z[i] ^ f, f));
+        }
+        if (!checkOnly) s.title.textContent = s.n + ' bits through a binary symmetric channel, p = ' + P + ', ' + k + ' flipped';
+      }
+      if (checkOnly) return same;
+      pOut.textContent = P;
+      iOut.textContent = Math.max(0, 1 - h2(p)).toFixed(2);
+      send.setAttribute('aria-label', 'Binary symmetric channel, p = ' + P + '. Send a new message.');
+    }
+    message(SEED);
+    if (!paint(true)) {
+      console.warn('channel: static SVG does not match the seed; repainting');
+      paint();
+    }
+    if (matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      send.addEventListener('pointermove', function (e) {
+        if (e.pointerType === 'touch') return;
+        var r = send.getBoundingClientRect();
+        var x = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1);
+        p = 0.5 * x * x;
+        paint();
+      });
+      send.addEventListener('pointerleave', function () { p = P0; paint(); });
+    }
+    send.addEventListener('click', function () { message(Date.now()); paint(); });
   }
 
   theme();

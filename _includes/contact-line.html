@@ -1,13 +1,19 @@
 {% include base_path %}
 {% comment %}
   Contact line (PLAN §4.2, §4.13): plain mono text and links from site.author.
-  Parameters: name=true prefixes the author's name; rss=true appends the feed.
-  Used by byline.html (home) and footer.html (every page).
+  Parameters: name=true prefixes the author's name; rss=true appends the feed;
+  part="identity" (name · location · employer) or part="links" (Email … RSS)
+  renders one half only — omitted, the whole line is one list.
+  Used by byline.html (home) and footer.html (every page), two lists each.
 {% endcomment %}
-<ul class="contact{% if include.class %} {{ include.class }}{% endif %}">
+{% assign part = include.part | default: "all" %}
+<ul class="contact{% if include.class %} {{ include.class }}{% endif %}{% if part != "all" %} contact--{{ part }}{% endif %}">
+  {% if part == "all" or part == "identity" %}
   {% if include.name %}<li>{{ site.author.name }}</li>{% endif %}
   {% if site.author.location %}<li>{{ site.author.location }}</li>{% endif %}
   {% if site.author.employer %}<li>{{ site.author.employer }}</li>{% endif %}
+  {% endif %}
+  {% if part == "all" or part == "links" %}
   {% if site.author.email %}<li><a href="mailto:{{ site.author.email }}">Email</a></li>{% endif %}
   {% if site.author.resume %}<li><a href="{% if site.author.resume contains '://' %}{{ site.author.resume }}{% else %}{{ base_path }}{{ site.author.resume }}{% endif %}">Resume</a></li>{% endif %}
   {% if site.author.github %}<li><a href="https://github.com/{{ site.author.github }}">GitHub</a></li>{% endif %}
@@ -15,4 +21,5 @@
   {% if site.author.telegram %}<li><a href="{{ site.author.telegram }}">Telegram</a></li>{% endif %}
   {% if site.author.twitter %}<li><a href="https://twitter.com/{{ site.author.twitter }}">X</a></li>{% endif %}
   {% if include.rss and site.atom_feed.hide != true %}<li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}">RSS</a></li>{% endif %}
+  {% endif %}
 </ul>

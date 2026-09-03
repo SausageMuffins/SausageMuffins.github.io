@@ -35,6 +35,11 @@
     border: 0;
   }
 
+  .masthead__inner {
+    max-width: none;
+    padding-inline: 0;
+  }
+
   .shell,
   .colophon__inner {
     display: block;
