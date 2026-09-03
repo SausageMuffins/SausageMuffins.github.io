@@ -8,6 +8,6 @@
   <div class="colophon__body">
     {% include contact-line.html part="identity" name=true %}
     {% include contact-line.html part="links" rss=true %}
-    <p class="colophon__meta">&copy; {{ site.time | date: '%Y' }} {{ site.title }} &middot; <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &middot; rev. <time datetime="{{ site.time | date: '%Y-%m-%d' }}">{{ site.time | date: '%Y-%m-%d' }}</time></p>
+    <p class="colophon__meta">&copy; {{ site.time | date: '%Y' }} {{ site.title }} &middot; <a href="https://jekyllrb.com" rel="nofollow noopener" target="_blank">Jekyll<span class="sr-only"> (opens in a new tab)</span></a> &middot; rev. <time datetime="{{ site.time | date: '%Y-%m-%d' }}">{{ site.time | date: '%Y-%m-%d' }}</time></p>
   </div>
 </div>

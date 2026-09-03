@@ -1,24 +1,26 @@
 // Byline (home only, §4.2) and the contact line shared with the footer.
-// Photo 64px (88px from 768) top-aligned with the name's cap height; name at
+// Photo 80px (112px from 768) top-aligned with the name's cap height; name at
 // --t-h1 with mono pronouns on the line; italic serif bio; then two quiet mono
 // lines (location · employer, the links). 2.5rem to the opening paragraph.
 .byline {
   display: grid;
-  grid-template-columns: 4rem 1fr;
+  grid-template-columns: 5rem 1fr;
   column-gap: 1rem;
   row-gap: 0.25rem;
   align-items: start;
   margin-bottom: 2.5rem;
 }
 
-// Cap-height alignment: at line-height 1.15 the cap top of Newsreader (hhea
-// ascent 0.735em, cap 0.67em) sits 0.14em below the line-box top, which the
-// browser's whole-pixel ascent rounding makes 2px at 25px and 4px at 28px
-// (measured in Chrome; the whole pixel also keeps the photo's edge crisp).
+// Cap-height alignment: the cap top sits floor(half-leading) + ascent - cap
+// below the line-box top. Chrome floors the half-leading and rounds the ascent
+// to whole pixels, so at line-height 1.15 the offset is 1 + 18 - 16.90 =
+// 2.10px at 25px and 2 + 21 - 18.99 = 4.01px at 28px: 2px and 4px (canvas
+// actualBoundingBoxAscent('H'), cap 0.676/0.678em, checked against a DOM
+// baseline probe; the whole pixel also keeps the photo's edge crisp).
 .byline__photo {
   grid-row: 1 / span 2;
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   margin: 2px 0 0;
   border-radius: var(--r-1);
   object-fit: cover;
@@ -71,24 +73,27 @@
 
 @media (min-width: 48em) {
   .byline {
-    grid-template-columns: 5.5rem 1fr;
+    grid-template-columns: 7rem 1fr;
     column-gap: 1.5rem;
     row-gap: 0.125rem;
   }
 
   // The photo stands beside the whole stack: name, bio and both contact lines
-  // fit column 2 (the links line is ≈ 385px of 480px).
+  // fit column 2 (the links line is ≈ 385px of 456px). At 112px the photo is
+  // 116px from the byline top, ~10px past the text stack's old height, so the
+  // gap before the two mono lines absorbs it: the photo's bottom edge lands on
+  // the links line's box bottom (0.1px) instead of hanging below the block.
   .byline__photo {
     grid-row: 1 / span 3;
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 7rem;
+    height: 7rem;
     margin-top: 4px;
   }
 
   .byline__contact {
     grid-column: 2;
     grid-row: 3;
-    margin-top: 0.5rem;
+    margin-top: 1.125rem;
   }
 }
 

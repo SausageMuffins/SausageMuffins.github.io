@@ -200,8 +200,21 @@
     send.addEventListener('click', function () { message(Date.now()); paint(); });
   }
 
+  /* ---- Off-site links in the author's prose open in a new tab, announced for
+     screen readers. The site's own chrome does the same in Liquid; this covers
+     markdown links, which kramdown emits bare. */
+  function extlinks() {
+    [].forEach.call(document.querySelectorAll('.prose a[href^="http"]'), function (a) {
+      if (a.hostname === location.hostname || a.querySelector('.sr-only')) return;
+      a.target = '_blank';
+      if (!/noopener/.test(a.rel)) a.rel = (a.rel + ' noopener').trim();
+      a.insertAdjacentHTML('beforeend', '<span class="sr-only"> (opens in a new tab)</span>');
+    });
+  }
+
   theme();
   clipboard();
   scrollSpy();
   channel();
+  extlinks();
 })();

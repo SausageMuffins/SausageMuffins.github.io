@@ -21,7 +21,7 @@ repository               : "yurielryan/yurielryan.github.io"
 #               /_includes/contact-line.html.
 author:
   # Biographic information
-  avatar           : "profile.jpeg"
+  avatar           : "profile.webp"
   name             : "Yuriel Ryan"
   pronouns         : "he/him" # example: "she/her"  
   bio              : "AI Singapore Accelerated Masters Scholar | SUTD MEng (Research)"
@@ -126,6 +126,7 @@ include:
   - _pages
   - files
 exclude:
+  - images/profile_v2.jpg   # source for images/profile.webp; not published
   - "*.ipynb"
   - "*.sublime-project"
   - .DS_Store

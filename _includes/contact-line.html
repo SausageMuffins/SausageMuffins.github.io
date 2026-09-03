@@ -7,6 +7,10 @@
   Used by byline.html (home) and footer.html (every page), two lists each.
 {% endcomment %}
 {% assign part = include.part | default: "all" %}
+{%- comment -%} Off-site links and the resume PDF open in a new tab, with an
+   announcement for screen readers; mailto: stays in place. {%- endcomment -%}
+{%- capture nt %} target="_blank" rel="noopener"{% endcapture -%}
+{%- capture ntsr %}<span class="sr-only"> (opens in a new tab)</span>{% endcapture -%}
 <ul class="contact{% if include.class %} {{ include.class }}{% endif %}{% if part != "all" %} contact--{{ part }}{% endif %}">
   {% if part == "all" or part == "identity" %}
   {% if include.name %}<li>{{ site.author.name }}</li>{% endif %}
@@ -15,11 +19,11 @@
   {% endif %}
   {% if part == "all" or part == "links" %}
   {% if site.author.email %}<li><a href="mailto:{{ site.author.email }}">Email</a></li>{% endif %}
-  {% if site.author.resume %}<li><a href="{% if site.author.resume contains '://' %}{{ site.author.resume }}{% else %}{{ base_path }}{{ site.author.resume }}{% endif %}">Resume</a></li>{% endif %}
-  {% if site.author.github %}<li><a href="https://github.com/{{ site.author.github }}">GitHub</a></li>{% endif %}
-  {% if site.author.linkedin %}<li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">LinkedIn</a></li>{% endif %}
-  {% if site.author.telegram %}<li><a href="{{ site.author.telegram }}">Telegram</a></li>{% endif %}
-  {% if site.author.twitter %}<li><a href="https://twitter.com/{{ site.author.twitter }}">X</a></li>{% endif %}
-  {% if include.rss and site.atom_feed.hide != true %}<li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}">RSS</a></li>{% endif %}
+  {% if site.author.resume %}<li><a href="{% if site.author.resume contains '://' %}{{ site.author.resume }}{% else %}{{ base_path }}{{ site.author.resume }}{% endif %}"{{ nt }}>Resume{{ ntsr }}</a></li>{% endif %}
+  {% if site.author.github %}<li><a href="https://github.com/{{ site.author.github }}"{{ nt }}>GitHub{{ ntsr }}</a></li>{% endif %}
+  {% if site.author.linkedin %}<li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}"{{ nt }}>LinkedIn{{ ntsr }}</a></li>{% endif %}
+  {% if site.author.telegram %}<li><a href="{{ site.author.telegram }}"{{ nt }}>Telegram{{ ntsr }}</a></li>{% endif %}
+  {% if site.author.twitter %}<li><a href="https://twitter.com/{{ site.author.twitter }}"{{ nt }}>X{{ ntsr }}</a></li>{% endif %}
+  {% if include.rss and site.atom_feed.hide != true %}<li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}"{{ nt }}>RSS{{ ntsr }}</a></li>{% endif %}
   {% endif %}
 </ul>

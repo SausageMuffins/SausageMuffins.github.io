@@ -38,7 +38,7 @@
 <h3 class="pub__title"><a href="{{ post.url | relative_url }}">{{ pub_title }}</a></h3>
 {% if post.authors %}<p class="pub__authors">{{ pub_authors }}{% if post.authors_note %} <span class="pub__note">{{ post.authors_note }}</span>{% endif %}</p>{% endif %}
 {% if post.venue %}<p class="pub__venue"><i>{{ post.venue }}</i></p>{% endif %}
-<p class="pub__actions"><a href="{{ post.url | relative_url }}">Details</a>{% if post.paperurl %} <a href="{{ post.paperurl }}" rel="noopener">Paper</a>{% endif %}{% if post.slidesurl %} <a href="{{ post.slidesurl }}" rel="noopener">Slides</a>{% endif %}{% if post.bibtexurl %} <a href="{{ post.bibtexurl }}" rel="noopener">BibTeX file</a>{% endif %}{% if pub_cit != "" %} <button type="button" data-copy data-copy-target="bib-{{ pub_id }}">Copy BibTeX</button>{% endif %}</p>
+<p class="pub__actions"><a href="{{ post.url | relative_url }}">Details</a>{% if post.paperurl %} <a href="{{ post.paperurl }}" target="_blank" rel="noopener">Paper<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}{% if post.slidesurl %} <a href="{{ post.slidesurl }}" target="_blank" rel="noopener">Slides<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}{% if post.bibtexurl %} <a href="{{ post.bibtexurl }}" target="_blank" rel="noopener">BibTeX file<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}{% if pub_cit != "" %} <button type="button" data-copy data-copy-target="bib-{{ pub_id }}">Copy BibTeX</button>{% endif %}</p>
 {% if pub_cit != "" %}<pre id="bib-{{ pub_id }}" class="pub-bibtex-source" hidden>{{ pub_cit | escape }}</pre>{% endif %}
 </div>
 </article>

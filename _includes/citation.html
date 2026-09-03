@@ -16,6 +16,6 @@
 <h2 class="citation__label">BibTeX</h2>
 <pre id="{{ cit_id }}" class="citation-bibtex">{{ cit | escape }}</pre>
 {% endif %}
-<p class="pub__actions">{% if cit != "" %}<button type="button" data-copy data-copy-target="{{ cit_id }}">Copy BibTeX</button> {% endif %}{% if page.paperurl %}<a href="{{ page.paperurl }}" rel="noopener">Paper</a>{% endif %}{% if page.slidesurl %} <a href="{{ page.slidesurl }}" rel="noopener">Slides</a>{% endif %}{% if page.bibtexurl %} <a href="{{ page.bibtexurl }}" rel="noopener">BibTeX file</a>{% endif %}</p>
+<p class="pub__actions">{% if cit != "" %}<button type="button" data-copy data-copy-target="{{ cit_id }}">Copy BibTeX</button> {% endif %}{% if page.paperurl %}<a href="{{ page.paperurl }}" target="_blank" rel="noopener">Paper<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}{% if page.slidesurl %} <a href="{{ page.slidesurl }}" target="_blank" rel="noopener">Slides<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}{% if page.bibtexurl %} <a href="{{ page.bibtexurl }}" target="_blank" rel="noopener">BibTeX file<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}</p>
 </section>
 {% endif %}

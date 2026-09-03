@@ -14,7 +14,7 @@
 <article class="entry" itemscope itemtype="http://schema.org/CreativeWork">
 {% if post.date %}<time class="entry__label" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y-%m-%d" }}</time>{% endif %}
 <div class="entry__body">
-<h3 class="entry__title" itemprop="headline"><a href="{% if post.link %}{{ post.link }}{% else %}{{ base_path }}{{ post.url }}{% endif %}" itemprop="url">{{ entry_title }}</a></h3>
+<h3 class="entry__title" itemprop="headline"><a href="{% if post.link %}{{ post.link }}{% else %}{{ base_path }}{{ post.url }}{% endif %}" itemprop="url"{% if post.link %} target="_blank" rel="noopener"{% endif %}>{{ entry_title }}{% if post.link %}<span class="sr-only"> (opens in a new tab)</span>{% endif %}</a></h3>
 {% if post.collection == "teaching" and post.type or post.collection == "teaching" and post.venue %}<p class="entry__meta">{{ post.type }}{% if post.type and post.venue %} &middot; {% endif %}{{ post.venue }}</p>{% elsif post.collection == "service" and post.type %}<p class="entry__meta">{{ post.type }}</p>{% endif %}
 {% if entry_excerpt_text != "" %}<div class="entry__excerpt" itemprop="description">{{ post.excerpt | markdownify }}</div>{% endif %}
 </div>

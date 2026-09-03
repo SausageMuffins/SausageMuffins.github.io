@@ -20,3 +20,6 @@ package-lock.json
 .vscode/
 .DS_Store
 .jekyll-cache/
+
+# Internal design notes, kept locally
+DESIGN.md
