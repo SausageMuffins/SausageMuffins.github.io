@@ -32,13 +32,37 @@
 {% assign pub_cit = post.citation | default: "" | strip %}
 {% assign pub_cit_dc = pub_cit | downcase %}
 {% if pub_cit_dc == "tba" %}{% assign pub_cit = "" %}{% endif %}
+{% comment %}
+  Abstract disclosure: the paper's own body — the real abstract — with the
+  front-matter excerpt (a one-line teaser) as the fallback; blank in both means
+  no toggle. On this Jekyll (3.10) the collection documents are rendered before
+  the pages that loop over them, so post.content arrives already converted to
+  HTML (verified: all five _publications bodies reach us starting "<p>"). So
+  markdownify runs only when the text is still raw — the excerpt fallback, or a
+  body that somehow arrived unconverted — and never twice over the same text.
+{% endcomment %}
+{% assign pub_abstract = post.content | default: "" | strip %}
+{% if pub_abstract == "" %}{% assign pub_abstract = post.excerpt | default: "" | strip %}{% endif %}
+{% if pub_abstract != "" %}{% assign pub_abs_first = pub_abstract | slice: 0 %}{% if pub_abs_first != "<" %}{% assign pub_abstract = pub_abstract | markdownify | strip %}{% endif %}{% endif %}
 <article class="pub">
 <p class="pub__label"><span class="pub__year">{{ pub_year }}</span>{% if vtag %} <span class="pub-tag pub-tag--{{ vtag_class }}">{{ vtag }}</span>{% endif %}</p>
 <div class="pub__body">
 <h3 class="pub__title"><a href="{{ post.url | relative_url }}">{{ pub_title }}</a></h3>
 {% if post.authors %}<p class="pub__authors">{{ pub_authors }}{% if post.authors_note %} <span class="pub__note">{{ post.authors_note }}</span>{% endif %}</p>{% endif %}
 {% if post.venue %}<p class="pub__venue"><i>{{ post.venue }}</i></p>{% endif %}
-<p class="pub__actions"><a href="{{ post.url | relative_url }}">Details</a>{% if post.paperurl %} <a href="{{ post.paperurl }}" target="_blank" rel="noopener">Paper<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}{% if post.slidesurl %} <a href="{{ post.slidesurl }}" target="_blank" rel="noopener">Slides<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}{% if post.bibtexurl %} <a href="{{ post.bibtexurl }}" target="_blank" rel="noopener">BibTeX file<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}{% if pub_cit != "" %} <button type="button" data-copy data-copy-target="bib-{{ pub_id }}">Copy BibTeX</button>{% endif %}</p>
-{% if pub_cit != "" %}<pre id="bib-{{ pub_id }}" class="pub-bibtex-source" hidden>{{ pub_cit | escape }}</pre>{% endif %}
+{% comment %}
+  Actions line. A <div>, not a <p>: the Abstract <details> is flow content and
+  may not sit inside a paragraph (the parser would close the <p> and orphan the
+  panel). "BibTeX" is one click-to-copy control: the [data-copy] handler in
+  site.js reads `target.innerText || target.textContent`, and the source <pre>
+  after this line is [hidden], so innerText is "" and textContent supplies the
+  text. If the clipboard API is unavailable the handler un-hides that <pre> and
+  selects it ("Select & copy"), which is why it sits after the actions line as
+  a block and not inside it. Abstract is a native <details>; open, it claims a
+  whole flex line so its panel spans the content column (see _pub.scss).
+{% endcomment %}
+<div class="pub__actions"><a href="{{ post.url | relative_url }}">Details</a>{% if post.paperurl %} <a href="{{ post.paperurl }}" target="_blank" rel="noopener">Paper<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}{% if post.slidesurl %} <a href="{{ post.slidesurl }}" target="_blank" rel="noopener">Slides<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}{% if post.bibtexurl %} <a href="{{ post.bibtexurl }}" target="_blank" rel="noopener">BibTeX file<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}{% if pub_cit != "" %} <button type="button" data-copy data-copy-target="bib-{{ pub_id }}" data-copy-message="BibTeX copied" aria-label="Copy BibTeX">BibTeX</button>{% endif %}{% if pub_abstract != "" %} <details class="pub__disclosure"><summary>Abstract</summary><div class="pub__panel">{{ pub_abstract }}</div></details>{% endif %}</div>
+{%- if pub_cit != "" %}
+<pre id="bib-{{ pub_id }}" class="pub__panel pub__panel--bib pub-bibtex-source" hidden>{{ pub_cit | escape }}</pre>{% endif %}
 </div>
 </article>

@@ -1,0 +1,49 @@
+{%- comment -%}
+  Work Experience (/cv/, PLAN §3.3). One <details class="role"> per entry in
+  _data/experience.yml, in file order: the first (most recent) role carries
+  `open`, the rest start closed. assets/js/cv.js — loaded by the CV's front
+  matter `scripts:` — adds Expand all / Collapse all and opens every role for
+  printing; without JS the control is hidden (.no-js in _cvpage.scss) and the
+  native disclosure still works, so nothing here depends on script.
+
+  The role title stays a real <h3 id="…"> inside the <summary>: the roles keep
+  their heading semantics, their /cv/#anchor and their Contents entries, since
+  _includes/toc_auto.html reads h1–h3 that carry an id out of the rendered
+  page. The id is `title | slugify`, which reproduces the kramdown auto-id the
+  `### Role` headings had, so old anchors still resolve. And because the
+  heading sits in the summary rather than the body, a fragment link lands on
+  something that is visible whether or not the role is open — no reliance on
+  the browser auto-expanding <details> for fragment navigation.
+
+  Emitted as one HTML block with no blank line anywhere inside it: a blank line
+  would let kramdown close the raw block and reopen a paragraph mid-role.
+{%- endcomment -%}
+<div class="roles" data-roles>
+<button type="button" class="roles__toggle" data-roles-toggle>Expand all</button>
+{%- for role in site.data.experience -%}
+{%- assign role_id = role.title | slugify %}
+<details class="role"{% if forloop.first %} open{% endif %}>
+<summary class="role__summary"><h3 class="role__title" id="{{ role_id }}">{{ role.title }}</h3><span class="role__dates">{{ role.dates }}</span></summary>
+<div class="role__body">
+{%- for project in role.projects %}
+<p class="role__project"><strong>{{ project.title }}</strong>{% if project.note %} {{ project.note }}{% endif %}{% if project.link %} | <a href="{{ project.link.url }}">{{ project.link.label | default: "Link" }}</a>{% endif %}{% if project.dates %} <br />
+{{ project.dates }}{% endif %}</p>
+{%- if project.bullets %}
+<ul>
+{%- for bullet in project.bullets %}
+<li>{{ bullet }}</li>
+{%- endfor %}
+</ul>
+{%- endif -%}
+{%- endfor -%}
+{%- if role.bullets %}
+<ul>
+{%- for bullet in role.bullets %}
+<li>{{ bullet }}</li>
+{%- endfor %}
+</ul>
+{%- endif %}
+</div>
+</details>
+{%- endfor %}
+</div>

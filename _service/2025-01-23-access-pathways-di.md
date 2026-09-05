@@ -27,4 +27,4 @@ Through this experience, I realized that early exposure to industries or potenti
 
 *Introspection*: I thought it would be meaningful to help youths gain some early exposure in AI research, which could then provide the foundation for a vibrant (research) community in Singapore. 
 
-<img src="../images/access_pathways.JPG" alt="Access Pathways summary session with all the JC students." width="600"/>
+<img src="../images/access_pathways.JPG" alt="Junior college students and volunteers gathered for the Access Pathways summary session." width="960" height="1280" loading="lazy" decoding="async"/>

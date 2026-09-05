@@ -116,8 +116,16 @@ h3 + .pub {
   padding: 0;
 }
 
+// The actions line is a <div> in the publication row (a <details> is flow
+// content and may not sit inside a <p>), so `.pub__body > p { margin: 0 }`
+// above no longer reaches it: restate it here, unchanged.
+.pub__body > .pub__actions {
+  margin: 0;
+}
+
 .pub__actions > a,
-.pub__actions > button {
+.pub__actions > button,
+.pub__actions > .pub__disclosure > summary {
   display: inline-block;
   padding: 0.35rem 0;
   color: var(--ink-muted);
@@ -129,7 +137,9 @@ h3 + .pub {
 .pub__actions > a:hover,
 .pub__actions > button:hover,
 .pub__actions > a:focus-visible,
-.pub__actions > button:focus-visible {
+.pub__actions > button:focus-visible,
+.pub__actions > .pub__disclosure > summary:hover,
+.pub__actions > .pub__disclosure > summary:focus-visible {
   color: var(--ink);
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -139,6 +149,94 @@ h3 + .pub {
 
 .pub__actions > [data-copy].is-copied {
   color: var(--accent);
+}
+
+// --- Disclosure on the actions line: Abstract ------------------------------
+// Native <details>/<summary>; no JS. (BibTeX is a plain [data-copy] button;
+// its hidden source <pre> after the line reuses .pub__panel--bib below.) Invariants held here (do not violate):
+// no cards, no fills, no shadows, no `transition: all`, no @keyframes;
+// hairline --rule borders only; colour and type from _tokens.scss; every
+// :hover paired with :focus-visible. _motion.scss already zeroes motion under
+// prefers-reduced-motion, and nothing below animates the panel anyway.
+//
+// Closed, a disclosure is one more item on the flex actions line and picks up
+// the neighbours' separator and hover. Open, it claims a whole flex line
+// (flex-basis 100%), so its panel spans the content column of the .pub grid
+// rather than the width of its own summary, and only the actions after it move.
+.pub__actions > .pub__disclosure {
+  min-width: 0;
+}
+
+.pub__actions > .pub__disclosure[open] {
+  flex: 0 0 100%;
+  margin-left: 0;
+}
+
+// First on its own line: no leading separator.
+.pub__actions > .pub__disclosure[open]::before {
+  content: none;
+}
+
+.pub__actions > .pub__disclosure > summary {
+  position: relative;
+  padding-left: 1em;
+  cursor: pointer;
+  list-style: none;
+}
+
+.pub__actions > .pub__disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+// Marker: the inline-Contents idiom from _contents.scss, + closed and – open.
+// Out of flow, so the summary's hover underline covers the word only, the way
+// the "·" separator stays clear of the actions' underline.
+.pub__actions > .pub__disclosure > summary::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  color: var(--ink-muted);
+}
+
+.pub__actions > .pub__disclosure[open] > summary::before {
+  content: "\2013";
+}
+
+// Panel: under the action line, inside the content column, one hairline and
+// nothing else — no fill, no radius, no shadow, no motion.
+.pub__panel {
+  border-top: 1px solid var(--rule);
+  margin: 0.15rem 0 0.45rem;
+  padding: 0.6rem 0 0;
+  max-width: var(--measure);
+  font: 400 var(--t-small) / 1.6 var(--serif);
+  color: var(--ink-muted);
+  text-wrap: pretty;
+}
+
+.pub__panel > :first-child {
+  margin-top: 0;
+}
+
+.pub__panel > :last-child {
+  margin-bottom: 0;
+}
+
+// The BibTeX source <pre> is the [data-copy] target, [hidden] after the
+// actions line and revealed only when the clipboard API fails (see
+// archive-single-publication.html). `pre` arrives from _type.scss
+// with a --surface fill, a radius, 1rem padding and a phone bleed: strip all
+// four back to the hairline panel. white-space/overflow-wrap stay with
+// pre.pub-bibtex-source in _type.scss.
+.pub__panel--bib {
+  font: 400 var(--t-micro) / 1.55 var(--mono);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-variant-ligatures: none;
+  background: none;
+  border-radius: 0;
+  margin-inline: 0;
+  padding: 0.6rem 0 0;
+  tab-size: 2;
 }
 
 // Without JS the clipboard button is inert: hide it (PLAN §5 #5). The BibTeX
@@ -164,12 +262,20 @@ h3 + .pub {
     left: -0.9em;
   }
 
-  // The item after a hidden (no-js) Copy button is first in line: no separator.
-  .no-js .pub__actions > [data-copy] + * {
+  // A disclosure is a block box whose summary carries the action padding, so
+  // its separator would sit 0.35rem above the links': put it on their baseline.
+  .pub__actions > * + .pub__disclosure::before {
+    top: 0.35rem;
+  }
+
+  // Detail page: the item after a hidden (no-js) leading Copy button is first
+  // in line, so no separator. In the list the button sits mid-line and its
+  // neighbours keep theirs.
+  .no-js .pub__actions > [data-copy]:first-child + * {
     margin-left: 0;
   }
 
-  .no-js .pub__actions > [data-copy] + *::before {
+  .no-js .pub__actions > [data-copy]:first-child + *::before {
     content: none;
   }
 

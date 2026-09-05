@@ -26,7 +26,7 @@ author:
   pronouns         : "he/him" # example: "she/her"  
   bio              : "AI Singapore Accelerated Masters Scholar | SUTD MEng (Research)"
   location         : "Singapore"
-  employer         : "SUTD"
+  # employer         : # Organisation, e.g. "SUTD"; shown after location when set
   # uri              : # URL
   email            : "yurielryan@gmail.com"
   resume           : "/files/Yuriel_Resume.pdf" # Path or URL to your resume
@@ -34,7 +34,7 @@ author:
   # Academic websites
   # academia         : # URL
   # arxiv            : # URL - Update with the correct link to your profile
-  # googlescholar    : # URL - Update with the correct link to your profile
+  googlescholar    : "https://scholar.google.com/citations?user=W_O9e_QAAAAJ&hl=en"
   # impactstory      : # URL
   # orcid            : "http://orcid.org/yourorcidurl"
   # semantic         : # URL
@@ -67,7 +67,7 @@ author:
   pinterest        : # Username
   soundcloud       : # Username
   steam            : # Username
-  telegram         : https://t.me/SausageMuffins # URL
+  telegram         : # URL
   tumblr           : # Username
   twitter          : YurielRyan # Username for X / Twitter
   vine             : # Username

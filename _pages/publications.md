@@ -22,7 +22,7 @@ My [latest work](https://icml.cc/virtual/2026/poster/61360) utilizes the Partial
 
 **[Ongoing]** Self-evolving agents for social behavior. I'm thinking about representing how we (the humans) infer social cues (e.g., emotions) through a "lossy channel" (See figure below). This could help inform "how much information is lost/preserved" for an agent to improve itself in producing a faithful internal state.
 
-![](/images/lossy_humans.jpg)
+![Diagram of social inference as a lossy channel: a distressed person (internal state Z) encodes a smiling face ("I'm fine", observed behavior X), and a perceiver infers a calm state Z-hat, reading them as fine.](/images/lossy_humans.jpg)
 
 <br>
 
@@ -31,7 +31,7 @@ My [latest work](https://icml.cc/virtual/2026/poster/61360) utilizes the Partial
 # Publications
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+You can also find my articles on [my Google Scholar profile]({{ site.author.googlescholar }}).
 {% endif %}
 
 <!-- New style rendering if publication categories are defined -->

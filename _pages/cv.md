@@ -4,6 +4,7 @@ title: ""
 permalink: /cv/
 author_profile: true
 toc: true
+scripts: [/assets/js/cv.js]
 redirect_from:
   - /resume
 ---
@@ -57,43 +58,7 @@ Work Experience
 ======
 
 
-### Research Intern, DSO-AISG Research Award
-2025 September – Present
-
-**Label-Free Self-Evolving VLMs** (ongoing project) | [GitHub](https://github.com/yurielryan/LMM-Video-Understanding) <br>
-2026 June – Present
-- Reproduced the full Video-Zero training stack (a self-evolving video LLM) from the paper's equations to serve as the project baseline: a Questioner and a Solver (Qwen 3.5 9B on verl and vLLM) co-evolve with GRPO, using consensus pseudo-labels as the training signal.
-- Ran multi-model RL on shared GPUs, with a frozen vLLM policy server scoring rewards during GRPO training. A full 5-iteration co-evolution pipeline runs end-to-end in ~4.5h on 2× H200 under SLURM.
-- Adapted the pipeline to ternary sentiment using self-generated pseudo-labels (majority voting), raising video-only accuracy over the base model from 41.9% to 44.2% with no human-written annotations or labels.
-
-**Self-Reinforcing VLMs** (completed project – ICML 2026) | [GitHub](https://github.com/yurielryan/Multimodal-Interaction-Tuning) <br>
-2025 September – 2026 June
-- Collaborated with research scientists from DSO National Laboratories as part of the research award to improve VLM robustness against ambiguous and corrupted modalities.
-- Applied the Partial Information Decomposition (information theoretic) framework to motivate hypotheses and design experiments for tuning multimodal interactions.
-- Curated training (e.g. cleaning, deduplication) and validation partitions using vLLM, yielding three training sets (984,000 samples) of varying redundant interactions for supervised fine-tuning (PEFT with LoRA).
-- Tested the hypotheses by fine-tuning VLMs — ranging from 256M (SmolVLM) to 8B (LLaVa-OneVision) parameters — with low rank adapters, leading to a 38.3% decrease in visual-induced hallucinations and 16.8% gain in consistency; methods and findings were accepted into the ICML main track.
-
-### Founding AI Engineer, Pallo (formerly Check) (Iterative W25)
-2025 January – March
-- Built a Retrieval Augmented Generation (RAG) workflow to produce syllabus-accurate outputs, securing a Pre-Seed fund from Iterative VC (Winter 2025).
-- Built a data processing pipeline by combining open-source Computer Vision models with LLMs, contributing 8,700 high quality questions to Supabase for RAG.
-- Deployed DeepSeek R1 models to Google Cloud Run to solve Singapore GCE A-Level math problems, increasing the accuracy of the final outputs by 36%.
-
-### LMM Research Assistant, Social AI Lab (SUTD)
-2024 June – December
-- Web scraped using Selenium and Beautiful Soup to collect more than 28,000 comics for analysis.
-- Recruited and managed 8 participants to evaluate 2,800 comics using Label Studio to assess large multimodal models' (LMMs such as Qwen2-VL, LLaVa-OV, GPT4o and Gemini) ability to comprehend humor.
-
-### LLM Research Intern, DSO National Laboratories
-2023 August – December
-- Applied the Graph of Thoughts reasoning workflow with LLMs to detect vulnerable code within a 3-layer call stack, reducing incurred API (ChatGPT) costs by 25%.
-- Integrated Llama 2 and Code Llama with LangChain to perform Retrieval-Augmented Generation (RAG), further improving contextual understanding.
-
-<!-- ### Undergraduate TA, SUTD
-2022 September – December
-- Taught small groups (4-5 per group) of students in the 10.014 Computational Thinking for Design module.
-- Graded home assignments and lab work (programming a Raspberry Pi microcontroller) and maintained student records.
-- Assisted faculty with the preparation of 20 unique questions for upcoming classes that test students on their coding (Python) abilities – search algorithms, functions and object-oriented programming questions. -->
+{% include experience.html %}
 
 **Technical Skills:** Python, PyTorch, TensorFlow, Google Cloud Platform, SQL, Java
 

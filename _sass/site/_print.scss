@@ -26,6 +26,7 @@
   .toc,
   .colophon .contact,
   .channel,
+  .roles__toggle,
   .skip-link {
     display: none !important;
   }
@@ -64,5 +65,47 @@
   h2,
   h3 {
     break-after: avoid;
+  }
+
+  // /cv/ Work Experience: the roles are <details> (_includes/experience.html).
+  // assets/js/cv.js opens every one on beforeprint and puts them back after,
+  // so the printed resume never depends on what the reader had open; the
+  // disclosure apparatus itself is screen-only and the page keeps its flush
+  // left edge. These rules carry one extra class because _print is imported
+  // before _cvpage and would otherwise lose the cascade on equal specificity.
+  .page--cv .roles .role {
+    border: 0;
+    break-inside: avoid;
+  }
+
+  .page--cv .roles .role__summary {
+    grid-template-columns: 0 minmax(0, 1fr) auto;
+    min-height: 0;
+    padding: 0.35rem 0;
+    cursor: auto;
+  }
+
+  // No "+" / en dash on paper: the marker is an affordance, not content.
+  .page--cv .roles .role__summary::before {
+    content: none;
+  }
+
+  .page--cv .roles .role__dates {
+    grid-column: 3;
+    grid-row: 1;
+    padding-left: 1rem;
+    text-align: right;
+  }
+
+  .page--cv .roles .role__body {
+    padding-left: 0;
+  }
+
+  // Chrome 131+: reveal a role that is still closed at print time (printing
+  // from a context that never fires beforeprint, or with cv.js absent).
+  // Dropped whole by engines that do not know the pseudo-element.
+  .page--cv .roles .role::details-content {
+    content-visibility: visible;
+    block-size: auto;
   }
 }

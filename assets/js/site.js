@@ -1,5 +1,6 @@
 /* yurielryan.com — one classic deferred script (PLAN §5, §6.3): theme toggle,
-   delegated clipboard, Contents scroll-spy, the channel (§4.15).
+   delegated clipboard, Contents scroll-spy, the channel (§4.15), section
+   anchors and the figure lightbox.
    No timers except the 1.5 s "Copied" revert; no scroll listeners. */
 (function () {
   'use strict';
@@ -42,8 +43,10 @@
     }
   }
 
-  /* ---- Clipboard (§5 #5): one delegated handler for [data-copy] ---------- */
-  function clipboard() {
+  /* ---- Clipboard (§5 #5): the announcer, the 1.5 s label swap and the write
+     itself, shared by every copy control on the site (the BibTeX buttons, the
+     section anchors, the contact line). One aria-live region for all of them. */
+  var clip = (function () {
     var live = null;
     function announce(msg) {
       if (!live) {
@@ -55,23 +58,57 @@
       live.textContent = '';
       live.textContent = msg;
     }
+    // Swap the control's own label for 1.5 s and colour it with .is-copied.
+    // The original label is remembered on the first swap, so a second click
+    // inside the window cannot latch "Copied" permanently.
+    function feedback(el, label, message) {
+      if (el._copyTimer) clearTimeout(el._copyTimer);
+      else el._copyLabel = el.textContent;
+      el.textContent = label;
+      el.classList.add('is-copied');
+      announce(message || label);
+      el._copyTimer = setTimeout(function () {
+        el.textContent = el._copyLabel;
+        el.classList.remove('is-copied');
+        el._copyTimer = null;
+      }, 1500);
+    }
+    function write(text, ok, fail) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(ok, fail);
+      } else {
+        fail();
+      }
+    }
+    return { announce: announce, feedback: feedback, write: write };
+  })();
+
+  /* One delegated handler for [data-copy]. Two contracts, both optional-free:
+       data-copy-target="id"  copy that element's text (BibTeX blocks) — on
+                              failure the block is revealed and selected;
+       data-copy-text="…"     copy the literal string (contact line, anchors).
+     data-copy-label / data-copy-message override the 1.5 s label and what the
+     live region says. The target contract is unchanged. */
+  function clipboard() {
     document.addEventListener('click', function (e) {
       var btn = e.target.closest ? e.target.closest('[data-copy]') : null;
       if (!btn) return;
-      var target = document.getElementById(btn.getAttribute('data-copy-target'));
-      if (!target) return;
-      var text = target.innerText || target.textContent || '';
-      var original = btn.textContent;
-      function done(msg) {
-        btn.textContent = msg;
-        btn.classList.add('is-copied');
-        announce(msg);
-        setTimeout(function () {
-          btn.textContent = original;
-          btn.classList.remove('is-copied');
-        }, 1500);
+      var literal = btn.getAttribute('data-copy-text');
+      var label = btn.getAttribute('data-copy-label') || 'Copied';
+      var message = btn.getAttribute('data-copy-message') || label;
+      var target = null;
+      var text;
+      if (literal !== null) {
+        text = literal;
+      } else {
+        target = document.getElementById(btn.getAttribute('data-copy-target'));
+        if (!target) return;
+        text = target.innerText || target.textContent || '';
       }
       function fail() {
+        // Nothing to fall back to for a literal string: say so and leave the
+        // control alone rather than flashing a success label.
+        if (!target) { clip.announce('Copy failed'); return; }
         target.hidden = false;
         try {
           var range = document.createRange();
@@ -80,13 +117,96 @@
           sel.removeAllRanges();
           sel.addRange(range);
         } catch (err) { /* nothing to select */ }
-        done('Select & copy');
+        clip.feedback(btn, 'Select & copy', 'Select & copy');
       }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () { done('Copied'); }, fail);
-      } else {
-        fail();
-      }
+      clip.write(text, function () { clip.feedback(btn, label, message); }, fail);
+    });
+  }
+
+  /* ---- Section anchors: a mono "#" appended to the same h1–h3 the Contents
+     lists (kramdown auto-ids inside .prose; the page title is not one of
+     them). It is a real link, so the hash updates natively; it is also a
+     [data-copy] control carrying the absolute section URL, so the copy goes
+     through the one handler above. Ids, text and scroll-margin are untouched,
+     which keeps the scroll-spy's getElementById lookups working. */
+  function anchors() {
+    var heads = document.querySelectorAll('.prose h1[id], .prose h2[id], .prose h3[id]');
+    for (var i = 0; i < heads.length; i++) {
+      var h = heads[i];
+      if (h.querySelector('.anchor')) continue;
+      var a = document.createElement('a');
+      a.className = 'anchor';
+      a.setAttribute('href', '#' + h.id);
+      a.setAttribute('aria-label', 'Copy link to this section');
+      a.setAttribute('data-copy', '');
+      a.setAttribute('data-copy-text', a.href); // resolved: origin + path + hash
+      a.setAttribute('data-copy-label', '✓');
+      a.setAttribute('data-copy-message', 'Link copied');
+      a.textContent = '#';
+      h.appendChild(a);
+    }
+  }
+
+  /* ---- Enlarge (click-to-zoom): each figure in the prose is wrapped at
+     runtime in a bare button, and one shared <dialog> shows it on the paper.
+     Native modal, so Escape, the top layer and focus containment come free.
+     Without HTMLDialogElement.showModal nothing is injected at all and the
+     images stay exactly as they render now. */
+  function lightbox() {
+    if (!window.HTMLDialogElement) return;
+    if (typeof document.createElement('dialog').showModal !== 'function') return;
+
+    var figures = document.querySelectorAll('.prose img, .entry img');
+    if (!figures.length) return;
+
+    var dlg = null, view = null, opener = null;
+
+    function build() {
+      dlg = document.createElement('dialog');
+      dlg.className = 'lightbox';
+      var close = document.createElement('button');
+      close.type = 'button';
+      close.className = 'lightbox__close';
+      close.textContent = 'Close';
+      view = document.createElement('img');
+      view.className = 'lightbox__img';
+      view.setAttribute('decoding', 'async');
+      dlg.appendChild(close); // first in the DOM, so showModal() lands here
+      dlg.appendChild(view);
+      close.addEventListener('click', function () { dlg.close(); });
+      // The dialog box is the veil: a hit on it — and not on the figure or on
+      // Close — is the backdrop click.
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener('close', function () {
+        // Defer past the UA's own focus restoration so the trigger wins.
+        var o = opener;
+        if (o && document.contains(o)) setTimeout(function () { o.focus(); }, 0);
+        opener = null;
+      });
+      document.body.appendChild(dlg);
+    }
+
+    function open(btn, img) {
+      if (!dlg) build();
+      if (dlg.open) return;
+      opener = btn;
+      view.src = img.currentSrc || img.src;
+      view.alt = img.alt || '';
+      dlg.setAttribute('aria-label', img.alt || 'Enlarged figure');
+      dlg.showModal();
+    }
+
+    [].forEach.call(figures, function (img) {
+      // Not the byline portrait, the masthead or the colophon, and never an
+      // image that is already a link or already wrapped: no nested controls.
+      if (img.closest('a, button, .masthead, .colophon, .byline, .channel')) return;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'lightbox__trigger';
+      btn.setAttribute('aria-label', 'Enlarge figure');
+      img.parentNode.insertBefore(btn, img);
+      btn.appendChild(img);
+      btn.addEventListener('click', function () { open(btn, img); });
     });
   }
 
@@ -214,6 +334,8 @@
 
   theme();
   clipboard();
+  anchors();
+  lightbox();
   scrollSpy();
   channel();
   extlinks();

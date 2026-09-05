@@ -19,7 +19,7 @@ The second segment of this session involved a lot of vibe coding, to which I let
 More importantly, I was able to **connect youths to different opportunities and/or things that they might be interested in** (e.g. one guy became really interested in physics-informed machine learning after an extended conversation about the different variants of machine learning); This is a very important cause to me, one that I hope to continue to assist others in realizing their interests!
 
 <!-- ![June Monthly Meetup](../images/syai_monthly_meetup.png) -->
-<img src="../images/syai_monthly_meetup.png" alt="June Monthly Meetup" width="600"/>
+<img src="../images/syai_monthly_meetup.png" alt="Group photo of the forty-odd participants at the Singapore Youth AI June monthly meet-up." width="960" height="1200" loading="lazy" decoding="async"/>
 
 P.S. I'm wearing the orange shirt in the front row :)
 

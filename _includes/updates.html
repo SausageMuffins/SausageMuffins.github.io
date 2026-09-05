@@ -1,0 +1,63 @@
+{%- comment -%}
+  Updates list for the home page (§4.x, the "Updates!" section of /).
+  Data: _data/updates.yml, authored newest first. Markup: the same table
+  kramdown used to emit for the hand-written markdown table, so the visible
+  rows render byte-for-byte as they did before the fold.
+
+  Params
+    show — how many entries stay visible. Default 4.
+
+  Everything past `show` goes into a native <details>: no JavaScript, and the
+  fold is inert (and unfolded) in print. Styling lives in
+  _sass/site/_updates.scss; the design invariants it states — hairline rules
+  only, no cards, no fills, no shadows, no `transition: all`, no @keyframes,
+  tokens only, reduced motion handled globally in _sass/site/_motion.scss —
+  hold for this markup too, which is why nothing here carries inline style or
+  a wrapper that wants a background.
+{%- endcomment -%}
+{%- assign updates = site.data.updates -%}
+{%- assign show = include.show | default: 4 | plus: 0 -%}
+{%- assign total = updates | size -%}
+{%- if show > total -%}{%- assign show = total -%}{%- endif -%}
+{%- assign shown = updates | slice: 0, show -%}
+{%- assign hidden_count = total | minus: show -%}
+<div class="updates">
+  <table class="updates__table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>News</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%- for item in shown %}
+      <tr>
+        <td>{{ item.date }}</td>
+        <td>{% if item.tag %}<span class="pub-tag pub-tag--{{ item.tag | downcase }}">{{ item.tag }}</span> {% endif %}{{ item.text | markdownify | replace: '<p>', '' | replace: '</p>', '' | strip }}</td>
+      </tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+  {%- if hidden_count > 0 -%}
+  {%- assign rest = updates | slice: show, hidden_count %}
+  <details class="updates__more">
+    <summary><span class="updates__label">Earlier updates ({{ hidden_count }})</span></summary>
+    <table class="updates__table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>News</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for item in rest %}
+        <tr>
+          <td>{{ item.date }}</td>
+          <td>{% if item.tag %}<span class="pub-tag pub-tag--{{ item.tag | downcase }}">{{ item.tag }}</span> {% endif %}{{ item.text | markdownify | replace: '<p>', '' | replace: '</p>', '' | strip }}</td>
+        </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </details>
+  {%- endif %}
+</div>

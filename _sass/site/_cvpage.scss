@@ -1,11 +1,18 @@
-// CV page (plan §3.3, §4.9). Everything here reaches authored markdown through
+// CV page (plan §3.3, §4.9). Most of this reaches authored markdown through
 // structure alone: the degree blocks are `**Degree** <br> *Institution* <br>
-// dates` paragraphs, the roles are `### Role` followed by a bare date line.
-// Section counters (gutter + Contents) are generic in _type / _contents;
-// `<p><br></p>` spacers are hidden generically; bullet en-dashes are generic.
+// dates` paragraphs. Section counters (gutter + Contents) are generic in
+// _type / _contents; `<p><br></p>` spacers are hidden generically; bullet
+// en-dashes are generic. The Work Experience roles come from
+// _data/experience.yml through _includes/experience.html and carry classes.
+//
+// Invariants for everything below: no cards, no fills, no shadows, no
+// `transition: all`, no `@keyframes`; hairline --rule borders only; tokens
+// only; every :hover paired with :focus-visible. _motion.scss zeroes the
+// durations under prefers-reduced-motion, so nothing here handles that.
 
 // Degree / sub-project titles: only paragraphs that contain a <br> qualify,
-// so `**Technical Skills:**` keeps ordinary emphasis.
+// so `**Technical Skills:**` keeps ordinary emphasis. p.role__project is
+// authored with a <br> for exactly this reason.
 .page--cv .prose p:has(> br) {
   margin-bottom: 0.75rem;
 }
@@ -28,30 +35,138 @@
   margin: 1.75rem 0;
 }
 
-// Role meta line (`2025 September – Present`, optionally `| [[GitHub]]`):
-// mono apparatus directly under the h3. Direct-child combinator keeps the
-// publication entries' own h3 + p pairs out of this rule.
-.page--cv .prose > h3 + p {
-  font: 400 var(--t-meta) / 1.5 var(--mono);
-  font-variant-numeric: lining-nums tabular-nums;
-  color: var(--ink-muted);
-  margin: -0.25rem 0 0.6rem;
+// ---------------------------------------------------------------------------
+// Work Experience: one <details class="role"> per role, the most recent open.
+// The disclosure apparatus follows the inline Contents idiom in _contents.scss
+// — a mono "+" that becomes an en dash when open, in a 1.25rem column, with
+// hairline rules between roles. Nothing is boxed and nothing is filled.
+// ---------------------------------------------------------------------------
+.page--cv .roles {
+  margin: 0 0 1.5rem;
 }
 
-.page--cv .prose > h3 + p a {
+// Expand all / Collapse all (assets/js/cv.js). A text control, not a button
+// shape: mono micro, muted, with the site's underline-on-interaction idiom.
+.page--cv .roles__toggle {
+  display: block;
+  width: fit-content;
+  margin: 0 0 0.4rem auto;
+  padding: 0.35rem 0;
+  font: 400 var(--t-micro) / 1.45 var(--mono);
   color: var(--ink-muted);
   text-decoration: none;
+  transition: color var(--d-1) var(--ease), text-decoration-color var(--d-1) var(--ease);
 }
 
-.page--cv .prose > h3 + p a:hover,
-.page--cv .prose > h3 + p a:focus-visible {
+.page--cv .roles__toggle:hover,
+.page--cv .roles__toggle:focus-visible {
   color: var(--ink);
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
   text-decoration-color: var(--rule-strong);
 }
 
+// The control only does something once cv.js has run; until then (and forever,
+// without JS) the native <details> is the whole interface. Same rule as the
+// theme toggle and the Copy buttons.
+.no-js .roles__toggle {
+  display: none;
+}
+
+.page--cv .role {
+  border-bottom: 1px solid var(--rule);
+}
+
+.page--cv .role:first-of-type {
+  border-top: 1px solid var(--rule);
+}
+
+// Grid, not flex: the marker sits in its own column so the title keeps one
+// left edge open or closed, and the dates can drop to a second row on phones
+// without falling under the marker.
+.page--cv .role__summary {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  align-items: baseline;
+  min-height: 40px;
+  padding: 0.55rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.page--cv .role__summary::-webkit-details-marker {
+  display: none;
+}
+
+.page--cv .role__summary::before {
+  content: "+";
+  grid-column: 1;
+  font: 400 var(--t-meta) / 1.5 var(--mono);
+  color: var(--ink-muted);
+  transition: color var(--d-1) var(--ease);
+}
+
+.page--cv .role[open] .role__summary::before {
+  content: "\2013";
+}
+
+.page--cv .role__summary:hover,
+.page--cv .role__summary:focus-visible {
+  color: var(--ink);
+}
+
+.page--cv .role__summary:hover::before,
+.page--cv .role__summary:focus-visible::before {
+  color: var(--ink);
+}
+
+.page--cv .role__title {
+  grid-column: 2;
+  margin: 0;
+  font-size: var(--t-h3);
+  line-height: 1.3;
+  color: inherit;
+}
+
+// The old `### Role` + date-line pair, now one line: mono apparatus beside the
+// title, so a closed role still says when it ran.
+.page--cv .role__dates {
+  grid-column: 2;
+  font: 400 var(--t-meta) / 1.5 var(--mono);
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--ink-muted);
+}
+
+// Body indented to the title's left edge; the marker column is the only thing
+// hanging outside it.
+.page--cv .role__body {
+  padding: 0 0 0.9rem 1.25rem;
+}
+
+.page--cv .role__body > :last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 48em) {
+  // Room enough for the dates to become a right-hand column against the
+  // measure, which turns a collapsed list of roles into a legible index.
+  .page--cv .role__summary {
+    grid-template-columns: 1.25rem minmax(0, 1fr) auto;
+  }
+
+  .page--cv .role__dates {
+    grid-column: 3;
+    grid-row: 1;
+    padding-left: 1rem;
+    text-align: right;
+  }
+}
+
 // Print: degree titles and role meta stay legible in ink on white; the
-// résumé keeps its degree blocks together.
+// résumé keeps its degree blocks together. The roles' own print layout is in
+// _print.scss, which is imported before this file and so carries one extra
+// class to win the cascade.
 @media print {
   .page--cv .prose p:has(> br) {
     break-inside: avoid;

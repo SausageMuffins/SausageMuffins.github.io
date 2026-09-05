@@ -1,0 +1,164 @@
+// updates: owned by its feature; imported from assets/css/site.scss
+//
+// The dated list under "Updates!" on the home page (§4.7) and the fold that
+// keeps the older entries behind a native <details>. Data lives in
+// _data/updates.yml, markup in _includes/updates.html. These rules moved here
+// from _tables (where they were written against .page--home .prose table) and
+// are now scoped to the block's own classes; the visible rows render exactly
+// as they did before the fold.
+//
+// Design invariants for this whole file: hairline rules only -- --rule between
+// entries, --rule-strong for the summary's underline -- no cards, no fills, no
+// shadows, no `transition: all`, no @keyframes, tokens only. There is no
+// motion here at all; reduced motion is handled globally in
+// _sass/site/_motion.scss, and the fold is CSS + markup, never JavaScript.
+
+// The block, not the table, carries the closing rule, so the same hairline
+// lands under the last visible row when the fold is shut and under the oldest
+// entry when it is open.
+.updates {
+  margin: 1.5rem 0 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+// The list keeps its table semantics on desktop; the header row is clipped,
+// not removed, so it stays in the accessibility tree.
+.updates__table {
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.updates__table thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.updates__table td {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  padding: 0.8rem 0;
+  vertical-align: top;
+}
+
+// No rule directly under the heading (§4.3). Only the visible table drops it:
+// the folded table's first row keeps its top rule, and that is the hairline
+// that sits under an open summary.
+.updates > .updates__table tbody tr:first-child td {
+  border-top: 0;
+}
+
+// ISO date column: mono, tabular, never wraps; optical baseline match.
+.updates__table td:first-child {
+  width: 7rem;
+  padding-right: 1rem;
+  padding-top: calc(0.8rem + 0.2em);
+  font: 400 var(--t-meta) / 1.5 var(--mono);
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+// The newest event is the one that carries information: the rubric's only
+// appearance in the list, so it stays on the visible table's first row.
+.updates > .updates__table tbody tr:first-child td:first-child {
+  color: var(--accent);
+}
+
+.updates__table td:last-child {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink);
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+.updates__table td:last-child .pub-tag {
+  margin-right: 0.5em;
+}
+
+// ---------------------------------------------------------------------------
+// The fold. Its rule above the summary is the same hairline that separates two
+// entries, so a shut fold reads as one more line in the list. The marker is
+// the inline-Contents idiom (+ / --), not a chevron and not an icon.
+.updates__more {
+  border-top: 1px solid var(--rule);
+}
+
+.updates__more > summary {
+  font: 400 var(--t-meta) / 1.45 var(--mono);
+  color: var(--ink-muted);
+  cursor: pointer;
+  list-style: none;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.updates__more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.updates__more > summary::before {
+  content: "+";
+  display: inline-block;
+  width: 1.25rem;
+  color: var(--ink-muted);
+}
+
+.updates__more[open] > summary::before {
+  content: "\2013";
+}
+
+// Hover and focus-visible always travel together: the underline is the whole
+// affordance, in the quietest rule token, and the marker stays undecorated
+// because only the label carries it.
+.updates__more > summary:hover .updates__label,
+.updates__more > summary:focus-visible .updates__label {
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+// Phones: the date stacks above the news text; the row rule moves to the date
+// cell and the news cell reads at body size.
+@media (max-width: 47.99em) {
+  .updates__table,
+  .updates__table tbody,
+  .updates__table tr,
+  .updates__table td {
+    display: block;
+    width: 100%;
+  }
+
+  .updates__table td:first-child {
+    width: auto;
+    padding: 0.8rem 0 0.15rem;
+  }
+
+  .updates__table td:last-child {
+    border-top: 0;
+    padding: 0 0 0.8rem;
+    font-size: var(--t-body);
+  }
+}
+
+// Print: the fold is a screen affordance, so paper shows the older entries
+// where the browser lets CSS say so (Chromium's ::details-content). Elsewhere
+// the summary still prints, and with it the count that is being held back.
+@media print {
+  .updates__more::details-content {
+    content-visibility: visible;
+  }
+}

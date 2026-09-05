@@ -1,1 +1,6 @@
 <script defer src="{{ base_path }}/assets/js/site.js"></script>
+{%- comment -%} Per-page scripts: a page may list extra files in front matter
+   `scripts: [/assets/js/foo.js]`; they load deferred after site.js. {%- endcomment -%}
+{%- for s in page.scripts %}
+<script defer src="{{ base_path }}{{ s }}"></script>
+{%- endfor %}

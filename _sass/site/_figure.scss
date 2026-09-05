@@ -5,16 +5,27 @@
 // plate (≈ #141414) disappears into --bg. The figure holds the reading
 // measure so its edges line up with the prose; below 768 its paragraph becomes
 // a horizontal pan container and the image is fixed at 56rem so its labels
-// stay ≈ 11px.
+// stay ≈ 11px. The same treatment follows the figure into the lightbox, whose
+// veil is the same --bg.
+//
+// site.js wraps the image in a button at runtime, so every structural
+// selector here reaches through a possible .lightbox__trigger: the descendant
+// :has() and the img-only rules hold with the script on or off.
 
-.page--research .prose img[src*="lossy_humans"] {
+.page--research .prose img[src*="lossy_humans"],
+.lightbox__img[src*="lossy_humans"] {
   mix-blend-mode: multiply;
   border-radius: 0;
   margin: 1.5rem 0;
 }
 
+.lightbox__img[src*="lossy_humans"] {
+  margin: 0;
+}
+
 @mixin figure-dark {
-  .page--research .prose img[src*="lossy_humans"] {
+  .page--research .prose img[src*="lossy_humans"],
+  .lightbox__img[src*="lossy_humans"] {
     filter: invert(0.92) hue-rotate(180deg);
     mix-blend-mode: lighten;
   }
@@ -38,15 +49,16 @@
 }
 
 // The figure's paragraph: `<p><img></p>` is the only image-only paragraph on
-// the page.
-.page--research .prose p:has(> img[src*="lossy_humans"]:only-child) {
+// the page (the img may sit one .lightbox__trigger deep).
+.page--research .prose p:has(img[src*="lossy_humans"]) {
   margin: 0 0 1.1rem;
 }
 
 // Phones: pan a strip instead of squinting at a thumbnail. The container
-// bleeds to the viewport edges like `pre`; no hint text.
+// bleeds to the viewport edges like `pre`; no hint text. The trigger takes the
+// same fixed width as the image, so the button never clips the strip.
 @media (max-width: 47.99em) {
-  .page--research .prose p:has(> img[src*="lossy_humans"]:only-child) {
+  .page--research .prose p:has(img[src*="lossy_humans"]) {
     margin-inline: calc(-1 * var(--pad));
     padding-inline: var(--pad);
     overflow-x: auto;
@@ -55,8 +67,20 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  .page--research .prose img[src*="lossy_humans"] {
+  .page--research .prose img[src*="lossy_humans"],
+  .page--research .prose .lightbox__trigger:has(img[src*="lossy_humans"]) {
     width: 56rem;
     max-width: none;
   }
+}
+
+// Raw <img> in the collections (Service, Portfolio) carries width/height for
+// the aspect ratio only: the box is fluid, no inline styles. `.prose img` and
+// the reset already say max-width: 100%; this states it for the attribute case
+// so a future width= never fixes a box.
+.prose img[width],
+.prose .lightbox__trigger > img[width] {
+  width: auto;
+  max-width: 100%;
+  height: auto;
 }

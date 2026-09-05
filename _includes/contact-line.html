@@ -1,29 +1,42 @@
-{% include base_path %}
 {% comment %}
   Contact line (PLAN §4.2, §4.13): plain mono text and links from site.author.
   Parameters: name=true prefixes the author's name; rss=true appends the feed;
-  part="identity" (name · location · employer) or part="links" (Email … RSS)
-  renders one half only — omitted, the whole line is one list.
-  Used by byline.html (home) and footer.html (every page), two lists each.
+  copy_email=true renders the email part as a click-to-copy "Email" button
+  (data-copy-text, site.js) instead of the mailto: address;
+  part= any of "identity" (name · location · employer), "links" (Resume,
+  Google Scholar, LinkedIn, X, RSS), "github" and "email", space-separated,
+  renders those parts as one list — omitted, the whole line is one list. The
+  list carries a contact--<parts> modifier (spaces become hyphens).
+  Used by byline.html (home: "identity links", then "github email") and
+  footer.html (every page: "links" with rss, then "github email" copying).
+  Resume and the feed are root-relative on purpose: an absolute localhost URL
+  fails when the site is browsed at 127.0.0.1.
 {% endcomment %}
 {% assign part = include.part | default: "all" %}
+{% assign part_class = part | replace: " ", "-" %}
 {%- comment -%} Off-site links and the resume PDF open in a new tab, with an
    announcement for screen readers; mailto: stays in place. {%- endcomment -%}
 {%- capture nt %} target="_blank" rel="noopener"{% endcapture -%}
 {%- capture ntsr %}<span class="sr-only"> (opens in a new tab)</span>{% endcapture -%}
-<ul class="contact{% if include.class %} {{ include.class }}{% endif %}{% if part != "all" %} contact--{{ part }}{% endif %}">
-  {% if part == "all" or part == "identity" %}
+<ul class="contact{% if include.class %} {{ include.class }}{% endif %}{% if part != "all" %} contact--{{ part_class }}{% endif %}">
+  {% if part == "all" or part contains "identity" %}
   {% if include.name %}<li>{{ site.author.name }}</li>{% endif %}
   {% if site.author.location %}<li>{{ site.author.location }}</li>{% endif %}
   {% if site.author.employer %}<li>{{ site.author.employer }}</li>{% endif %}
   {% endif %}
-  {% if part == "all" or part == "links" %}
-  {% if site.author.email %}<li><a href="mailto:{{ site.author.email }}">Email</a></li>{% endif %}
-  {% if site.author.resume %}<li><a href="{% if site.author.resume contains '://' %}{{ site.author.resume }}{% else %}{{ base_path }}{{ site.author.resume }}{% endif %}"{{ nt }}>Resume{{ ntsr }}</a></li>{% endif %}
-  {% if site.author.github %}<li><a href="https://github.com/{{ site.author.github }}"{{ nt }}>GitHub{{ ntsr }}</a></li>{% endif %}
+  {% if part == "all" or part contains "links" %}
+  {% if site.author.resume %}<li><a href="{% if site.author.resume contains '://' %}{{ site.author.resume }}{% else %}{{ site.baseurl }}{{ site.author.resume }}{% endif %}"{{ nt }}>Resume{{ ntsr }}</a></li>{% endif %}
+  {% if site.author.googlescholar %}<li><a href="{{ site.author.googlescholar | escape }}"{{ nt }}>Google Scholar{{ ntsr }}</a></li>{% endif %}
   {% if site.author.linkedin %}<li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}"{{ nt }}>LinkedIn{{ ntsr }}</a></li>{% endif %}
   {% if site.author.telegram %}<li><a href="{{ site.author.telegram }}"{{ nt }}>Telegram{{ ntsr }}</a></li>{% endif %}
   {% if site.author.twitter %}<li><a href="https://twitter.com/{{ site.author.twitter }}"{{ nt }}>X{{ ntsr }}</a></li>{% endif %}
-  {% if include.rss and site.atom_feed.hide != true %}<li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}"{{ nt }}>RSS{{ ntsr }}</a></li>{% endif %}
+  {% if include.rss and site.atom_feed.hide != true %}<li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ site.baseurl }}/feed.xml{% endif %}"{{ nt }}>RSS{{ ntsr }}</a></li>{% endif %}
+  {% endif %}
+  {% if part == "all" or part contains "github" %}
+  {% if site.author.github %}<li><a href="https://github.com/{{ site.author.github }}"{{ nt }}>GitHub{{ ntsr }}</a></li>{% endif %}
+  {% endif %}
+  {% if part == "all" or part contains "email" %}
+  {% if site.author.email and include.copy_email %}<li><button type="button" class="contact__copy" data-copy data-copy-text="{{ site.author.email }}" data-copy-message="Email address copied">Email</button></li>
+  {% elsif site.author.email %}<li><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>{% endif %}
   {% endif %}
 </ul>

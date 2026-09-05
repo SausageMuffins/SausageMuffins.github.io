@@ -1,0 +1,84 @@
+# Home page "Updates!" list. Rendered by _includes/updates.html, which
+# _pages/about.md pulls in with {% include updates.html show=4 %}.
+#
+# ORDER IS AUTHORED: newest first. The include shows the first `show` entries
+# (default 4) and folds everything after them into a <details>, so a new entry
+# goes at the top of this file and the oldest one falls into the fold on its
+# own. Nothing here is sorted or filtered at build time.
+#
+# Fields
+#   date  (required)  Display string for the mono date column, printed
+#                     verbatim. Quoted ISO yyyy-mm-dd, matching the column's
+#                     tabular-nums setting; quote it so YAML keeps it a string
+#                     rather than a Date, and no display filter is needed.
+#   text  (required)  The News cell, written as inline markdown (links, **bold**
+#                     and raw inline HTML all work; it goes through
+#                     `markdownify`, the same kramdown pass the table used, and
+#                     the wrapping <p> is stripped). Use a >- block so nothing
+#                     needs YAML escaping.
+#   tag   (optional)  Venue abbreviation, e.g. ICML. Rendered ahead of the text
+#                     as <span class="pub-tag pub-tag--icml">ICML</span>; the
+#                     class is the abbreviation downcased, and the colour comes
+#                     from --tag-<abbr> in _sass/site/_tokens.scss (icml, icwsm,
+#                     emnlp today). An abbreviation with no token of its own
+#                     still styles: .pub-tag's --tag-default carries it.
+
+- date: "2026-06-02"
+  tag: ICML
+  text: >-
+    One (second authored) paper accepted to **ICML (Workshop Trustworthy AI for Good)** 2026: [Balance Human Agency & AI Assistance in the Tussle for the “Right” to Choose, Own, Work, and Learn](https://openreview.net/forum?id=Mv8gKVRAqp)
+
+- date: "2026-05-25"
+  tag: ICWSM
+  text: >-
+    One (co-authored) paper published at **ICWSM** 2026: [Large Scale Narrative Analysis of Multimodal Memes](https://ojs.aaai.org/index.php/ICWSM/article/view/42722)
+
+- date: "2026-05-01"
+  tag: ICML
+  text: >-
+    One (first authored) paper accepted to **ICML (Main)** 2026: [Self-Captioning Multimodal Interaction Tuning](https://arxiv.org/abs/2605.08145)
+
+- date: "2025-08-22"
+  tag: EMNLP
+  text: >-
+    One (co-first authored) paper accepted to **EMNLP (Findings)** 2025: [Humor in Pixels](https://aclanthology.org/2025.findings-emnlp.755/)
+
+- date: "2025-08-16"
+  text: >-
+    Awarded the <a href="https://aisingapore.org/research/dso-aisg-research-awards/" target="_blank">DSO-AISG Incentive Program</a> to support fundamental research on Multimodal LLMs!
+
+- date: "2025-07-01"
+  text: >-
+    Achieved **1st Runner Up** in the <a href="https://learn.aisingapore.org/national-ai-student-challenge-2025/" target="_blank">National AI Student Challenge (TikTok)</a> for short-form video understanding with Large Multimodal Models. [\[Github\]](https://github.com/SausageMuffins/LMM-Video-Understanding)
+
+# Held back, as they were in the markdown table this file replaced. Uncomment
+# an entry (and drop the leading "# ") to put it back in the list, in date
+# order.
+#
+# - date: "2025-06-15"
+#   text: >-
+#     Placed on the <a href="Attachments/Honours_List_2024.pdf" target="_blank">Honours List 2024</a>, awarded to students who achieve outstanding term results. ~**top 10% of the cohort**
+#
+# - date: "2024-09-01"
+#   text: >-
+#     Awarded the <a href="https://aisingapore.org/research/ai-amp/" target="_blank">AI Singapore Accelerated Masters Scholarship</a> for fundamental AI research talent in Singapore. **1 of 4 recipients (2024)**
+#
+# - date: "2024-03-15"
+#   text: >-
+#     Received the <a href="https://www.sutd.edu.sg/Student-Development/Global/Scholarships-and-Awards/KKH-SUTD-Exchange-Award" target="_blank">KKH Global Exchange Award (Spring 2024)</a> for academic excellence and active co-curricular participation to support my exchange studies at Aalto University.
+#
+# - date: "2023-08-01"
+#   text: >-
+#     Granted the <a href="https://www.sutd.edu.sg/Admissions/Undergraduate/Financing-Your-Studies/Financial-Options-Financial-Aid/Financial-Aid/Bursaries/Higher-Education-Community-Bursary-Scheme" target="_blank">Higher Education Community Bursary</a> for financial assistance.
+#
+# - date: "2023-05-01"
+#   text: >-
+#     Awarded the <a href="https://sutd.edu.sg/Student-Development/Student-Life/SUTD-Student-Achievement-Awards" target="_blank">Jyoti and Aditya Mathur Student Achievement Award (Student Organisation Award)</a> for my contributions as Safety Executive Committee in the Freshmen Orientation Committee 2022.
+#
+# - date: "2022-08-01"
+#   text: >-
+#     Received the <a href="https://www.sutd.edu.sg/Admissions/Undergraduate/Financing-Your-Studies/Financial-Options-Financial-Aid/Financial-Aid/Bursaries/Higher-Education-Community-Bursary-Scheme" target="_blank">Higher Education Community Bursary</a> for financial assistance.
+#
+# - date: "2021-09-01"
+#   text: >-
+#     Awarded the <a href="https://www.sutd.edu.sg/Admissions/Undergraduate/Scholarship/SUTD-Undergraduate-Merit-Scholarship" target="_blank">SUTD Undergraduate Merit Scholarship</a> for academic excellence and a passion for innovative technology and design.

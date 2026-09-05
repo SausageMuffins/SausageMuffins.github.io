@@ -1,8 +1,9 @@
 {% include base_path %}
 {% comment %}
   Byline (PLAN §4.2), rendered on "/" only by single.html: photo 112px (80px on
-  phones), name + pronouns, italic bio, then two mono lines — location ·
-  employer and the contact links (contact-line.html, part=identity | links).
+  phones), name + pronouns, italic bio, then two mono lines — location and the
+  contact links together, then GitHub beside the email as the last line
+  (contact-line.html, part="identity links" | "github email").
   The avatar is a cut-out portrait on transparency (`images/profile.webp`,
   generated from `profile_v2.jpg`), so it sits on the paper in both themes
   without a second file or a filter.
@@ -14,7 +15,7 @@
   <p class="byline__name"><span itemprop="name">{{ site.author.name }}</span>{% if site.author.pronouns %} <span class="byline__pronouns">{{ site.author.pronouns }}</span>{% endif %}</p>
   {% if site.author.bio %}<p class="byline__bio" itemprop="description">{{ site.author.bio }}</p>{% endif %}
   <div class="byline__contact">
-    {% include contact-line.html part="identity" %}
-    {% include contact-line.html part="links" %}
+    {% include contact-line.html part="identity links" %}
+    {% include contact-line.html part="github email" %}
   </div>
 </div>

@@ -1,7 +1,7 @@
 // Byline (home only, §4.2) and the contact line shared with the footer.
 // Photo 80px (112px from 768) top-aligned with the name's cap height; name at
 // --t-h1 with mono pronouns on the line; italic serif bio; then two quiet mono
-// lines (location · employer, the links). 2.5rem to the opening paragraph.
+// lines (location · the links, then GitHub · the email). 2.5rem to the lead.
 .byline {
   display: grid;
   grid-template-columns: 5rem 1fr;
@@ -50,10 +50,10 @@
   text-wrap: balance;
 }
 
-// Two lists (contact-line.html part=identity | links) at 13px, stacked at the
-// line pitch. Link padding is cancelled by an equal negative margin, so the
-// 32px tap target never opens the rhythm; the list's clip-path reaches 0.5rem
-// past the line box, the target 0.4rem, so nothing is cut.
+// Two lists (contact-line.html "identity links" | "github email") at 13px,
+// stacked at the line pitch. Link padding is cancelled by an equal negative
+// margin, so the 32px tap target never opens the rhythm; the list's clip-path
+// reaches 0.5rem past the line box, the target 0.4rem, so nothing is cut.
 .byline__contact {
   grid-column: 1 / -1;
   margin-top: 0.25rem;
@@ -78,22 +78,23 @@
     row-gap: 0.125rem;
   }
 
-  // The photo stands beside the whole stack: name, bio and both contact lines
-  // fit column 2 (the links line is ≈ 385px of 456px). At 112px the photo is
-  // 116px from the byline top, ~10px past the text stack's old height, so the
-  // gap before the two mono lines absorbs it: the photo's bottom edge lands on
-  // the links line's box bottom (0.1px) instead of hanging below the block.
+  // The photo stands beside the whole stack: name, bio and the two contact
+  // lines in column 2 (the links line is ≈ 430px of 456px). At 112px the photo
+  // is 116px from the byline top, ~14px past the text stack, and a spanning
+  // item would spread that excess between the rows as extra space. The
+  // negative margin zeroes its outer height so it never sizes the rows; the
+  // picture overflows its area into the 2.5rem before the lead instead.
   .byline__photo {
     grid-row: 1 / span 3;
     width: 7rem;
     height: 7rem;
     margin-top: 4px;
+    margin-bottom: calc(-7rem - 4px);
   }
 
   .byline__contact {
     grid-column: 2;
     grid-row: 3;
-    margin-top: 1.125rem;
   }
 }
 
@@ -131,7 +132,10 @@
   left: 0.5rem;
 }
 
-.contact a {
+// Links and the footer's Email copy button (a <button>, reset globally) share
+// one look; the copied state is the shared [data-copy].is-copied colour (_type).
+.contact a,
+.contact__copy {
   display: inline-block;
   color: var(--ink-muted);
   text-decoration: none;
@@ -140,7 +144,9 @@
 }
 
 .contact a:hover,
-.contact a:focus-visible {
+.contact__copy:hover,
+.contact a:focus-visible,
+.contact__copy:focus-visible {
   color: var(--ink);
   text-decoration: underline;
   text-decoration-thickness: 1px;

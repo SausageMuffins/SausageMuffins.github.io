@@ -1,0 +1,70 @@
+// Section anchors (site.js `anchors`). A mono "#" appended at runtime to the
+// same prose h1–h3 the Contents lists. It is quiet apparatus, not part of the
+// measure: invisible until its heading is hovered or it takes focus, and at
+// the shell's three-column width it hangs in the left gutter so no heading
+// ever shifts. Copied state is the shared [data-copy].is-copied colour (_type).
+.anchor {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 0.72em;
+  color: var(--ink-muted);
+  text-decoration: none;
+  margin-left: 0.4em;
+  opacity: 0;
+  transition: opacity var(--d-1) var(--ease), color var(--d-1) var(--ease);
+}
+
+.prose h1:hover > .anchor,
+.prose h2:hover > .anchor,
+.prose h3:hover > .anchor,
+.anchor:hover,
+.anchor:focus-visible,
+.anchor.is-copied {
+  opacity: 1;
+}
+
+.anchor:hover,
+.anchor:focus-visible {
+  color: var(--ink);
+}
+
+// No hover to reveal it: leave it standing at low emphasis instead.
+@media (hover: none) {
+  .anchor {
+    opacity: 0.6;
+  }
+}
+
+// ≥ 64em the shell is rail | measure | margin with a 3rem gap: the anchor
+// moves out of the flow into that gap. `top` is deliberately left auto, so the
+// static position — the baseline it would have sat on inline — places it.
+@media (min-width: 64em) {
+  .prose h1:has(> .anchor),
+  .prose h2:has(> .anchor),
+  .prose h3:has(> .anchor) {
+    position: relative;
+  }
+
+  .anchor {
+    position: absolute;
+    left: -1.75rem;
+    margin-left: 0;
+  }
+
+  // Research and CV hang a section number in the same gutter slot (the
+  // counter ::before in _type.scss, right-aligned 1rem out): their h1 keeps
+  // the anchor inline so the two never occupy one another's space. Inline is
+  // still shift-free — opacity, not display, does the hiding.
+  .page--research .prose > h1 > .anchor,
+  .page--cv .prose > h1 > .anchor {
+    position: static;
+    margin-left: 0.4em;
+  }
+}
+
+// Apparatus, not content.
+@media print {
+  .anchor {
+    display: none;
+  }
+}

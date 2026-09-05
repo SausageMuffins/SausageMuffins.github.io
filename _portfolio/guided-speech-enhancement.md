@@ -3,7 +3,7 @@ title: "Guided Speech Enhancement"
 excerpt: "A deep learning project focused on denoising and enhancing Singaporean English speech using Google's Guided Speech Enhancement Network. <br/><a href='/files/Capstone_Final_Report.pdf' target='_blank'>[Project Report]</a> <a href='https://github.com/yurielryan/GSE-Network' target='_blank'>[GitHub]</a>"
 collection: portfolio
 permalink: /portfolio/guided-speech-enhancement
-date: 2025-05-15s
+date: 2025-05-15
 ---
 
 
