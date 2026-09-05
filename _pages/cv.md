@@ -62,9 +62,9 @@ Work Experience
 
 **Label-Free Self-Evolving VLMs** (ongoing project) | [GitHub](https://github.com/yurielryan/LMM-Video-Understanding) <br>
 2026 June – Present
-- Reproduced the full training stack of Video-Zero (self-evolving video LLM) from the paper's equations as the project's baseline: GRPO co-evolution of a Questioner–Solver pair (Qwen 3.5 9B on verl and vLLM) with consensus pseudo-labeling.
-- Orchestrated multi-model RL on shared GPUs — a frozen vLLM policy server scores rewards during GRPO training — running 5-iteration co-evolution pipelines end-to-end in ~4.5h on 2× H200 (SLURM).
-- Adapted the pipeline to ternary sentiment with self-generated pseudo-labels (majority voting), improving video-only accuracy over the base model from 41.9% to 44.2% without human-written annotation or labels.
+- Reproduced the full Video-Zero training stack (a self-evolving video LLM) from the paper's equations to serve as the project baseline: a Questioner and a Solver (Qwen 3.5 9B on verl and vLLM) co-evolve with GRPO, using consensus pseudo-labels as the training signal.
+- Ran multi-model RL on shared GPUs, with a frozen vLLM policy server scoring rewards during GRPO training. A full 5-iteration co-evolution pipeline runs end-to-end in ~4.5h on 2× H200 under SLURM.
+- Adapted the pipeline to ternary sentiment using self-generated pseudo-labels (majority voting), raising video-only accuracy over the base model from 41.9% to 44.2% with no human-written annotations or labels.
 
 **Self-Reinforcing VLMs** (completed project – ICML 2026) | [GitHub](https://github.com/yurielryan/Multimodal-Interaction-Tuning) <br>
 2025 September – 2026 June
