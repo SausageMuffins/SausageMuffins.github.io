@@ -11,7 +11,7 @@ Hi! I'm Yuriel (or Ryan, if you prefer), an M.Eng (Research) student at the Sing
 
 
 # Research Interests
-Broadly speaking, I am interested in understanding how task-relevant information flows within complex systems --- from deep neural networks to multi-agent environments --- to utilize them optimally. This means building on theoretical frameworks, such as **information theory** (PID), to both quantify and optimize for these task-relevant signals. More details in []
+Broadly speaking, I am interested in understanding how task-relevant information flows within complex systems --- from deep neural networks to multi-agent environments --- to utilize them optimally. This means building on theoretical frameworks, such as **information theory** (PID), to both quantify and optimize for these task-relevant signals. More details in [Research](/research/).
 
 <!-- I think of "information flow" as having directions. A system can move information *forward*, using what it knows for inference and action; it can also flow *backwards*, revising what it knows in order to learn. Much of the difficulty, and most of what I find interesting, lies in optimizing when to switch directions in label-free settings while accounting for emergent signals --- information that only surfaces when multiple sources interact. 
 
