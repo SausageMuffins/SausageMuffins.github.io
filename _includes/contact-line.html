@@ -14,8 +14,8 @@
 {% endcomment %}
 {% assign part = include.part | default: "all" %}
 {% assign part_class = part | replace: " ", "-" %}
-{%- comment -%} Off-site links and the resume PDF open in a new tab, with an
-   announcement for screen readers; mailto: stays in place. {%- endcomment -%}
+{%- comment -%} Off-site links, the resume PDF and the mailto: address open in a
+   new tab, with an announcement for screen readers. {%- endcomment -%}
 {%- capture nt %} target="_blank" rel="noopener"{% endcapture -%}
 {%- capture ntsr %}<span class="sr-only"> (opens in a new tab)</span>{% endcapture -%}
 <ul class="contact{% if include.class %} {{ include.class }}{% endif %}{% if part != "all" %} contact--{{ part_class }}{% endif %}">
@@ -37,6 +37,6 @@
   {% endif %}
   {% if part == "all" or part contains "email" %}
   {% if site.author.email and include.copy_email %}<li><button type="button" class="contact__copy" data-copy data-copy-text="{{ site.author.email }}" data-copy-message="Email address copied">Email</button></li>
-  {% elsif site.author.email %}<li><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>{% endif %}
+  {% elsif site.author.email %}<li><a href="mailto:{{ site.author.email }}"{{ nt }}>{{ site.author.email }}{{ ntsr }}</a></li>{% endif %}
   {% endif %}
 </ul>

@@ -98,7 +98,7 @@ words_per_minute         : 160
 future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
 atom_feed:
-  hide                   : false     # change to true to hide the RSS feed in the footer
+  hide                   : true      # true hides the RSS link in the footer and the feed tag in <head>
   path                   : # blank (default) uses feed.xml
 
 

@@ -1,6 +1,6 @@
 /* yurielryan.com — one classic deferred script (PLAN §5, §6.3): theme toggle,
-   delegated clipboard, Contents scroll-spy, the channel (§4.15), section
-   anchors and the figure lightbox.
+   delegated clipboard, Contents scroll-spy, the channel (§4.15) and the
+   figure lightbox.
    No timers except the 1.5 s "Copied" revert; no scroll listeners. */
 (function () {
   'use strict';
@@ -44,8 +44,8 @@
   }
 
   /* ---- Clipboard (§5 #5): the announcer, the 1.5 s label swap and the write
-     itself, shared by every copy control on the site (the BibTeX buttons, the
-     section anchors, the contact line). One aria-live region for all of them. */
+     itself, shared by every copy control on the site (the BibTeX buttons and
+     the contact line). One aria-live region for all of them. */
   var clip = (function () {
     var live = null;
     function announce(msg) {
@@ -86,7 +86,7 @@
   /* One delegated handler for [data-copy]. Two contracts, both optional-free:
        data-copy-target="id"  copy that element's text (BibTeX blocks) — on
                               failure the block is revealed and selected;
-       data-copy-text="…"     copy the literal string (contact line, anchors).
+       data-copy-text="…"     copy the literal string (contact line).
      data-copy-label / data-copy-message override the 1.5 s label and what the
      live region says. The target contract is unchanged. */
   function clipboard() {
@@ -121,30 +121,6 @@
       }
       clip.write(text, function () { clip.feedback(btn, label, message); }, fail);
     });
-  }
-
-  /* ---- Section anchors: a mono "#" appended to the same h1–h3 the Contents
-     lists (kramdown auto-ids inside .prose; the page title is not one of
-     them). It is a real link, so the hash updates natively; it is also a
-     [data-copy] control carrying the absolute section URL, so the copy goes
-     through the one handler above. Ids, text and scroll-margin are untouched,
-     which keeps the scroll-spy's getElementById lookups working. */
-  function anchors() {
-    var heads = document.querySelectorAll('.prose h1[id], .prose h2[id], .prose h3[id]');
-    for (var i = 0; i < heads.length; i++) {
-      var h = heads[i];
-      if (h.querySelector('.anchor')) continue;
-      var a = document.createElement('a');
-      a.className = 'anchor';
-      a.setAttribute('href', '#' + h.id);
-      a.setAttribute('aria-label', 'Copy link to this section');
-      a.setAttribute('data-copy', '');
-      a.setAttribute('data-copy-text', a.href); // resolved: origin + path + hash
-      a.setAttribute('data-copy-label', '✓');
-      a.setAttribute('data-copy-message', 'Link copied');
-      a.textContent = '#';
-      h.appendChild(a);
-    }
   }
 
   /* ---- Enlarge (click-to-zoom): each figure in the prose is wrapped at
@@ -334,7 +310,6 @@
 
   theme();
   clipboard();
-  anchors();
   lightbox();
   scrollSpy();
   channel();

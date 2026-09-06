@@ -9,7 +9,7 @@ toc: true
 {% include base_path %}
 
 # Motivations
-My research is driven by the goal of **Collaborative AI** --- a deliberate push to have humans and AI continuously augment each other in a positive feedback loop. To establish this, I believe that artificial intelligence should be able to **continuously adapt or evolve** to humans or to the problem at hand. This means possessing qualities that go beyond rote learning (e.g., social intelligence or autonomy to propose tasks and to learn on its own).
+My research is driven by the goal of **Collaborative AI** --- a deliberate push to have humans and AI continuously augment each other in a positive feedback loop. To establish this, I believe that artificial intelligence should be able to **continuously adapt or evolve** to humans or to the problem at hand. This means possessing qualities that go beyond rote learning (e.g., social intelligence or autonomy to propose tasks to learn on its own).
 
 Current models exhibit an "intelligence" that appears to meet these needs, but this capability often stems from [scaling compute, data, and parameters](https://openai.com/index/scaling-laws-for-neural-language-models/). This approach is not only inefficient (relative to how humans learn), but also promotes a black-box paradigm that discourages scientific methods. For these reasons, I try to move beyond simply scaling anything and everything, and work towards a more mechanistic understanding of how concepts --- and by extension, intelligence --- emerge; this usually involves tuning one "knob" while holding others constant to isolate specific causes and effects.
 
